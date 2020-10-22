@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset lang="utf-8">
+		<title>Ejercicio 01</title>
+		<script type="text/javascript">
+			function botonPresionado(){
+				//1. acceder al INPUT (caja de texto)
+				const cajaTexto = document.querySelector("#inputNumero");
+				
+				//2. recuperar lo que el INPUT tiene escrito dentro
+				let texto = cajaTexto.value;
+				
+				//3. mostrar mensaje en la consola, incluyendo el texto recuperado
+				console.log("El usuario ha escrito: "+texto);
+				
+				//4. Comprobar si al cadena es vacía
+				if(texto===""){
+					alert("Has dejado el campo vacío");
+				}
+				
+				//5. Comprobar si es un número
+				else if(isNaN(texto)){
+					alert("No has escrito un número");
+				} else {
+					console.log("El doble de "+texto+" es "+texto*2);
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<h1>Ejercicio 01</h1>
+		<label>Escribe un número</label>
+		<input id="inputNumero" type="text">
+		<input type="button" value="Presiona" 
+			onclick="javascript:botonPresionado()">
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+window.onload = function(){
+document.addEventListener("contentReady")= function(){
+}}
+
+//1. generar un numero aleatorio entre 1 y 100
+let secreto = Math.floor(Math.random()*100)+1
+
+//2. programar el boton para que sus clics comparen
+//		el numero secreto con el intento del usuario
+	
+	//a) recuperar el boton
+	const inputBoton = document.querySelector("#inputBoton)
+	
+	//b) programar su clic
+	inputBoton.onclick = function(){
+		const inputNumero = document.querySelector("#inputNumero")
+		let intento = inputNumero.value
+		if(intento === secreto){
+			alert("que suerte tienes")
+		} else if (intento<secreto)
+			console.log("te has quedado corto")
+		else console.log("te has pasado")
+	}
+</html>

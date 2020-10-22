@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset lang="utf-8">
+		<title>Ejercicio02</title>
+		<script type="text/javascript">
+
+			let numAdivinar=Math.floor(Math.random()*100)+1
+			var intento=0;
+			function botonPresionado(){
+				intento++;
+				const cajaTexto = document.querySelector("#inputNumero")
+				let valorCaja = cajaTexto.value;
+				if(intento<7){
+					if(valorCaja===""){
+						alert("Has dejado el campo vacío");
+					}
+					else if(isNaN(valorCaja)){
+						alert("No has escrito un número");
+					}else{
+						document.intento=document.intento+1;
+						if(valorCaja==numAdivinar){
+							console.log("¡BINGO!");
+						}else if(valorCaja<numAdivinar){
+							console.log("El numero es MAYOR. Te quedan "+(6-intento)+" intentos")
+						}else{console.log("El numero es MENOR. Te quedan "+(6-intento)+" intentos")
+						}
+					}
+				}else{alert("Lo siento, no te quedan más intentos")}
+			}	
+		</script>
+	</head>
+	
+	<body>
+		<h1>INTENTA ADIVINAR EL NUMERO ENTERO</h1>
+		<label>Escribe un número entre 1 y 100</label>
+		<input id="inputNumero" type="text">
+		<input type="button" value="Presiona" 
+			onclick="javascript:botonPresionado()">
+	</body>
+</html>
