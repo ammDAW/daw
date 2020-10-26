@@ -1,0 +1,21 @@
+table{
+    font-family: Arial;
+    font-size: 11;
+    color: #636363;
+    border-collapse: collapse;
+    text-align: center;
+    width: 50%;
+}
+
+tr, td, th{
+    border: 1px solid #C1C1C1;
+}
+
+th{
+    background-color: #EBEBEB;
+}
+
+tr:nth-child(2n+1){
+    background-color: #F8F8F8;
+}
+
