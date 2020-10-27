@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html>
+<head lang="es">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="https://www.jarroba.com/wp-content/uploads/2012/02/favicon.png" />
+
+
+    <!-- Carga de Bootstrap y JQuery-->
+    <script src="https://jarroba.com/wp-content/themes/jarrobav6/static/jQuery/js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://jarroba.com/wp-content/themes/jarrobav6/static/bootstrap/css/bootstrap.min.css">
+    <script src="https://jarroba.com/wp-content/themes/jarrobav6/static/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <!-- Carga Google Analitics -->
+    <script async type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-29307293-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    <!-- /Carga Google Analitics -->
+
+    <!-- Anuncios para móviles de tipo Viñeta-->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        //(adsbygoogle = window.adsbygoogle || []).push({
+        //    google_ad_client: "ca-pub-8473876812850116",
+        //    enable_page_level_ads: true
+        //})
+
+        //window.onload = function() {
+        //    (adsbygoogle = window.adsbygoogle || []).push({
+        //        google_ad_client: "ca-pub-8473876812850116",
+        //        enable_page_level_ads: true
+        //    });
+        //}
+
+        $(document).ready(function(){ (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8473876812850116",
+            enable_page_level_ads: true
+        }) });
+    </script>
+    <!-- /Anuncios para móviles de tipo Viñeta-->
+
+	<!-- Google WebMaster -->
+	<meta name="google-site-verification" content="TSvoXZJ9MNq_GsXG1gh7WjYvr5zC9m-_5iPE4TFHW9w" />
+	<!-- /Google WebMaster -->
+
+	<!-- Alexa WebMaster -->
+	<meta name="alexaVerifyID" content="JPKatoutc1cJ8Edyvd2Y9lCg5_A"/>
+	<!-- /Alexa WebMaster -->
+
+	<!-- Bing webmaster -->
+	<meta name="msvalidate.01" content="E3929CE5180F4C2B8B2BEECBB77FF72D" />
+	<!-- Bing webmaster -->
+
+	<!-- Pinterest webmaster -->
+	<meta name="p:domain_verify" content="1156fb287859647f902e3b58d17ea2a2"/>
+	<!-- Pinterest webmaster -->
+
+    <title>Enum (Enumerados) en Java, con ejemplos - Jarroba</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v12.9.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/" />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Enum (Enumerados) en Java, con ejemplos - Jarroba" />
+<meta property="og:description" content="El proyecto de este post lo puedes descargar pulsando&nbsp;AQUI. Un enumerado (o Enum) es una clase &quot;especial&quot; (tanto en Java como en otros lenguajes) que limitan la creaci&oacute;n de objetos &nbsp;a los especificados expl&iacute;citamente en la implementaci&oacute;n de la clase. La &uacute;nica limitaci&oacute;n que tienen los enumerados respecto a una clase normal es que si &hellip; Continúa leyendo Enum (Enumerados) en Java, con ejemplos" />
+<meta property="og:url" content="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/" />
+<meta property="og:site_name" content="Jarroba" />
+<meta property="article:author" content="https://www.facebook.com/richard.mgr" />
+<meta property="article:tag" content="enum" />
+<meta property="article:tag" content="enumerados" />
+<meta property="article:tag" content="java" />
+<meta property="article:tag" content="poo" />
+<meta property="article:tag" content="programación orientada a objetos" />
+<meta property="article:section" content="Lenguajes de Programación" />
+<meta property="article:published_time" content="2014-09-07T16:00:31+00:00" />
+<meta property="article:modified_time" content="2017-06-02T20:00:06+00:00" />
+<meta property="og:updated_time" content="2017-06-02T20:00:06+00:00" />
+<meta property="og:image" content="https://jarroba.com/wp-content/uploads/2015/03/Java-Icono-www.Jarroba.com_.png" />
+<meta property="og:image:secure_url" content="https://jarroba.com/wp-content/uploads/2015/03/Java-Icono-www.Jarroba.com_.png" />
+<meta property="og:image:width" content="300" />
+<meta property="og:image:height" content="300" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="El proyecto de este post lo puedes descargar pulsando&nbsp;AQUI. Un enumerado (o Enum) es una clase &quot;especial&quot; (tanto en Java como en otros lenguajes) que limitan la creaci&oacute;n de objetos &nbsp;a los especificados expl&iacute;citamente en la implementaci&oacute;n de la clase. La &uacute;nica limitaci&oacute;n que tienen los enumerados respecto a una clase normal es que si &hellip; Continúa leyendo Enum (Enumerados) en Java, con ejemplos" />
+<meta name="twitter:title" content="Enum (Enumerados) en Java, con ejemplos - Jarroba" />
+<meta name="twitter:image" content="https://jarroba.com/wp-content/uploads/2015/03/Java-Icono-www.Jarroba.com_.png" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://jarroba.com/#website","url":"https://jarroba.com/","name":"Jarroba","description":"web de ingenier\u00eda inform\u00e1tica","potentialAction":{"@type":"SearchAction","target":"https://jarroba.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#primaryimage","url":"https://jarroba.com/wp-content/uploads/2015/03/Java-Icono-www.Jarroba.com_.png","width":300,"height":300},{"@type":"WebPage","@id":"https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#webpage","url":"https://jarroba.com/enum-enumerados-en-java-con-ejemplos/","inLanguage":"es","name":"Enum (Enumerados) en Java, con ejemplos - Jarroba","isPartOf":{"@id":"https://jarroba.com/#website"},"primaryImageOfPage":{"@id":"https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#primaryimage"},"datePublished":"2014-09-07T16:00:31+00:00","dateModified":"2017-06-02T20:00:06+00:00","author":{"@id":"https://jarroba.com/#/schema/person/ba1e0679d55d021b32a8281ae326a34e"}},{"@type":["Person"],"@id":"https://jarroba.com/#/schema/person/ba1e0679d55d021b32a8281ae326a34e","name":"Richard [Admin Jarroba]","image":{"@type":"ImageObject","@id":"https://jarroba.com/#authorlogo","url":"https://secure.gravatar.com/avatar/0d9899ae5658b55d7a3f9dd59fcabd76?s=96&d=mm&r=g","caption":"Richard [Admin Jarroba]"},"sameAs":["https://www.facebook.com/richard.mgr"]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Jarroba &raquo; Feed" href="https://jarroba.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Jarroba &raquo; Feed de los comentarios" href="https://jarroba.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Jarroba &raquo; Comentario Enum (Enumerados) en Java, con ejemplos del feed" href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/jarroba.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.2"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://jarroba.com/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='front-estilos-css'  href='https://jarroba.com/wp-content/plugins/asesor-cookies-para-la-ley-en-espana/html/front/estilos.css?ver=5.3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='//fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://jarroba.com/wp-content/themes/jarrobav6/genericons/genericons.css?ver=3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='https://jarroba.com/wp-content/themes/jarrobav6/style.css?ver=5.3.2' type='text/css' media='all' />
+<style id='twentyfifteen-style-inline-css' type='text/css'>
+
+			.post-navigation .nav-previous { background-image: url(https://jarroba.com/wp-content/uploads/2015/03/Template_GoogleChart.png); }
+			.post-navigation .nav-previous .post-title, .post-navigation .nav-previous a:hover .post-title, .post-navigation .nav-previous .meta-nav { color: #fff; }
+			.post-navigation .nav-previous a:before { background-color: rgba(0, 0, 0, 0.4); }
+		
+			.post-navigation .nav-next { background-image: url(https://jarroba.com/wp-content/uploads/2015/03/Java-Icono-www.Jarroba.com_.png); }
+			.post-navigation .nav-next .post-title, .post-navigation .nav-next a:hover .post-title, .post-navigation .nav-next .meta-nav { color: #fff; }
+			.post-navigation .nav-next a:before { background-color: rgba(0, 0, 0, 0.4); }
+		
+</style>
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='https://jarroba.com/wp-content/themes/jarrobav6/css/ie.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='https://jarroba.com/wp-content/themes/jarrobav6/css/ie7.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<script type='text/javascript' src='https://jarroba.com/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://jarroba.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cdp_cookies_info = {"url_plugin":"https:\/\/jarroba.com\/wp-content\/plugins\/asesor-cookies-para-la-ley-en-espana\/plugin.php","url_admin_ajax":"https:\/\/jarroba.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://jarroba.com/wp-content/plugins/asesor-cookies-para-la-ley-en-espana/html/front/principal.js?ver=5.3.2'></script>
+<link rel='https://api.w.org/' href='https://jarroba.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://jarroba.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://jarroba.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.3.2" />
+<link rel='shortlink' href='https://jarroba.com/?p=20561' />
+<link rel="alternate" type="application/json+oembed" href="https://jarroba.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://jarroba.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F&#038;format=xml" />
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+
+</head>
+
+<body>
+
+    <!--class container -->
+    <div class="container">
+
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="navbar-header">
+                    	<div class="navbar-jarroba-icon-smallscreen">
+	                    	<a href="/" class="puntero">
+	                             <img class="logo" src="https://jarroba.com/wp-content/themes/jarrobav6/static/img/logojarroba.png" width="75px">
+	                        </a>
+                        </div>
+                        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-buttons">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                                                <button id="idButtonShowEntryData" class="navbar-toggle btn-sm navbar-buttons" href="#"><i id="idButtonShowEntryData_Expand" class="fa fa-expand"></i><i id="idButtonShowEntryData_Compress" class="fa fa-compress" style="display: none;"></i> Info. Artículo</button>
+						
+                    </div>
+
+                    <div id="navbarCollapse" class="collapse navbar-collapse">
+                        <div id="menu">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                     	<li class="lang-item lang-item-335 lang-item-es lang-item-first current-lang"><a lang="es-ES" hreflang="es-ES" href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFnSURBVHjaYvzPgAD/UNlYEUAAmuTYAAAQhAEYqF/zFbe50RZ1cMmS9TLi0pJLRjZohAMTGFUN9HdnHgEE1sDw//+Tp0ClINW/f0NIKPoFJH/9//ULyGaUlQXaABBALAx/Gf4zAt31F4i+ffj3/cN/XrFfzOx//v///f//LzACM/79ZmD8/e8TA0AAMYHdDVT958vXP38nMDB0s3x94/Tj5y+YahhiAKLfQKUAAcQEdtJfoDHMF2L+vPzDmFXLelf551tGFOOhev4A/QgQQExgHwAd8IdFT/Wz6j+GhlpmXSOW/2z///8Eq/sJ18Dw/zdQA0AAMQExxJjjdy9x2/76EfLz4MXdP/i+wsyGkkA3Aw3984cBIIAYfzIwMKel/bt3jwEaLNAwgZIQxp/fDH/+MqqovL14ESCAWICeZvr9h0FSEhSgwBgAygFDEMT+wwAhgQgc4kAEVAwQQIxfUSMSTxxDAECAAQAJWke8v4u1tAAAAABJRU5ErkJggg==" title="Español" alt="Español" width="16" height="11" /></a></li>
+
+                                </li>
+                                </li>
+                                <li>
+
+                                                                            <a href="https://jarroba.com/entradas/" class="puntero">Entradas</a>
+                                                                    </li>
+                                <li>
+                                                                            <a href="https://jarroba.com/foro/" class="puntero">¿Preguntas?</a>
+                                                                    </li>
+                                <li class="navbar-jarroba-icon-bigscreen" style="margin-top: 0px">
+                                    <a href="/" class="puntero">
+                                        <img class="logo" src="https://jarroba.com/wp-content/themes/jarrobav6/static/img/logojarroba.png" width="100px">
+                                    </a>
+                                </li>
+                                <li>
+                                                                            <a href="https://jarroba.com/videos/" class="puntero">Videos</a>
+                                                                    </li>
+
+                                <li>
+                                                                            <a href="https://jarroba.com/libros/" class="puntero">Libros</a>
+                                                                    </li>
+                                <li>
+                                    <a class="change-project" href="javascript:;">
+                                        <i class="fa fa-search"></i>
+                                    </a>
+                                    <div class="hide" id="select-div">
+                                        <form method="get" id="searchform" action="/">
+                                            <div id="search">
+                                                <input type="text" value="" name="s" id="s"/>
+                                                                                                    <input type="submit" class="btn btn-success" id="searchsubmit" value="Buscar" />
+                                                                                            </div>
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+<div class="container" name="jumpToEntryData" id="jumpToEntryData">
+
+    <div class="row rowPages">
+
+
+        
+            <!-- Barra lateral -->
+            <aside class="col-md-2 lateral-bar">
+
+                <!-- <a id="idButtonShowEntryData" class="btn btn-default btn-sm" href="#"><i class="fa fa-expand"></i> Datos</a> -->
+
+                <div class="row hide-on-smallscreen">
+
+                    <!-- Autor -->
+                    <div class="col-md-12 col-xs-6 row-fluid">
+                        <a href="https://jarroba.com/author/ricardomoya/">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12 text-center">
+                                    <img alt='' src='https://secure.gravatar.com/avatar/0d9899ae5658b55d7a3f9dd59fcabd76?s=120&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/0d9899ae5658b55d7a3f9dd59fcabd76?s=240&#038;d=mm&#038;r=g 2x' class='avatar avatar-120 photo' height='120' width='120' />                                </div>
+                                <div class="col-md-12 col-xs-12 text-center" style="padding-top: 10px">
+							<span class="autorPost">
+								RicardoMoya							</span>
+                                    </br>
+                                    <span class="fechaPost">
+								7 - Sep - 2014							</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- /Autor -->
+
+                    <!-- Redes sociales -->
+                    <div class="col-md-12 col-xs-6 entry-share-lateral text-center">
+                                                    <div style="padding-bottom: 5px">Compartir en:</div>
+                                                <div class="groupShareButtons row-fluid">
+		
+					<span class="fa-stack fa-lg">
+						<a href="https://plus.google.com/share?url=https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F"
+                           target="_blank" title="Compartir en Google+">
+                            <i class="fa fa-circle fa-stack-2x" style="color: #DD4B38;"></i>
+                            <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                        </a>
+					</span>
+
+                            <span class="fa-stack fa-lg">
+						<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F&title=Enum+%28Enumerados%29+en+Java%2C+con+ejemplos&source=jarroba.com"
+                           target="_blank" title="Compartir en Linkedin">
+                            <i class="fa fa-circle fa-stack-2x" style="color: #0077B5;"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </a>
+					</span>
+
+                            <span class="fa-stack fa-lg">
+						<a href="https://www.facebook.com/share.php?u=https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F&t=Enum+%28Enumerados%29+en+Java%2C+con+ejemplos "
+                           target="_blank" title="Compartir en Facebook">
+                            <i class="fa fa-circle fa-stack-2x" style="color: #3C5A98;"></i>
+                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                        </a>
+					</span>
+
+                            <span class="fa-stack fa-lg">
+						<a href="https://twitter.com/home?status=Enum+%28Enumerados%29+en+Java%2C+con+ejemplos - https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F"
+                           target="_blank" title="Compartir en Twitter">
+                            <i class="fa fa-circle fa-stack-2x" style="color: #00ABF0;"></i>
+
+                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                        </a>
+					</span>
+
+                        </div>
+                    </div>
+                    <!-- /Redes sociales -->
+
+                </div>
+
+                <div class="row hide-on-smallscreen">
+                    <!-- Categorias -->
+                                            <div class="col-md-12 col-xs-6 entry-categories">
+                                                            <i class="fa fa-th fa-2x" style=" vertical-align: middle;"></i> Categoría:
+                                                        <div class="row">
+                                                                    <a class="col-md-12" href="https://jarroba.com/lenguajes-de-programacion/"
+                                       rel="category tag">
+                                        <div class="row">
+                                            <!-- <div class="col-md-4 col-xs-3" > -->
+                                                                                        <!-- </div> -->
+                                            <!-- <div class="col-md-8 col-xs-9"> -->
+
+                                            <img class="col-md-4 col-xs-3"
+                                                 src="https://jarroba.com/wp-content/themes/jarrobav6/static/img/categorias/LenguajesDeProgramacion.png">
+                                            <!--    -->
+                                            <p class="col-md-8 col-xs-9">Lenguajes de Programación</p>
+                                            <!-- </div> -->
+                                        </div>
+                                    </a>
+                                                                </div>
+                        </div>
+                                            <!-- /Categorias -->
+
+                    <!-- tags -->
+                                            <div class="col-md-12 col-xs-6 entry-tags">
+                            <i class="fa fa-tags fa-2x" style="vertical-align: middle;"></i> Tags:
+                            </br>
+                                                            <a class="tags" href="https://jarroba.com/?tag=enum-es" rel="tag"
+                                   style="background-color: #F7977A">
+                                    enum                                </a>
+                                                                <a class="tags" href="https://jarroba.com/?tag=enumerados-es" rel="tag"
+                                   style="background-color: #F9AD81">
+                                    enumerados                                </a>
+                                                                <a class="tags" href="https://jarroba.com/?tag=java-es" rel="tag"
+                                   style="background-color: #FDC68A">
+                                    java                                </a>
+                                                                <a class="tags" href="https://jarroba.com/?tag=poo-es" rel="tag"
+                                   style="background-color: #FFF79A">
+                                    poo                                </a>
+                                                                <a class="tags" href="https://jarroba.com/?tag=programacion-orientada-a-objetos-es" rel="tag"
+                                   style="background-color: #C4DF9B">
+                                    programación orientada a objetos                                </a>
+                                
+                        </div>
+                                            <!-- /tags -->
+                </div>
+
+
+                <!-- publicidad móvil -->
+                <div id="idAdsense" class="row ads-mobile">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- AnuncioAdaptable -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-8473876812850116"
+                         data-ad-slot="7393451986"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div id="idAdsense" class="row ads-mobile">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- AnuncioAdaptable -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-8473876812850116"
+                         data-ad-slot="7393451986"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                                <!-- /publicidad móvil -->
+
+
+                <!-- publicidad resto -->
+                
+                
+                
+                <div id="idAdsense" class="row ads-computer">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- AnuncioAdaptable -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-8473876812850116"
+                         data-ad-slot="7393451986"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div id="idAdsense" class="row ads-computer">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- AnuncioAdaptable -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-8473876812850116"
+                         data-ad-slot="7393451986"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div id="idAdsense" class="row ads-computer">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- AnuncioAdaptable -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-8473876812850116"
+                         data-ad-slot="7393451986"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+
+                <!-- <div id="idAdsense" class="row ads-mobile ads-computer" style="min-height: 1000px; margin: 10px; background-color: #857465"> -->
+                <!-- <div id="idAdsense" class="row ads-computer">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+                <!-- SuperiorMovil1 -->
+                <!-- <ins class="adsbygoogle ads"
+                     style="display:block"
+                     data-ad-client="ca-pub-8473876812850116"
+                     data-ad-slot="1209493180"
+                     data-ad-format="auto"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div> -->
+                <!-- /publicidad resto -->
+
+            </aside>
+            <!-- /Barra lateral -->
+
+
+            <!-- Contenido del artículo -->
+            <article class="col-md-10">
+                <h1 class="text-center" style=" margin-top: 0px; padding-bottom: 0px;">
+                    Enum (Enumerados) en Java, con ejemplos                </h1>
+
+                <div class="spacer"></div>
+                <br>
+                                <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p style="text-align: justify;">
+	El proyecto de este post lo puedes descargar pulsando&nbsp;<a href="https://github.com/jarroba/enumJava_Jarroba" target="_blank">AQUI</a>.
+</p>
+<p style="text-align: justify;">
+	<em><strong>Un enumerado (o Enum) es una clase "especial"</strong></em> (tanto en Java como en otros lenguajes) <em><strong>que limitan la creaci&oacute;n de objetos &nbsp;a los especificados expl&iacute;citamente en la implementaci&oacute;n de la clase.</strong></em> La &uacute;nica limitaci&oacute;n que tienen los enumerados respecto a una clase normal es que si tiene constructor, este debe de ser privado para que no se puedan crear nuevos objetos.
+</p>
+<p style="text-align: justify;">
+	Vamos a empezar con un sencillo ejemplo sobre una clase Enum. Volviendo a los ejemplo relacionados con el f&uacute;tbol, tenemos que lo futbolistas est&aacute;n caracterizados por una demarcaci&oacute;n a la hora de jugar un partido de f&uacute;tbol, por tanto las demarcaciones en las que puede jugar un futbolista son finitas y por tanto se pueden enumerar en: Portero, Defensa, Centrocampista y Delantero. Con esta especificaci&oacute;n podemos crearnos la siguiente clase "Enum" llamada "Demarcaci&oacute;n":
+</p>
+<pre class="prettyprint">
+public enum Demarcacion
+{
+    PORTERO, DEFENSA, CENTROCAMPISTA, DELANTERO
+}
+</pre>
+<p style="text-align: center;">
+	<em><strong><span style="color: #ff0000;">Por convenio (aunque lo pod&eacute;is poner como quer&aacute;is) los nombres de los enumerados se escriben en may&uacute;sculas.</span></strong></em>
+</p>
+<p style="text-align: justify;">
+	Es muy importante entender que un "<em><strong>Enum</strong></em>" en&nbsp;java <em><strong>es realmente una clase</strong></em> (cuyos objetos solo pueden ser los definidos en esta clase: PORTERO, &hellip;, DELANTERO) <em><strong>que hereda</strong></em> de la clase "<em><strong>Enum(java.lang.Enum)</strong></em>" y por tanto los enumerados tienen una serie de m&eacute;todos heredados de esa clase padre (<a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Enum.html" target="_blank">Pulsar AQUI para ver su JavaDoc</a>). &nbsp;A continuaci&oacute;n vamos a mostrar algunos de los m&eacute;todos m&aacute;s utilizados de los enumerados:
+</p>
+<pre class="prettyprint">
+public enum Demarcacion{PORTERO, DEFENSA, CENTROCAMPISTA, DELANTERO}
+Demarcacion delantero = Demarcacion.DELANTERO;    // Instancia de un enum de la clase Demarcaci&oacute;n
+delantero.name();    // Devuelve un String con el nombre de la constante (DELANTERO)
+delantero.toString();    // Devuelve un String con el nombre de la constante (DELANTERO)
+delantero.ordinal();    // Devuelve un entero con la posici&oacute;n del enum seg&uacute;n est&aacute; declarada (3).
+delantero.compareTo(Enum otro);    // Compara el enum con el par&aacute;metro seg&uacute;n el orden en el que est&aacute;n declarados lo enum
+Demarcacion.values();    // Devuelve un array que contiene todos los enum
+</pre>
+<p style="text-align: justify;">
+	Visto cuales son los m&eacute;todos m&aacute;s utilizados dentro de los enumerados, vamos a poner un ejemplo para ver los resultados que nos devuelven estos m&eacute;todos. Dado el siguiente fragmento de c&oacute;digo:
+</p>
+<pre class="prettyprint">
+Demarcacion delantero = Demarcacion.DELANTERO;
+Demarcacion defensa = Demarcacion.DEFENSA;
+		
+// Devuelve un String con el nombre de la constante
+System.out.println("delantero.name()= "+delantero.name());
+System.out.println("defensa.toString()= "+defensa.toString());
+		
+//  Devuelve un entero con la posici&oacute;n de la constante seg&uacute;n est&aacute; declarada.
+System.out.println("delantero.ordinal()= "+delantero.ordinal());
+		
+// Compara el enum con el par&aacute;metro seg&uacute;n el orden en el que est&aacute;n declaradas las constantes. 
+System.out.println("delantero.compareTo(portero)= "+delantero.compareTo(defensa));
+System.out.println("delantero.compareTo(delantero)= "+delantero.compareTo(delantero));
+		
+// Recorre todas las constantes de la enumeraci&oacute;n
+for(Demarcacion d: Demarcacion.values()){
+	System.out.println(d.toString()<span class="s1">+</span>" - ");
+}</pre>
+<p style="text-align: justify;">
+	Tenemos como salida los siguientes resultados:
+</p>
+<pre>
+delantero.name()= DELANTERO
+defensa.toString()= DEFENSA
+delantero.ordinal()= 3
+delantero.compareTo(defensa)= 2
+delantero.compareTo(delantero)= 0
+PORTERO - DEFENSA - CENTROCAMPISTA - DELANTERO
+</pre>
+<p style="text-align: justify;">
+	Como ya se ha dicho un enum es una clase especial que limita la creaci&oacute;n de objetos a los especificados en su clase (por eso su constructor es privado, como se ve en el siguiente fragmento de c&oacute;digo); pero estos objetos pueden tener atributos como cualquier otra clase. En la siguiente declaraci&oacute;n de la clase, vemos un ejemplo en la que definimos un enumerado "Equipo" que va a tener dos atributos; el nombre y el puesto en el que quedaron en la liga del a&ntilde;o 2009/2010.
+</p>
+<pre class="prettyprint">
+public enum Equipo
+{
+	BAR&Ccedil;A("FC Barcelona",1), REAL_MADRID("Real Madrid",2),
+	SEVILLA("Sevilla FC",4), VILLAREAL("Villareal",7); 
+	
+	private String nombreClub;
+	private int puestoLiga;
+	
+	private Equipo (String nombreClub, int puestoLiga){
+		this.nombreClub = nombreClub;
+		this.puestoLiga = puestoLiga;
+	}
+
+	public String getNombreClub() {
+		return nombreClub;
+	}
+
+	public int getPuestoLiga() {
+		return puestoLiga;
+	}	
+	
+}
+</pre>
+<p style="text-align: justify;">
+	Como se ve BAR&Ccedil;A, REAL_MADRID, etc. son el nombre del enumerado (u objetos de la clase Equipo) que tendr&aacute;n como atributos el "nombreClub" y "puestoLiga".&nbsp;Como se ve en la clase <em><strong>definimos un constructor que es <span style="color: #ff0000;">privado</span></strong></em> (es decir que solo es visible dentro de la clase Equipo) y solo definimos los m&eacute;todos "get". Para trabajar con los atributos de estos enumerados se hace de la misma manera que con cualquier otro objeto; se instancia un objeto y se accede a los atributos con los m&eacute;todos get. En el siguiente fragmento de c&oacute;digo vamos a ver como trabajar con enumerados que tienen atributos:
+</p>
+<pre class="prettyprint">
+// Instanciamos el enumerado
+Equipo villareal = Equipo.VILLAREAL;
+		
+// Devuelve un String con el nombre de la constante
+System.out.println("villareal.name()= "+villareal.name());
+		
+// Devuelve el contenido de los atributos
+System.out.println("villareal.getNombreClub()= "+villareal.getNombreClub());
+System.out.println("villareal.getPuestoLiga()= "+villareal.getPuestoLiga());
+</pre>
+<p style="text-align: justify;">
+	Como salida de este fragmento de c&oacute;digo tenemos lo siguiente:
+</p>
+<pre>
+villareal.name()= VILLAREAL
+villareal.getNombreClub()= Villareal
+villareal.getPuestoLiga()= 7
+</pre>
+<p style="text-align: justify;">
+	Es muy importante que teng&aacute;is claro que los enumerado no son Strings (aunque pueden serlo), sino que son objeto de una clase que solo son instanciables desde la clase que se implementa y que no se puede crear un objeto de esa clase desde cualquier otro lado que no sea dentro de esa clase. Es muy com&uacute;n (sobre todo cuando se esta aprendiendo que son los enumerados) que se interprete que un enumerado es&nbsp;una lista finita de Strings y en realidad es una lista finita de objetos de una determinada clase con sus atributos, constructor y m&eacute;todos getter aunque estos sean privados.
+</p>
+<p style="text-align: justify;">
+	A continuaci&oacute;n vamos a poner un sencillo ejemplo en el que vamos a mezclar los dos enumerados anteriores (Demarcaci&oacute;n y Equipo). En este ejemplo (siguiendo la l&iacute;nea de ejemplo puestos en las entradas de <a href="https://jarroba.com/herencia-en-la-programacion-orientada-a-objetos-ejemplo-en-java/">Herencia</a>, <a href="https://jarroba.com/polimorfismo-en-java-parte-i-con-ejemplos/" target="_blank">Polimorfismo</a> y <a href="https://jarroba.com/polimorfismo-en-java-interface-parte-ii-con-ejemplos/" target="_blank">Polimorfismo II</a>) vamos a crearnos unos objetos de la clase Futbolista, que representar&aacute;n a los jugadores de la selecci&oacute;n espa&ntilde;ola de f&uacute;tbol que ganaron el mundial de f&uacute;tbol de Sud&aacute;frica en el a&ntilde;o 2010. Esta clase va a caracterizar a los futbolistas por su nombre, su dorsal, la demarcaci&oacute;n en la que juegan y el club de f&uacute;tbol al que pertenecen; tal y como vemos en el siguiente diagrama de clases.
+</p>
+<p style="text-align: center;">
+	<a href="https://jarroba.com/wp-content/uploads/2014/09/enum_jarroba.jpg"><img alt="enum_jarroba" class="aligncenter size-full wp-image-20562 img-responsive lazy" height="309" src="https://jarroba.com/wp-content/uploads/2014/09/enum_jarroba.jpg" width="445"></a>
+</p>
+<p style="text-align: justify;">
+	Como vemos los atributos de demarcaci&oacute;n y equipo son de la clase Demarcacion y Equipo respectivamente y son los enumerados vistos anteriormente; por tanto un futbolista solo podr&aacute; pertenecer a uno de los cuatro equipos que forman el enumerado "Equipo" y podr&aacute; jugar en alguna de las cuatro demarcaciones que forman el enumerado "Demarcaci&oacute;n". A continuaci&oacute;n mostramos la implementaci&oacute;n de la clase "Futbolista":
+</p>
+<pre class="prettyprint">
+package Main;
+
+public class Futbolista {
+
+	private int dorsal;
+	private String Nombre;
+	private Demarcacion demarcacion;
+	private Equipo equipo;
+
+	public Futbolista() {
+	}
+
+	public Futbolista(String nombre, int dorsal, Demarcacion demarcacion, Equipo equipo) {
+		this.dorsal = dorsal;
+		Nombre = nombre;
+		this.demarcacion = demarcacion;
+		this.equipo = equipo;
+	}
+
+	// Metodos getter y setter
+
+	................................
+	
+
+	@Override
+	public String toString() {
+		return this.dorsal + " - " + this.Nombre + " - "
+				+ this.demarcacion.name() + " - " + this.equipo.getNombreClub();
+	}
+}
+</pre>
+<p style="text-align: justify;">
+	Dada esta clase podemos crearnos ya objetos de la clase futbolista, como mostramos a continuaci&oacute;n:
+</p>
+<pre class="prettyprint">
+Futbolista casillas = new Futbolista("Casillas", 1, Demarcacion.PORTERO, Equipo.REAL_MADRID);
+Futbolista capdevila = new Futbolista("Capdevila", 11, Demarcacion.DEFENSA, Equipo.VILLAREAL);
+Futbolista iniesta = new Futbolista("Iniesta", 6, Demarcacion.CENTROCAMPISTA, Equipo.BAR&Ccedil;A);
+Futbolista navas = new Futbolista("Navas", 22, Demarcacion.DELANTERO, Equipo.SEVILLA);
+</pre>
+<p style="text-align: justify;">
+	Como vemos la demarcaci&oacute;n y el equipo al que pertenecen solo pueden ser los declarados en la clase enumerado. Si llamamos al m&eacute;todo "toString()" declarado en la clase futbolista, podemos imprimir por pantalla los datos de los futbolistas. Dado el siguiente c&oacute;digo:
+</p>
+<pre class="prettyprint">
+System.out.println(casillas.toString());
+System.out.println(capdevila.toString());
+System.out.println(iniesta.toString());
+System.out.println(navas.toString());
+</pre>
+<p style="text-align: justify;">
+	Y dado el siguiente m&eacute;todo "toString()"
+</p>
+<pre class="prettyprint">
+@Override
+public String toString() {
+	return this.dorsal + " - " + this.Nombre + " - "
+			+ this.demarcacion.name() + " - " + this.equipo.getNombreClub();
+}
+</pre>
+<p style="text-align: justify;">
+	Tenemos como salida lo siguiente:
+</p>
+<pre>
+1 - Casillas - PORTERO - Real Madrid
+11 - Capdevila - DEFENSA - Villareal
+6 - Iniesta - CENTROCAMPISTA - FC Barcelona
+22 - Navas - DELANTERO - Sevilla FC
+</pre>
+<p style="text-align: justify;">
+	En resumen esto es todo lo importante que debes saber sobre los enumerados en Java. En otros lenguajes de programaci&oacute;n los enumerados pueden tener m&aacute;s m&eacute;todos heredados, pero el concepto fundamental de un enumera es que son unos objetos (y no Strings; aunque es si en java un String es un clase y no un dato at&oacute;mico) definidos en la misma clase con constructor privado y si tiene atributos estos solo tienen que tener m&eacute;todos "getter" para obtener el valor del atributo.</p></body></html>
+            </article>
+            <!-- /Contenido del artículo -->
+
+
+            <div class="col-md-offset-2 col-md-10 text-center">
+
+                <!-- Redes Sociales -->
+                <div class="groupShareButtons">
+                                            <span>Comparte esta entrada en:</span>
+                                        </br>
+
+                    <span class="fa-stack fa-lg">
+					<a href="https://plus.google.com/share?url=https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F" target="_blank"
+                       title="Compartir en Google+">
+                        <i class="fa fa-circle fa-stack-2x" style="color: #DD4B38;"></i>
+                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+                    </a>
+				</span>
+
+                    <span class="fa-stack fa-lg">
+					<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F&title=Enum+%28Enumerados%29+en+Java%2C+con+ejemplos&source=jarroba.com"
+                       target="_blank" title="Compartir en Linkedin">
+                        <i class="fa fa-circle fa-stack-2x" style="color: #0077B5;"></i>
+                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                    </a>
+				</span>
+
+                    <span class="fa-stack fa-lg">
+					<a href="https://www.facebook.com/share.php?u=https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F&t=Enum+%28Enumerados%29+en+Java%2C+con+ejemplos "
+                       target="_blank" title="Compartir en Facebook">
+                        <i class="fa fa-circle fa-stack-2x" style="color: #3C5A98;"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </a>
+				</span>
+
+                    <span class="fa-stack fa-lg">
+					<a href="https://twitter.com/home?status=Enum+%28Enumerados%29+en+Java%2C+con+ejemplos - https%3A%2F%2Fjarroba.com%2Fenum-enumerados-en-java-con-ejemplos%2F"
+                       target="_blank" title="Compartir en Twitter">
+                        <i class="fa fa-circle fa-stack-2x" style="color: #00ABF0;"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </a>
+				</span>
+
+                </div>
+                <!-- /Redes Sociales -->
+
+            </div>
+
+            <!--    Contenido relaccionado    -->
+            <div class="col-md-offset-2 col-md-10 text-center">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-format="autorelaxed"
+                     data-ad-client="ca-pub-8473876812850116"
+                     data-ad-slot="1346918387"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <!--    Contenido relaccionado    -->
+
+            <!-- Derechos de autor -->
+            <div class="col-md-offset-2 col-md-10 text-center background-color-soft-gray" style="display: inline-block">
+                <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/es/" target="_blank"><img
+                            src="https://www.jarroba.com/wp-content/uploads/2012/02/cc.png" align="middle"
+                            style="margin-top:3px;"></a>
+                <a href="https://www.safecreative.org/userfeed/1401310112503"
+                   target="08443056-e78e-3ae8-aa46-e946c099cd2c"><img
+                            src="https://resources.safecreative.org/userfeed/1401310112503/label/logo2-150"
+                            style="border:0;"
+                            alt="Safe Creative #1401310112503"/></a>
+                </br>
+                <a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/" rel="bookmark">Enum (Enumerados) en Java, con ejemplos</a> por "www.jarroba.com" esta
+                bajo una licencia Creative Commons
+                </br>
+                Reconocimiento-NoComercial-CompartirIgual 3.0 Unported License.
+                </br>
+                Creado a partir de la obra en <a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/" rel="bookmark">www.jarroba.com</a>
+            </div>
+            <!-- /Derechos de autor -->
+
+            <!-- Comentarios -->
+            <div class="col-md-offset-2 col-md-10">
+
+                
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			22 thoughts on &ldquo;Enum (Enumerados) en Java, con ejemplos&rdquo;		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-263171" class="comment even thread-even depth-1">
+			<article id="div-comment-263171" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/d7e78b158b8750ef04c386be030590be?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/d7e78b158b8750ef04c386be030590be?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Elias</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-263171">
+							<time datetime="2019-08-12T00:43:46+00:00">
+								12/08/2019 a las 00:43							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Genial amigo me quedo muy claro el concepto de los enumerados.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-263171' data-commentid="263171" data-postid="20561" data-belowelement="div-comment-263171" data-respondelement="respond" aria-label='Responder a Elias'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-262920" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-262920" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/9426682a54987a246a4a8d9fd45ab4ec?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/9426682a54987a246a4a8d9fd45ab4ec?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Luis</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-262920">
+							<time datetime="2019-08-09T12:49:26+00:00">
+								09/08/2019 a las 12:49							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>muchas gracias&#8230;….</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-262920' data-commentid="262920" data-postid="20561" data-belowelement="div-comment-262920" data-respondelement="respond" aria-label='Responder a Luis'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-228627" class="comment even thread-even depth-1">
+			<article id="div-comment-228627" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/acd992bc3cc594add71def8695d9a2d2?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/acd992bc3cc594add71def8695d9a2d2?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Chris</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-228627">
+							<time datetime="2018-11-28T06:30:13+00:00">
+								28/11/2018 a las 06:30							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Muy fácil de entender tu post, lo guardaré y trataré de seguir tu trabajo</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-228627' data-commentid="228627" data-postid="20561" data-belowelement="div-comment-228627" data-respondelement="respond" aria-label='Responder a Chris'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-225473" class="comment odd alt thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-225473" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b3a09dd43facf4acf483d7efebdbc270?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/b3a09dd43facf4acf483d7efebdbc270?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Israel</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-225473">
+							<time datetime="2018-10-29T21:57:28+00:00">
+								29/10/2018 a las 21:57							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hola antes que nada exelente post me gusto mucho!<br />
+Algo que tal ves le falto es mostrar la utilidad de este concepto ya que se hace dificil entender y recordar algo que aparentemente no tiene ninguna utilidad (lo digo porque para que implementar un enum para algo que podria ser un simple string como es el caso del campo «demarcacion» o «Club al que pertenece») , demostrar su utilidad a traves de ejemplos reales estaria mas que bacan!<br />
+Saludos!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-225473' data-commentid="225473" data-postid="20561" data-belowelement="div-comment-225473" data-respondelement="respond" aria-label='Responder a Israel'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-227012" class="comment byuser comment-author-ramoninvarato even depth-2">
+			<article id="div-comment-227012" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e2b307d7640cf7fbbaf2bf6ea565b22a?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/e2b307d7640cf7fbbaf2bf6ea565b22a?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Ramón [Admin Jarroba]</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-227012">
+							<time datetime="2018-11-12T18:08:01+00:00">
+								12/11/2018 a las 18:08							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Israel gracias por la sugerencia. Siempre es útil los ejemplos reales para entender mejor las cosas, tomamos nota.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-227012' data-commentid="227012" data-postid="20561" data-belowelement="div-comment-227012" data-respondelement="respond" aria-label='Responder a Ramón [Admin Jarroba]'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-217717" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-217717" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/427de04a8c244c0efa0da25f3f97a220?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/427de04a8c244c0efa0da25f3f97a220?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='http://www.werosoft.com.mx' rel='external nofollow ugc' class='url'>Jorge Zavala</a></b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-217717">
+							<time datetime="2018-07-26T01:11:47+00:00">
+								26/07/2018 a las 01:11							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Excelente explicación, Muchas gracias. Lo pondre en practica el concepto de ENUM en mis aplicaciones. Saludos</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-217717' data-commentid="217717" data-postid="20561" data-belowelement="div-comment-217717" data-respondelement="respond" aria-label='Responder a Jorge Zavala'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-211310" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-211310" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/b611f59bbb2c97e5b6a15f4538267ecf?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/b611f59bbb2c97e5b6a15f4538267ecf?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn"><a href='https://www.avianca.com/cr/es/informacion-viaje/planea/equipaje/mercancias-peligrosas/' rel='external nofollow ugc' class='url'>Jose</a></b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-211310">
+							<time datetime="2018-05-20T00:34:47+00:00">
+								20/05/2018 a las 00:34							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>No soy de Comentar, pero me sirvió de mucho y por el buen contenido en este sitio.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-211310' data-commentid="211310" data-postid="20561" data-belowelement="div-comment-211310" data-respondelement="respond" aria-label='Responder a Jose'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-184926" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-184926" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/37db351fdeb9d1d3686599e84e2c2546?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/37db351fdeb9d1d3686599e84e2c2546?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jose L</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-184926">
+							<time datetime="2017-09-29T10:09:48+00:00">
+								29/09/2017 a las 10:09							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Genial explicación!! llevaba un tiempo viendolos y evitaba usarlos porque no terminaba de entenderlos correctamente. Ya me queda claro, es lo más sencillo del mundo.</p>
+<p>Muchas gracias. Un saludo.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-184926' data-commentid="184926" data-postid="20561" data-belowelement="div-comment-184926" data-respondelement="respond" aria-label='Responder a Jose L'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-157828" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-157828" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/46e9054bdce148bdc0d43018b01b67ba?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/46e9054bdce148bdc0d43018b01b67ba?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">rgarcial</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-157828">
+							<time datetime="2017-05-09T10:32:50+00:00">
+								09/05/2017 a las 10:32							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Gran ejemplo, gracias por compartir tu conocimiento con nosotros</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-157828' data-commentid="157828" data-postid="20561" data-belowelement="div-comment-157828" data-respondelement="respond" aria-label='Responder a rgarcial'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-70739" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-70739" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/a34fd13cacb0514d961959cb036921e3?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/a34fd13cacb0514d961959cb036921e3?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Jose Luis Rodriguez Rodriguez</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-70739">
+							<time datetime="2016-10-18T11:25:25+00:00">
+								18/10/2016 a las 11:25							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>	La raz&oacute;n por la que los valores de una clase Enum deber&iacute;an estar en may&uacute;sculas es, porque son constantes. y la constantes hay que nombraralas en may&uacute;sculas.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-70739' data-commentid="70739" data-postid="20561" data-belowelement="div-comment-70739" data-respondelement="respond" aria-label='Responder a Jose Luis Rodriguez Rodriguez'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-33805" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-33805" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/ab86546baa94509814eb738006d5744d?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/ab86546baa94509814eb738006d5744d?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">HOMER</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-33805">
+							<time datetime="2016-02-25T19:29:25+00:00">
+								25/02/2016 a las 19:29							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>	Muy buena la explicaci&oacute;n, tus art&iacute;culos me son muy &uacute;tiles para aclarar o aprender conceptos nuevos y complicados que si bien no son imprescindibles para llevar a cabo nuestra profesi&oacute;n, si lo son para ser un buen profesional que utilice adecuadamente las herramientas de su profesi&oacute;n.</p>
+<p>	S&oacute;lo quer&iacute;a agradecerte tu labor y pedirte que por favor, no pierdas nunca ese sentido docente, porque para algunos significa mucho, est&aacute;s ayudando a crear mejores profesionales.</p>
+<p>	Un saludo Ricardo! De parte de un estudiante.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-33805' data-commentid="33805" data-postid="20561" data-belowelement="div-comment-33805" data-respondelement="respond" aria-label='Responder a HOMER'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-20543" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-20543" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/9bb11ea2bf08b2feb60defc007adfcc5?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/9bb11ea2bf08b2feb60defc007adfcc5?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">jesus</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-20543">
+							<time datetime="2015-07-21T00:59:19+00:00">
+								21/07/2015 a las 00:59							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>	hola tengo problemas para hacer un menu en BLUEJ&#8230; y es mi examen final&#8230; necesito ayuda, se les agradeceria mucho&#8230;.<br />
+	estas son las condiciones&#8230;&nbsp;<br />
+	&nbsp;</p>
+<p>		Crear un programa usando bluej que haga lo siguiente:</p>
+<p>		Implementar una clase Persona con al menos 3 datos miembro (Cedula, Apellido, nombre) y los m&eacute;todos Get y Set necesarios.</p>
+<p>		Implementar un men&uacute; de opciones que implemente los m&eacute;todos de la clase ArrayList usando la clase Persona creada anteriormente.</p>
+<p>	Ejemplo de men&uacute;:</p>
+<p>	Menu:</p>
+<p>		Insertar Persona &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Pulse 1)</p>
+<p>	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>		Insertar Persona al final &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Pulse 1)</p>
+<p>		Insertar Persona al principio &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Pulse 2)</p>
+<p>		Insertar Persona en una determinada posici&oacute;n &hellip;(Pulse 3)</p>
+<p>		Volver al men&uacute; principal &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Pulse 4)</p>
+<p>		Eliminar Persona&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..(Pulse 2)</p>
+<p>		Eliminar toda la Lista &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..(Pulse 3)</p>
+<p>		Reemplazar Persona &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;..(Pulse 4)</p>
+<p>		Indicar si la lista est&aacute; vac&iacute;a&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.(Pulse 5)</p>
+<p>		Imprime una Persona seg&uacute;n su posici&oacute;n.(Pulse 6)</p>
+<p>		Indica el n&uacute;mero de Personas en la lista.(Pulse 7)</p>
+<p>		Salir &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;&hellip;(Pulse 8)</p>
+<p>	&nbsp;</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-20543' data-commentid="20543" data-postid="20561" data-belowelement="div-comment-20543" data-respondelement="respond" aria-label='Responder a jesus'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-17593" class="comment even thread-odd thread-alt depth-1">
+			<article id="div-comment-17593" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/8c239cd0859fe331950a8816511075be?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/8c239cd0859fe331950a8816511075be?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Julián</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-17593">
+							<time datetime="2015-05-31T20:31:08+00:00">
+								31/05/2015 a las 20:31							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>	Hola, muy bien explicado todo, pero a&uacute;n tengo un duda.</p>
+<p>	&iquest;Con qu&eacute; objetivo es utilizado los ENUM?, osea algun ejemplo de la vida real sabiendo que los puedo trabajar como atributos adicionales de una clase&#8230;</p>
+<p>	Gracias.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-17593' data-commentid="17593" data-postid="20561" data-belowelement="div-comment-17593" data-respondelement="respond" aria-label='Responder a Julián'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-14834" class="comment odd alt thread-even depth-1">
+			<article id="div-comment-14834" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/8b258f3763c7e0b0d92e48e10c664ee1?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/8b258f3763c7e0b0d92e48e10c664ee1?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Athlit</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-14834">
+							<time datetime="2015-04-10T09:13:10+00:00">
+								10/04/2015 a las 09:13							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>	Felicidades por un tutorial tan bien explicado!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-14834' data-commentid="14834" data-postid="20561" data-belowelement="div-comment-14834" data-respondelement="respond" aria-label='Responder a Athlit'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		<li id="comment-14652" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-14652" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/28ca5810d15f9e3c560efcc5d1041032?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/28ca5810d15f9e3c560efcc5d1041032?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">jorge</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-14652">
+							<time datetime="2015-04-06T01:03:42+00:00">
+								06/04/2015 a las 01:03							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>	Hola buenas;</p>
+<p>	Primero felicitarte por la f&aacute;cil comprensi&oacute;n de los art&iacute;culos publicados.</p>
+<p>	Segundo, necesitar&iacute;a aclarar unas dudas&#8230;Estoy desarrollando un programa muy parecido al ejemplo pero al crear un objeto de la clase Futbolista (Pelicula en mi programa) desde la ventana de diagramas de bluej, al pedirme que rellene el campo del tipo enum (g&eacute;nero&nbsp; en mi c&oacute;digo) no consigo rellenarlo. He creado una clase enum genero:</p>
+<p>	public enum Genero<br />
+	{COMEDIA, ACCION, TERROR, CIENCIAFICCION<br />
+	&nbsp;}</p>
+<p>	una clase pelicula:</p>
+<p>	public class Pelicula<br />
+	{<br />
+	&nbsp;&nbsp;&nbsp; private String titulo;<br />
+	&nbsp;&nbsp;&nbsp; private String director;<br />
+	&nbsp;&nbsp;&nbsp; private int anyo;<br />
+	&nbsp;&nbsp;&nbsp; private String sinopsis;<br />
+	&nbsp;&nbsp;&nbsp; private Genero genero;<br />
+	&nbsp;&nbsp; &nbsp;<br />
+	&nbsp;&nbsp; public Pelicula(){<br />
+	&nbsp;&nbsp;&nbsp; }<br />
+	&nbsp;&nbsp;&nbsp; public Pelicula( String t, String d, int a, String s, Genero genero )<br />
+	&nbsp;&nbsp;&nbsp; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; titulo = &quot;t&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; director = &quot;d&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; anyo = 0;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sinopsis = &quot;s&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; genero = genero;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />
+	&nbsp;&nbsp;&nbsp; }<br />
+	&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br />
+	&nbsp;private String genero2Text()<br />
+	&nbsp;&nbsp;&nbsp; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String generoString;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; switch ( this.genero )<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case COMEDIA: generoString = &quot;COMEDIA&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case ACCION: generoString = &quot;ACCION&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case TERROR: generoString = &quot;TERROR&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case CIENCIAFICCION: generoString = &quot;CIENCIAFICCION&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; default: generoString = &quot;G&eacute;nero inv&aacute;lido&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return generoString;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</p>
+<p>	y una clase principal:</p>
+<p>	public class Principal<br />
+	{</p>
+<p>	// instance variables<br />
+	&nbsp;&nbsp;&nbsp;&nbsp; public static void main( String args[] )<br />
+	&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pelicula pelicula2 = new Pelicula( &quot;Atrapado en el tiempo&quot;, &quot;H Ramis&quot;, 1993, &quot;se repiten los d&iacute;as&quot;, Genero.COMEDIA);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pelicula2.mostrarInfoPelicula();<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pelicula2.setSinopsis(&quot;esp&iacute;as&quot;);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pelicula2.getSinopsis();<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pelicula2.setTitulo(&quot;Top secret&quot;);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pelicula2.getTitulo();<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pelicula2.setAnyo(1984);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pelicula2.getAnyo();<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pelicula2.setDirector(&quot;Abrahams &amp; Zuckers&quot;);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+	&nbsp;&nbsp;&nbsp; }<br />
+	}</p>
+<p>	Adem&aacute;s al intentar crear Futbolistas (peliculas) como en el ejemplo casillas etc.. siempre me da error.</p>
+<p>	Gracias de antemano.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-14652' data-commentid="14652" data-postid="20561" data-belowelement="div-comment-14652" data-respondelement="respond" aria-label='Responder a jorge'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-26243" class="comment odd alt depth-2">
+			<article id="div-comment-26243" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/16f25d040f53f2001e05318fff562394?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/16f25d040f53f2001e05318fff562394?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Luis</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-26243">
+							<time datetime="2015-11-03T22:24:27+00:00">
+								03/11/2015 a las 22:24							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>	Seg&uacute;n yo el constructor de Persona tiene un error</p>
+<p>	public Pelicula( String t, String d, int a, String s, Genero genero )<br />
+	{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; titulo = t;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; director = d;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; anyo = a;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sinopsis = s;<br />
+	&nbsp; &nbsp; &nbsp; &nbsp; this.genero = genero; //Si no se le coloca el this el m&eacute;todo en ambos casos pensar&aacute; que te refieres a la variable local<br />
+	}</p>
+<p>	Saludos</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-26243' data-commentid="26243" data-postid="20561" data-belowelement="div-comment-26243" data-respondelement="respond" aria-label='Responder a Luis'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-11301" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-11301" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/f6a0bb41a3fea0570e215db363bc25d9?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/f6a0bb41a3fea0570e215db363bc25d9?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">camilo</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-11301">
+							<time datetime="2015-03-03T18:21:05+00:00">
+								03/03/2015 a las 18:21							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>HOLA!! nuevamente agradecer toda su ayuda, su página es genial!!<br />
+tengo una duda 🙁</p>
+<p>tengo una clase padre llamada Persona;<br />
+public enum Rango;<br />
+clase hija Profesor extends Persona;<br />
+la clase Profesor tiene un atributo: public Rango rango(es el enumerado).</p>
+<p>en un Main quiero introducir datos del profesor</p>
+<p>System.out.println(«Nombre: «);<br />
+profesor.setNombre(sc.nextLine);&#8230;.</p>
+<p>etc</p>
+<p>pero ¿cómo ingreso/elijo el tipo de rango?<br />
+System.out.println(«Rango: «);<br />
+profesor.setRango(sc.next???)</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-11301' data-commentid="11301" data-postid="20561" data-belowelement="div-comment-11301" data-respondelement="respond" aria-label='Responder a camilo'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-11456" class="comment byuser comment-author-ramoninvarato odd alt depth-2 parent">
+			<article id="div-comment-11456" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e2b307d7640cf7fbbaf2bf6ea565b22a?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/e2b307d7640cf7fbbaf2bf6ea565b22a?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Ramón [Admin Jarroba]</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-11456">
+							<time datetime="2015-03-04T13:52:46+00:00">
+								04/03/2015 a las 13:52							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Suponiendo que tienes:<br />
+<code>public enum Rango {<br />
+    RANGO_A,<br />
+    RANGO_B;<br />
+};</code></p>
+<p>Simplemente puedes elegir un enumerado con:<br />
+<code>Rango rangoElegido = Rango.RANGO_A</code></p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-11456' data-commentid="11456" data-postid="20561" data-belowelement="div-comment-11456" data-respondelement="respond" aria-label='Responder a Ramón [Admin Jarroba]'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-11563" class="comment even depth-3">
+			<article id="div-comment-11563" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/f6a0bb41a3fea0570e215db363bc25d9?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/f6a0bb41a3fea0570e215db363bc25d9?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Camilo</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-11563">
+							<time datetime="2015-03-05T09:29:42+00:00">
+								05/03/2015 a las 09:29							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>mil gracias Ramón, mil gracias!</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-11563' data-commentid="11563" data-postid="20561" data-belowelement="div-comment-11563" data-respondelement="respond" aria-label='Responder a Camilo'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-26241" class="comment odd alt depth-2 parent">
+			<article id="div-comment-26241" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/16f25d040f53f2001e05318fff562394?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/16f25d040f53f2001e05318fff562394?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Luis</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-26241">
+							<time datetime="2015-11-03T21:24:44+00:00">
+								03/11/2015 a las 21:24							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>	Tambi&eacute;n puedes traspasar el valor del enumerado desde un String</p>
+<p>	System.out.println(&ldquo;Nombre: &ldquo;);<br />
+	profesor.setNombre(sc.nextLine());<br />
+	System.out.println(&ldquo;Rango: &ldquo;);<br />
+	String rang = sc.nextLine();<br />
+	Rango ran = Rango.valueOf(rang);<br />
+	profesor.setRango(ran);</p>
+<p>	Muy buen tutorial</p>
+<p>	Saludos a todos</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-26241' data-commentid="26241" data-postid="20561" data-belowelement="div-comment-26241" data-respondelement="respond" aria-label='Responder a Luis'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-26356" class="comment byuser comment-author-ramoninvarato even depth-3">
+			<article id="div-comment-26356" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/e2b307d7640cf7fbbaf2bf6ea565b22a?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/e2b307d7640cf7fbbaf2bf6ea565b22a?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Ramón [Admin Jarroba]</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-26356">
+							<time datetime="2015-11-05T21:02:15+00:00">
+								05/11/2015 a las 21:02							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>
+	Gracias Luis por los ánimos y el aporte de parte de todos los desarrolladores 🙂</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-26356' data-commentid="26356" data-postid="20561" data-belowelement="div-comment-26356" data-respondelement="respond" aria-label='Responder a Ramón [Admin Jarroba]'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li id="comment-1412" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-1412" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt='' src='https://secure.gravatar.com/avatar/6384e2e9a437668d7314a83526b874a4?s=56&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/6384e2e9a437668d7314a83526b874a4?s=112&#038;d=mm&#038;r=g 2x' class='avatar avatar-56 photo' height='56' width='56' />						<b class="fn">Fernando Mercado Salinas</b> <span class="says">dice:</span>					</div><!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="https://jarroba.com/enum-enumerados-en-java-con-ejemplos/#comment-1412">
+							<time datetime="2014-12-08T19:32:36+00:00">
+								08/12/2014 a las 19:32							</time>
+						</a>
+											</div><!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hola buen día, mi nombre es Fernando, estudiante en Mondragon Unibertsitatea del Máster en Sistemas Embebidos, mucho gusto.<br />
+Los temas o artículos que muestran son muy interesantes, los entiendo muy fácilmente y sobre todo me agrada la manera en como se explican.<br />
+Por lo regular se maneja mucho el lenguaje de programación Java, sin embargo propongo que también se tomen en cuenta temas sobre el lenguaje de programación C, que ahora estoy estudiando el Máster me doy cuenta que aun después de mucho tiempo sigue siendo muy importante su utilización.<br />
+Lo propongo por la sencilla razón en como se explican los temas, ya que como he dicho antes, estos son muy sencillos de entender y la teoría muy fácil de digerir.<br />
+Espero se tome en cuenta mi opinión, gracias por compartir el conocimiento.<br />
+Bien, muchas gracias por la atención.<br />
+Un abrazo,<br />
+Fer.</p>
+				</div><!-- .comment-content -->
+
+				<div class="reply"><a rel='nofollow' class='comment-reply-link' href='#comment-1412' data-commentid="1412" data-postid="20561" data-belowelement="div-comment-1412" data-respondelement="respond" aria-label='Responder a Fernando Mercado Salinas'><i class="fa fa-comment"></i> Responder</a></div>			</article><!-- .comment-body -->
+		</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Deja un comentario <small><a rel="nofollow" id="cancel-comment-reply-link" href="/enum-enumerados-en-java-con-ejemplos/#respond" style="display:none;">Cancelar la respuesta</a></small></h3><form action="https://jarroba.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate><p class="comment-notes"><span id="email-notes">Tu dirección de correo electrónico no será publicada.</span> Los campos obligatorios están marcados con <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">Comentario</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">Nombre <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' /></p>
+<p class="comment-form-email"><label for="email">Correo electrónico <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' /></p>
+<p class="comment-form-url"><label for="url">Web</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" /></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Publicar el comentario" /> <input type='hidden' name='comment_post_ID' value='20561' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="4d302dd6e0" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="164"/></p></form>	</div><!-- #respond -->
+	<p class="akismet_comment_form_privacy_notice">Este sitio usa Akismet para reducir el spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Aprende cómo se procesan los datos de tus comentarios</a>.</p>
+</div><!-- .comments-area -->
+
+                <!--
+			[wpoa_login_form layout="buttons-column" align="middle" logged_out_title="Puedes iniciar sesión con:" logged_in_title="Sesión iniciada correctamente." logging_in_title="Iniciando sesión..." logging_out_title="Cerrando sesión..." icon_set="hex"]		 -->
+            </div>
+            <!-- /Comentarios -->
+
+
+            <!-- No existe el artículo -->
+                <!-- /No existe el artículo -->
+
+    </div>
+</div>
+
+<script>
+
+    function initialize() {
+
+        $('body').on('click', '#idButtonShowEntryData', function (event) {
+
+            if ($(".hide-on-smallscreen").is(":visible")) {
+                $(".hide-on-smallscreen").hide();
+                $("#idButtonShowEntryData_Expand").show();
+                $("#idButtonShowEntryData_Compress").hide();
+            } else {
+                $(".hide-on-smallscreen").show();
+                $("#idButtonShowEntryData_Compress").show();
+                $("#idButtonShowEntryData_Expand").hide();
+                window.location = '#jumpToEntryData';
+            }
+
+        });
+
+
+        $(window).resize(function () {
+
+            windowsize = $(window).width();
+
+            if (windowsize > 768 && $('.hide-on-smallscreen').css('display') != null) {
+                $(".hide-on-smallscreen").css("display", "");
+            }
+
+        });
+
+    }
+    ;
+
+    window.onload = initialize();
+
+
+</script>
+
+	</div>
+	<!-- / class container -->
+
+	<footer class="footer-page">
+		<div class="container">
+			<div class="row footer-extra">
+
+				<div class="col-md-offset-2 col-md-4 col-xs-12">
+					<a href="/" class="puntero">
+						<img src="https://jarroba.com/wp-content/themes/jarrobav6/static/img/logojarroba.png" width="200px">
+					</a>
+
+                                            <p class="pSiguenosEn">Siguenos en:</p>
+                    
+					<!-- Redes sociales -->
+					<a href="https://www.youtube.com/user/Jarrobaweb" target="_black" class="redesSocialesFooter">
+						<img src="https://jarroba.com/wp-content/uploads/2014/01/youTube.png" width="45" height="45">
+					</a>
+
+					<a href="https://twitter.com/JarrobaWeb" target="_black" class="redesSocialesFooter">
+						<img src="https://jarroba.com/wp-content/uploads/2014/01/twitter.png" width="45" height="45">
+					</a>
+
+					<a href="https://www.facebook.com/jarrobaWeb" target="_black" class="redesSocialesFooter">
+						<img src="https://jarroba.com/wp-content/uploads/2014/01/facebook.png" width="45" height="45">
+					</a>
+
+					<a href="https://github.com/jarroba?tab=repositories" target="_black" class="redesSocialesFooter">
+						<img src="https://jarroba.com/wp-content/uploads/2014/01/gitHub.png" width="45" height="45">
+					</a>
+
+					<a href="https://plus.google.com/103352032205227460108/" target="_black" class="redesSocialesFooter">
+						<img src="https://jarroba.com/wp-content/uploads/2014/01/google+.png" width="45" height="45">
+					</a>
+					<!-- /Redes sociales -->
+
+                                            <p class="pSiguenosEn">Contacto: <a href="mailto:jarrobaweb@gmail.com" target="_black">jarrobaweb@gmail.com</a></p>
+                    
+				</div>
+
+				<div class="col-md-offset-1 col-md-3 col-xs-12">
+					<ul class="submenuFooter text-uppercase text-center">
+
+						<li>
+							<a href="https://jarroba.com/faq/">
+                                                                    FAQ
+                                							</a>
+						</li>
+						<li>
+							<a href="https://jarroba.com/visitas/">
+                                                                    Visitas
+                                							</a>
+						</li>
+						<li>
+							<a href="#">
+                                                                    Gastos
+                                							</a>
+						</li>
+						<li>
+							<a href="https://jarroba.com/sitemap_index.xml">
+                                                                    Mapa del sitio
+                                							</a>
+						</li>
+                        <li>
+                            <a href="https://jarroba.com/tools/">
+                                                                    Herramientas
+                                                            </a>
+                        </li>
+
+					</ul>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="footer-info">
+			<div class="row text-center">
+				<div class="col-xs-12 col-md-12">
+                                            <p>Copyright &copy; 2020 <a href="https://www.jarroba.com">Jarroba.com</a> - Todos los derechos reservados</p>
+                    					<p style="font-size: 32px; font-family: 'Parisienne', cursive;">By Reimon & Richard</p>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+
+</div>
+<!-- .site -->
+
+<!-- HTML del pié de página -->
+<div class="cdp-cookies-alerta  cdp-solapa-ocultar cdp-cookies-tema-gris">
+	<div class="cdp-cookies-texto">
+		<h4 style="font-size:11px !important;line-height:11px !important">Uso de cookies</h4><p style="font-size:8px !important;line-height:8px !important">Este sitio web utiliza cookies para que usted tenga la mejor experiencia de usuario. Si continúa navegando está dando su consentimiento para la aceptación de las mencionadas cookies y la aceptación de nuestra <a href="http://jarroba.com/faq/" style="font-size:8px !important;line-height:8px !important">política de cookies</p>
+		<a href="javascript:;" class="cdp-cookies-boton-cerrar">ACEPTAR</a> 
+	</div>
+	<a class="cdp-cookies-solapa">Aviso de cookies</a>
+</div>
+ <script type='text/javascript' src='https://jarroba.com/wp-content/themes/jarrobav6/js/skip-link-focus-fix.js?ver=20141010'></script>
+<script type='text/javascript' src='https://jarroba.com/wp-includes/js/comment-reply.min.js?ver=5.3.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expande el men\u00fa inferior<\/span>","collapse":"<span class=\"screen-reader-text\">plegar men\u00fa inferior<\/span>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://jarroba.com/wp-content/themes/jarrobav6/js/functions.js?ver=20141212'></script>
+<script type='text/javascript' src='https://jarroba.com/wp-includes/js/wp-embed.min.js?ver=5.3.2'></script>
+<script async="async" type='text/javascript' src='https://jarroba.com/wp-content/plugins/akismet/_inc/form.js?ver=4.1.3'></script>
+
+</body>
+</html>
+
+    <!-- Carga de las fuentes de google y las nuestras -->
+    <link href='//fonts.googleapis.com/css?family=Macondo' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://jarroba.com/wp-content/themes/jarrobav6/static/font-awesome/css/font-awesome.min.css">
+    <!-- /Carga de las fuentes de google y las nuestras -->
+
+    <!-- Carga del formateo del codigo fuente que ponemos en la web  -->
+    <script src="https://jarroba.com/wp-content/themes/jarrobav6/static/code-prettify-master/loader/run_prettify.js"></script>
+    <script src="https://jarroba.com/wp-content/themes/jarrobav6/static/code-prettify-master/loader/run_prettify.js?lang=css&skin=sunburst"></script>
+    <script async src="https://www.google.com/jsapi"></script>
+    <!-- / Carga del formateo del codigo fuente que ponemos en la web  -->
+
+    <!-- Graficas de google -->
+        <!-- /Graficas de google -->
+
+
+	<!-- para el popover del buscador -->
+	<script type="text/javascript">
+		$(window).bind('ChangeView', function(e, data){
+			$('.change-project').popover({
+				placement : 'bottom',
+				trigger : 'click',
+				html : true,
+				content : function(){
+					var content = '';
+					content = $('#select-div').html();
+					return content;
+				}
+			}).on('shown.bs.popover', function(){
+			});
+
+			$(document).delegate('.btn-go','click', function(e){
+				e.preventDefault();
+				alert('Go Click');
+			});
+
+			$(document).delegate('.btn-cancel-option', 'click', function(e){
+				e.preventDefault();
+				var element = $(this).parents('.popover');
+				if(element.size()){
+					$(element).removeClass('in').addClass('out');
+				}
+			});
+		});
+		$(document).ready(function(){
+			$(window).trigger('ChangeView', {});
+		});
+	</script>
+	<!-- /para el popover del buscador -->

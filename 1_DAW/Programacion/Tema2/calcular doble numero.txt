@@ -1,0 +1,12 @@
+int n;
+int doble;
+
+Scanner teclado=new Scanner(System.in);
+String cadena;
+
+System.out.println("Dime un numero entero: ");
+cadena=teclado.nextLine();
+n=Integer.parseInt(cadena);
+
+doble=n*2;
+System.out.println("El doble es "+doble);

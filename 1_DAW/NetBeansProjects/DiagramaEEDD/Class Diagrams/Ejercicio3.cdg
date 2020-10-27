@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Ejercicio3">
+  <ClassDiagramComponents>
+    <Class name="Vehiculos" package="" visibility="public" isAbstract="true" xPosition="395.0" yPosition="126.0">
+      <Fields>
+        <Field name="cod" type="int" visibility="protected"/>
+        <Field name="anyoCompra" type="int" visibility="protected"/>
+        <Field name="listaArreglos" type="ArrayList&lt;Arreglos&gt;" visibility="protected"/>
+        <Field name="empMantenimiento" type="ArrayList&lt;Empleados&gt;" visibility="protected"/>
+        <Field name="empUso" type="Empleado" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Arreglos" package="" visibility="public" xPosition="813.0" yPosition="200.0">
+      <Fields>
+        <Field name="fechaArreglo" type="Date" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Coches" package="" visibility="public" xPosition="174.0" yPosition="70.0">
+      <Fields>
+        <Field name="cc" type="int" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="peso" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Motos" package="" visibility="public" xPosition="174.0" yPosition="244.0">
+      <Fields>
+        <Field name="cc" type="int" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="peso" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Barcos" package="" visibility="public" xPosition="174.0" yPosition="441.0">
+      <Fields>
+        <Field name="longitud" type="double" visibility="private"/>
+        <Field name="numOcupantes" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Empelados" package="" visibility="public" xPosition="492.0" yPosition="441.0">
+      <Fields>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Coches" target="Vehiculos"/>
+    <IsRelation name="is" source="Barcos" target="Vehiculos"/>
+    <HasRelation name="listaArreglos" source="Vehiculos" target="Arreglos" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="Motos" target="Vehiculos"/>
+    <HasRelation name="empMantenimiento y empUso" source="Vehiculos" target="Empelados" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

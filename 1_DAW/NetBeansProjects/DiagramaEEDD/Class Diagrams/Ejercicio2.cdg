@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Ejercicio2">
+  <ClassDiagramComponents>
+    <Class name="Libro" package="" visibility="public" xPosition="450.0" yPosition="226.0">
+      <Fields>
+        <Field name="isbn" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="tipo" type="String" visibility="private"/>
+        <Field name="editorial" type="String" visibility="private"/>
+        <Field name="autor" type="Autor" visibility="private"/>
+        <Field name="estado" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Autor" package="" visibility="public" xPosition="622.0" yPosition="456.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="nacionalidad" type="String" visibility="private"/>
+        <Field name="fechaNac" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Interface name="Prestado" package="" visibility="public" xPosition="175.0" yPosition="59.0">
+      <Methods>
+        <Method name="esPrestado" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="ConRetraso" package="" visibility="public" xPosition="104.0" yPosition="194.0">
+      <Methods>
+        <Method name="esConRetraso" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="EnBiblioteca" package="" visibility="public" xPosition="175.0" yPosition="310.0">
+      <Methods>
+        <Method name="esEnBiblio" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="EnReparacion" package="" visibility="public" xPosition="104.0" yPosition="442.0">
+      <Methods>
+        <Method name="esReparacion" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Class name="Lector" package="" visibility="public" xPosition="754.0" yPosition="249.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Prestamo" package="" visibility="public" xPosition="622.0" yPosition="53.0">
+      <Fields>
+        <Field name="fechaPrestamo" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="isbn"/>
+          <Argument type="int" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Objeto Autor" source="Libro" target="Autor" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Prestamo" target="Prestado"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Libro" target="EnBiblioteca"/>
+    <UseRelation name="Alquilar" source="Libro" target="Lector" sourceCardinality="1..*" targetCardinality="1..*"/>
+    <IsRelation name="is" source="Prestamo" target="Libro"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Libro" target="ConRetraso"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Libro" target="EnReparacion"/>
+    <IsRelation name="is" source="Lector" target="Prestamo"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Libro" target="Prestado"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

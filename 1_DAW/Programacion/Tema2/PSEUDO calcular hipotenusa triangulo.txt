@@ -1,0 +1,18 @@
+PROGRAMA: Calcular la hipotenusa de un triangulo rectangulo
+ENTORNO:
+	catetoA numero entero;
+	catetoB numero entero;
+	hip numero real;
+ALGORITMO:
+	Escribir " Intoduce el valor del cateto A";
+	Leer catetoA;
+	Escribir "Introduce el valor del cateto B";
+	Leer catetoB;
+	
+	#Math.pow(base,exponente) ---> x^y;
+	#Math.sqrt(x) --> raiz cuadrada(x);
+	#Math.sqrt((Math.pow(catetoA,2))+(Math.pow(catetoB,2)))
+	
+	hip = raiz cuadrada(((catetoA^2)+(catetoB^2)));
+	Escribir "El valor de la hipotenusa es: "+hip;
+FINALGORITMO;

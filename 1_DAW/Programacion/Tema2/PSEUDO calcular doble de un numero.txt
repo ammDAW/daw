@@ -1,0 +1,12 @@
+PROGRAMA: Calcular el doble de un numero
+ENTORNO:
+	n numero entero;
+	
+ALGORITMO:
+	Escribir "Introduce un numero: ";
+	Leer n;
+	n = n*2;
+	Escribir "Su doble es "+n;
+FINALGORTIMO;
+
+	

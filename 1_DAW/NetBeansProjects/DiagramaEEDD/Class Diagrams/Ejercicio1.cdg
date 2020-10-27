@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Ejercicio1">
+  <ClassDiagramComponents>
+    <Class name="Empresa" package="" visibility="public" xPosition="252.0" yPosition="62.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="listaEmpleados" type="ArrayList&lt;Empleados&gt;" visibility="private"/>
+        <Field name="liistaClientes" type="ArrayList&lt;Clientes&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Empleados" package="" visibility="public" isAbstract="true" xPosition="745.0" yPosition="53.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="edad" type="int" visibility="protected"/>
+        <Field name="sueldo" type="double" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Clientes" package="" visibility="public" xPosition="224.0" yPosition="333.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="telefono" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Subordinados" package="" visibility="public" xPosition="903.0" yPosition="406.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Directivos" package="" visibility="public" xPosition="656.0" yPosition="390.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="listaClientes" source="Empresa" target="Clientes" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="Subordinados" target="Empleados"/>
+    <HasRelation name="listaEmpleados" source="Empresa" target="Empleados" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="Directivos" target="Empleados"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
