@@ -1,0 +1,20 @@
+﻿h1 {
+	text-align: center;
+}
+
+p{
+	text-align: justify;
+}
+
+h1:first-of-type{
+	color: red;
+}
+
+p:first-of-type{
+	color: red;
+	text-indent: 50px;
+}
+
+h1, p{
+	color: green;
+}

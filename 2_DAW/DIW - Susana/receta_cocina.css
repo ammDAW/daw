@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
+
+* {font-family: 'Cabin', sans-serif;
+    color: whitesmoke;
+    background-color: black;
+}
+ul li {margin-top: 0.3em;}
+ol li {margin-top:2em;}
+h3, ul li, ol li, img, h1{
+    margin-left:1.5em;
+    margin-right:1.5em;
+}
+div {
+    margin-left:1em;
+    margin-right:20em;
+    margin-bottom:0.5em;
+    border: 5px solid chocolate;
+}
+p{
+    font-style: italic;
+    font-size: medium;
+    color: tomato;
+    margin-left:1.5em;
+    margin-right:25em;
+}
+a:visited{color: grey;}
+a:link{color:tomato;}
+a{text-decoration:none;}
+
+

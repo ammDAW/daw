@@ -1,0 +1,37 @@
+﻿* { 
+	font: Arial, Helvetica, sans-serif;
+}
+
+p {
+	text-align: center;
+	font-size: x-large;
+	line-height : 1cm;
+}
+
+/* enlace normal*/
+a:link { 
+	font-style: oblique;
+	color: #336699;
+	text-decoration: none;
+}
+
+/*cursor por encima del enlace*/
+a:hover{
+	font-style: oblique;
+	color: #FF0000;
+	text-decoration: underline;
+}
+
+/*enlace visitado*/
+a:visited{
+	font-style: oblique;
+	color: #CC3300;
+	text-decoration: none;	
+}
+
+
+em{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+

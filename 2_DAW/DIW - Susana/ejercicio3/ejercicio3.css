@@ -1,0 +1,22 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+@font-face {
+	font-family: "Amalia";
+	src: url("Amalia.ttf");
+}
+
+.google {
+	font-family: 'Oswald', sans-serif;
+}
+
+
+.font1{
+	font-family: 'Amalia';
+	color: red;
+}
+
+.font2{
+	font-family: "Amalia";
+	color: blue;
+}
+

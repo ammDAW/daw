@@ -1,0 +1,12 @@
+.center {
+    margin:auto;
+    width: 50%;
+    background-color: antiquewhite;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 40px;
+    padding-bottom: 100%;
+}
+
+/* solo para centrar tienes que poner 'margin:auto; width 50%;'
+ya juegas con el padding para alargarlo y tal*/

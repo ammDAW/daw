@@ -1,0 +1,16 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+@font-face {
+    font-family: 'RIVERFLOWS';
+    src: local("RIVERFLOWS"),
+        url(riverflows/RIVERFLOWS.ttf) format("truetype"),
+		url(riverflows/RIVERFLOWS.otf) format("opentype"),
+        url(riverflows/RIVERFLOWS.woff) format("woff"),
+		url(riverflows/RIVERFLOWS.woff2) format("woff2");
+}
+
+
+*{
+	font-family: "RIVERFLOWS";
+}
+
