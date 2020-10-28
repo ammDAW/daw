@@ -2,8 +2,8 @@
     function formulario(){
         ?>
             <h1>Comprobar datos en BBDD</h1>
-            <form method=post action="23_formRegistro.php">
-                <input type="hidden" name="opcion" value="entrada">
+            <form method=post action="23_registroForm.php">
+                <!--<input type="hidden" name="opcion" value="entrada">-->
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre">
                 <br>
@@ -43,13 +43,13 @@
         if(isset($_POST["nombre"]) && isset($_POST["apellidos"]) && registro($_POST["nombre"], $_POST["apellidos"])){
             echo ("El usuario existe");
             ?>
-                <br><a href="23_formRegistro.php">Volver</a>
+                <br><a href="23_registroForm.php">Volver</a>
             <?php
         }
         else{
             echo ("El usuario NO existe");
             ?>
-                <br><a href="23_formRegistro.php">Volver</a>
+                <br><a href="23_registroForm.php">Volver</a>
             <?php    
         } 
     }
