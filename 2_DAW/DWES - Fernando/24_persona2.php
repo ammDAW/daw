@@ -64,7 +64,7 @@ class Persona{
 			$row = $rows->fetch();
 			$u->nombre = $row['nombre'];
             $u->apellidos = $row['apellidos'];
-            $u->telefono = $rowt['telefono'];
+            $u->telefono = $row['telefono'];
             $u->codigo = $codigo;
 			return $u;
 		}
@@ -96,7 +96,8 @@ class Persona{
                 $this->nombre,
                 $this->apellidos,
                 $this->telefono,
-                $this->codigo);
+                $this->codigo
+            );
             $rows = $conexion->exec( $query );
         }
         else{
@@ -124,7 +125,7 @@ class Persona{
 function prueba(){	
 	$p = new Persona();
 	$p->nombre = "antonio";
-    $p->apellidos = "lujan";
+    $p->apellidos = "martinez";
     $p->telefono = "611223344";
 	$p->save();
 	$a = Persona::getByCodigo( 37 );

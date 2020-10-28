@@ -7,7 +7,7 @@
 <body>
 
 <?php
-	require "24_persona.php";
+	require "24_persona2.php";
 
 	function checkDato( $valor ){	
 		if( strlen( $valor ) < 5 ) 
@@ -47,7 +47,7 @@
 	function displayEntrada($missingFields){
 	?>
 		<H1>Introduce Identificación</H1>
-		<FORM METHOD=POST ACTION="crud.php">
+		<FORM METHOD=POST ACTION="24_crud2.php">
 			<INPUT TYPE="hidden" name="opcion" value ="insertar">
 			<br>
 			<label for="nombre" <?php validateField( "nombre",	$missingFields ) ?>>Nombre</label>
@@ -68,10 +68,10 @@
 	function displayEdicion( $missingFields, $persona ){
 	?>    
 		<H1>Introduce Identificación</H1>
-		<FORM METHOD=POST ACTION="crud.php">
+		<FORM METHOD=POST ACTION="24_crud2.php">
 			<INPUT TYPE="hidden" name="opcion" value ="update">
 
-			<label for="codigo" <?php validateField( "nombre",	$missingFields ) ?>>Codigo</label>
+			<label for="codigo" <?php validateField( "codigo",	$missingFields ) ?>>Codigo</label>
 			<INPUT TYPE="text" NAME="codigo" value="<?php echo $persona->codigo ?>" readonly>
 			<br><br>
 
@@ -83,7 +83,7 @@
 			<INPUT TYPE="text" NAME="apellidos" value="<?php echo $persona->apellidos ?>">
 			<br><br>
 
-			<label for="telefono" <?php validateField( "telefono", $missingFields ) ?>>telefono</label>
+			<label for="telefono" <?php validateField( "telefono", $missingFields ) ?>>Telefono</label>
 			<INPUT TYPE="text" NAME="telefono" value="<?php echo $persona->telefono ?>">
 			<br><br>
 				
@@ -102,12 +102,12 @@
 			echo "\t\t<td>". $persona->nombre . "</td>\n";
 			echo "\t\t<td>". $persona->apellidos . "</td>\n";
 			echo "\t\t<td>". $persona->telefono . "</td>\n";
-			echo "\t\t<td>". "<a href='24_crud.php?opcion=editar&codigo=" . $persona->codigo. "'>Editar</a>" ."</td>\n";
-			echo "\t\t<td>". "<a href='24_crud.php?opcion=delete&codigo=" . $persona->codigo. "'>Borrar</a>" ."</td>\n";
+			echo "\t\t<td>". "<a href='24_crud2.php?opcion=editar&codigo=" . $persona->codigo. "'>Editar</a>" ."</td>\n";
+			echo "\t\t<td>". "<a href='24_crud2.php?opcion=delete&codigo=" . $persona->codigo. "'>Borrar</a>" ."</td>\n";
 			echo "\t</tr>\n";
 		}
 		echo "</table>\n";
-		echo "<a href='24_crud.php?opcion=nuevo'>Nuevo</a>";
+		echo "<a href='24_crud2.php?opcion=nuevo'>Nuevo</a>";
 		
 	}
 
@@ -124,7 +124,7 @@
 		$campos = array( 
 					array( 'nombre' => 'nombre', 'funcion' => 'checkDato' ), 
 					array( 'nombre' => 'apellidos', 'funcion' => 'checkDato' ), 
-					array('nombre' => 'telefono', 'funcion' = > 'checkDato'));
+					array( 'nombre' => 'telefono', 'funcion' => 'checkDato'));
 		$missingFields = processForm( $campos );
 
 		if ( $missingFields ) {
@@ -149,8 +149,8 @@
 		// campo_requerido funcion_validacion
 		$campos = array( 
 					array( 'nombre' => 'nombre', 'funcion' => 'checkDato' ), 
-					array( 'nombre' => 'apellidos', 'funcion' => 'checkDato' )
-					array('nombre' => 'telefono', 'funcion' = > 'checkDato'));
+					array( 'nombre' => 'apellidos', 'funcion' => 'checkDato' ),
+					array( 'nombre' => 'telefono', 'funcion' => 'checkDato'));
 		$missingFields = processForm( $campos );
 
 		$persona = Persona::getByCodigo( $_REQUEST["codigo"]  );
