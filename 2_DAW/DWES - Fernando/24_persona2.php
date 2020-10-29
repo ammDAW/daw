@@ -136,7 +136,7 @@ function prueba(){
 		$a->delete();
 	}
 	$v = Persona::getAll();
-	print_r( $v );
+	print_r( $v ); //imprime los objetos, no el array
 }
 //prueba();
 ?>

@@ -51,7 +51,6 @@ class Persona{
     // return an object populated based on the record's user id
     public static function getByCodigo($codigo){
         $u = new Persona();
-
 		$conexion = new Database();
 		$sql = sprintf( "SELECT * FROM personas where codigo = %d", $codigo );
 		$rows = $conexion->query( $sql );
@@ -88,7 +87,6 @@ class Persona{
     // save the record to the database
     public function save(){
 		$conexion = new Database();
-		
         if ($this->codigo){
             $query = sprintf('UPDATE personas SET nombre = "%s", apellidos = "%s" WHERE codigo = %d',
                 $this->nombre,
@@ -101,7 +99,6 @@ class Persona{
                 $this->nombre,
                 $this->apellidos );
 			$rows = $conexion->exec( $query );
-
             $this->codigo = $conexion->lastInsertId();
         }
     }
@@ -132,7 +129,7 @@ function prueba(){
 	}
 	
 	$v = Persona::getAll();
-	print_r( $v );
+	print_r( $v ); //imprime los objetos, no el array
 }
 
 //prueba();

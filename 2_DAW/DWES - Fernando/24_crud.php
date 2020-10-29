@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<style type="text/css">
-		.error { background: #d33; color: white; padding: 0.2em; }
+		.error {background:#d33; color:white; padding:0.2em;}
 	</style>
 </head>
 <body>
@@ -67,7 +67,7 @@
 		<FORM METHOD=POST ACTION="crud.php">
 			<INPUT TYPE="hidden" name="opcion" value ="update">
 
-			<label for="codigo" <?php validateField( "nombre",	$missingFields ) ?>>Codigo</label>
+			<label for="codigo">Codigo</label>
 			<INPUT TYPE="text" NAME="codigo" value="<?php echo $persona->codigo ?>" readonly>
 			<br><br>
 

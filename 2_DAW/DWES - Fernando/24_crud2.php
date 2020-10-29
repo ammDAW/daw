@@ -19,6 +19,7 @@
 
 	function checkTelefono($telefono){
 		if(strlen($telefono)!=9)
+		
 			if ($telefono[0]==6) $resultado=1;
 			else $resultado=0;
 		else $resultado=0;
@@ -79,7 +80,7 @@
 		<FORM METHOD=POST ACTION="24_crud2.php">
 			<INPUT TYPE="hidden" name="opcion" value ="update">
 
-			<label for="codigo" <?php validateField( "codigo",	$missingFields ) ?>>Codigo</label>
+			<label for="codigo">Codigo</label> <!--no hay que hacer el validateField() porque el codigo no hay que validarlo-->
 			<INPUT TYPE="text" NAME="codigo" value="<?php echo $persona->codigo ?>" readonly>
 			<br><br>
 
