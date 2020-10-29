@@ -17,6 +17,14 @@
 		return $resultado;
 	}
 
+	function checkTelefono($telefono){
+		if(strlen($telefono)!=9)
+			if ($telefono[0]==6) $resultado=1;
+			else $resultado=0;
+		else $resultado=0;
+		return $resultado;
+	}
+
 	function validateField( $fieldName, $missingFields ) {
 		if ( in_array( $fieldName, $missingFields ) ) {
 			echo ' class="error"';
@@ -124,7 +132,7 @@
 		$campos = array( 
 					array( 'nombre' => 'nombre', 'funcion' => 'checkDato' ), 
 					array( 'nombre' => 'apellidos', 'funcion' => 'checkDato' ), 
-					array( 'nombre' => 'telefono', 'funcion' => 'checkDato'));
+					array( 'nombre' => 'telefono', 'funcion' => 'checkTelefono'));
 		$missingFields = processForm( $campos );
 
 		if ( $missingFields ) {
