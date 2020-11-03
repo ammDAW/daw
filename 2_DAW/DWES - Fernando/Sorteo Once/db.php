@@ -11,14 +11,12 @@ $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_SCHEMA;
 // establish a connection to the database server
 try{
 	$db =  new PDO( $dsn, DB_USER, DB_PASSWORD );
-
-	}catch(PDOExecption $e) {
-        print "Error!: " . $e->getMessage() . "</br>";
+	$_GLOBALS["db"]=$db;
+}catch(PDOExecption $e) {
+		print "Error!: " . $e->getMessage() . "</br>";
 }
 
-
-/*function executeQuery( $sql, $parametros )
-{
+/*function executeQuery( $sql, $parametros ){
 	$result = $db->query( $sql );
 	$result->prepare();
 	$result->execute($parametros);
@@ -28,8 +26,7 @@ try{
 		$result->execute($parametros);
 		return( $result );
 	}catch(PDOExecption $e) {
-        print "Error!: " . $e->getMessage() . "</br>";
-	
-
+		print "Error!: " . $e->getMessage() . "</br>";
+	}
 }*/
 ?>

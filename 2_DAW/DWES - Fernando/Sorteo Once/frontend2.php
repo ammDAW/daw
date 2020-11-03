@@ -5,7 +5,7 @@
 	<title>Membership Form</title>
 	<link rel="stylesheet" type="text/css" href="common.css" />
 	<style type="text/css">
-		.error{ background:#d33; color:white; padding:0.2em; }
+		.error{ background-color:#d33; color:white; padding:0.2em; }
 	</style>
 </head>
 <body>
@@ -26,6 +26,16 @@
 		else 
 			$resultado = 0;
 		return $resultado;	
+	}
+
+	function checkSerie($serie){
+		if(strlen($serie)==3 && is_numeric($serie)){
+			$resultado=1;
+		}
+		else{
+			$resultado=0;
+		}
+		return $resultado;
 	}
 
 	function checkFecha($fecha ){		
@@ -59,7 +69,7 @@
 			return null;	
 	}
 
-	function getResultados( $fecha, &$premiado, &$premio ){
+	function getResultados( $fecha, &$premiado, &$serie, &$premio){
 		$result = $GLOBALS['db']->prepare("select * from sorteo_premios where fecha = ?");
 		$fecha = fechaUSA( $fecha );
 		$result->bindParam( 1, $fecha );
@@ -67,28 +77,32 @@
 		$row = $result->fetch();
 		if( isset( $row ) ){
 			$premiado = $row['numero'];
+			$serie = $row['serie'];
 			$premio = $row['premio'];
 		}
 	}
 
 	function displayResultados(){
-		getResultados(  $_POST['fecha'], $premiado, $premio );
+		getResultados( $_POST['fecha'], $premiado, $serie, $premio );
 		?>
 			<H1>Resultado</H1>
 		<?php
 		
 		if( $premiado == $_POST['numero'] ){
+			if($serie == $_POST['serie']){
+				$premio=$premio*2;	
+			}
 			?>
-				<H2>Enhorabuena ha resultado ganador del premio del dia <?php echo $_POST['fecha']; ?> con el numero premiado <?php echo $_POST['numero'] ?>con un premio de <?php echo $premio ?> Euros</H2>
+				<H2>Enhorabuena ha resultado ganador del premio del dia <?php echo $_POST['fecha']; ?> con el numero premiado <?php echo $_POST['numero']; ?> con un premio de <?php echo $premio; ?> Euros a la serie <?php echo $_POST['serie']; ?></H2>
 				<BR>
-				<A HREF="frontend.php">Volver</A>
+				<A HREF="frontend2.php">Volver</A>
 			<?php
 		}
 		else{
 			?>
-				<H2>Lo sentimos su numero <?php echo $_POST['numero'] ?> no ha sido premiado<br>El numero ganador del premio del dia <?php echo  $_POST['fecha']; ?> ha sido el numero  <?php echo $premiado ?>con un premio de <?php echo $premio ?> Euros</H2>
+				<H2>Lo sentimos su numero <?php echo $_POST['numero'] ?> no ha sido premiado.<br>El numero ganador del premio del dia <?php echo  $_POST['fecha']; ?> ha sido el numero  <?php echo $premiado; ?> con un premio de <?php echo $premio; ?> Euros</H2>
 				<BR>
-				<A HREF="frontend.php">Volver</A>
+				<A HREF="frontend2.php">Volver</A>
 			<?php
 		}
 		
@@ -97,9 +111,11 @@
 	function displayEntrada( $missingFields ){	
 		?>
 			<H1>Comprobación de Cupón</H1>
-			<FORM METHOD=POST ACTION="frontend.php">
+			<FORM METHOD=POST ACTION="frontend2.php">
 			<label for="numero" <?php validateField( "numero",	$missingFields ) ?>>Numero</label>
 			<INPUT TYPE="text" NAME="numero">
+			<label for="serie" <?php validateField( "serie",	$missingFields ) ?>>Serie</label>
+			<INPUT TYPE="text" NAME="serie">
 		
 			<label for="fecha" <?php validateField( "fecha",	$missingFields ) ?>>Fecha</label>
 			<select  NAME="fecha" >
@@ -122,8 +138,9 @@
 	if( isset( $_POST["submit"] ) ) {
 		// campo_requerido funcion_validacion
 		$campos = array( 
-					array( 'nombre' => 'numero', 'funcion' => 'checkNumero' ), 
-					array( 'nombre' => 'fecha', 'funcion' => 'checkFecha' ) );
+					array( 'nombre' => 'numero', 'funcion' => 'checkNumero' ),
+					array( 'nombre' => 'serie', 'funcion' => 'checkSerie' ), 
+					array( 'nombre' => 'fecha', 'funcion' => 'checkFecha' ));
 		$missingFields = processForm( $campos );
 
 		if ( $missingFields ) {

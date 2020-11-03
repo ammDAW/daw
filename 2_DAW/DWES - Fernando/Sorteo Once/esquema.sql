@@ -11,14 +11,13 @@ CREATE TABLE `sorteo_premios` (
 --
 
 INSERT INTO `sorteo_premios` (`numero`, `fecha`, premio ) VALUES
-('10000', '2015-11-01', 1000 );
+('10000', '2020-11-01', 1000 );
 
 INSERT INTO `sorteo_premios` (`numero`, `fecha`, premio ) VALUES
-('10000', '2015-10-10', 1000 );
+('10000', '2020-10-10', 1000 );
 
 INSERT INTO `sorteo_premios` (`numero`, `fecha`, premio ) VALUES
-('10000', '2015-15-05', 1000 );
+('10000', '2020-15-05', 1000 );
 
 INSERT INTO `sorteo_premios` (`numero`, `fecha`, premio ) VALUES
-('10000', '2016-10-12', 1000 );
-
+('10000', '2020-10-12', 1000 );
