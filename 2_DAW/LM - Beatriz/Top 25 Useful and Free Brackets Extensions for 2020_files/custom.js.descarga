@@ -1,0 +1,87 @@
+"use strict";
+
+jQuery(document).ready(function($){
+
+    $(document).on( 'submit', 'form[name="mc-embedded-subscribe-form"]', function() {
+
+        // set ajax data
+		var data = {
+			'action' : 'sk_freebies_external_subscribe',
+        };
+
+        $.post( SkFreebiesVars.ajaxurl, data, function( response ) {
+			
+		});
+
+    });
+
+    $(document).on( 'click', '.aftr-content-newsletter input[type="submit"]', function() {
+
+        if ( $('.aftr-content-newsletter input[type="email"]').val() != '' ) {
+
+            // set ajax data
+            var data = {
+                'action' : 'sk_freebies_external_subscribe',
+            };
+
+            $.post( SkFreebiesVars.ajaxurl, data, function( response ) {
+                
+            });
+
+        }
+
+    });
+    
+
+    if ( $('.sk-freebie-download-form form').length ) {
+
+        // set ajax data
+		var data = {
+			'action' : 'sk_freebies_maybe_show_button',
+			'sk_freebies_post_id': $('.sk-freebie-download-form form').data( 'post-id' ),
+        };
+        
+        $('.sk-freebie-download-form-loader').show();
+
+        $.post( SkFreebiesVars.ajaxurl, data, function( response ) {
+			$('.sk-freebie-download-form-loader').hide();
+			if ( response.success && response.data.show_button ) {
+               $('.sk-freebie-download-form').replaceWith( response.data.output )
+			} else {
+                $('.sk-freebie-download-form-loader').hide();
+            }
+		});
+
+    }
+
+	$(document).on( 'submit', '.sk-freebie-download-form form', function(e) {
+		
+		e.preventDefault();
+
+		// set ajax data
+		var data = {
+			'action' : 'sk_freebies_subscribe',
+			'sk_freebies_post_id': $(this).data( 'post-id' ),
+			'sk_freebies_email' : $(this).find('.sk-freebie-download-form-field-email').val(),
+		};
+
+		$('.sk-freebie-download-form-loader').show();
+
+		$.post( SkFreebiesVars.ajaxurl, data, function( response ) {
+			$('.sk-freebie-download-form-loader').hide();
+			if ( response.success ) {
+                /*
+				$('.sk-freebie-download-form-loader').hide();
+				$('.sk-freebie-download-form-title').html( 'Download link was sent to your email' );
+				$('.sk-freebie-download-form-subtitle').html('The download link will expire in 3 days.');
+                $('.sk-freebie-download-form-fields').remove();
+                */
+               $('.sk-freebie-download-form').replaceWith( response.data.output )
+			} else {
+                $('.sk-freebie-download-form-loader').hide();
+            }
+		});
+		
+	});
+
+});

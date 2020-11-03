@@ -1,0 +1,115 @@
+/**
+ * Toggle
+ */
+
+.wpkube-shortcodes-toggle-item {
+    margin-bottom: 10px;
+}
+
+    .wpkube-shortcodes-toggle-item-title {
+        background: #333;
+        color: #fff;
+        padding: 15px 20px;
+        padding-right: 40px;
+        position: relative;
+        cursor: pointer;
+    }
+
+        .wpkube-shortcodes-toggle-item-title-icon {
+            display: block;
+            line-height: 1;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform .6s;
+        }
+
+            .wpkube-shortcodes-toggle-item-title-icon svg {
+                width: 10px;
+                fill: #fff;
+            }
+
+            .wpkube-shortcodes-toggle-item.wpkube-shortcodes-active .wpkube-shortcodes-toggle-item-title-icon {
+                transform: translateY(-50%) rotate(90deg);
+            }
+
+    .wpkube-shortcodes-toggle-item-content {
+        padding: 15px 20px;
+        border: 1px solid #333;
+        display: none;
+    }
+
+/**
+ * TOC
+ */
+
+.wpkube-shortcodes-toc {
+    background: #fff;
+    box-shadow: 0px 0px 2px rgba(0,0,0,.25);
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+    .wpkube-shortcodes-toc-header {
+        padding: 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+
+        .wpkube-shortcodes-toc-header-icon-list {
+            display: block;
+            line-height: 1;
+        }
+
+            .wpkube-shortcodes-toc-header-icon-list svg {
+                height: 15px;
+            }
+
+        .wpkube-shortcodes-toc-header-title {
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .wpkube-shortcodes-toc-header-icon-angle {
+            display: block;
+            line-height: 1;
+            transition: transform .7s;
+        }
+
+            .wpkube-shortcodes-toc-header-icon-angle svg {
+                height: 20px;
+            }
+
+            .wpkube-shortcodes-toc.wpkube-shortcodes-active .wpkube-shortcodes-toc-header-icon-angle {
+                transform: rotate(90deg);
+            }
+
+    .wpkube-shortcodes-toc-content {
+        padding: 15px 20px;
+        display: none;
+        border-top: 1px solid #ddd;
+    }
+
+        .wpkube-shortcodes-toc-content ol {
+            margin-bottom: 0;
+        }
+
+/**
+ * Cleanup
+ */
+
+ .wpkube-shortcodes-toggle-item p:empty {
+	display: none;
+}
+
+.wpkube-shortcodes-toggle-item-title p {
+	margin: 0 !important;
+}
+
+.wpkube-shortcodes-toggle-item-content > br:first-child {
+	display: none;
+}

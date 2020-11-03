@@ -1,0 +1,55 @@
+"use strict";
+
+jQuery(document).ready(function($){
+
+    // toggle
+
+    $(document).on( 'click', '.wpkube-shortcodes-toggle-item-title', function(){
+        
+        var toggleItem = $(this).closest('.wpkube-shortcodes-toggle-item');
+
+        if ( toggleItem.hasClass( 'wpkube-shortcodes-active' ) ) {
+            toggleItem.removeClass('wpkube-shortcodes-active');
+            toggleItem.find('.wpkube-shortcodes-toggle-item-content').slideUp(500);
+        } else {
+            toggleItem.addClass('wpkube-shortcodes-active');
+            toggleItem.find('.wpkube-shortcodes-toggle-item-content').slideDown(500);
+        }
+        
+    });
+
+    // toc
+
+    $(document).on( 'click', '.wpkube-shortcodes-toc-header', function(){
+        
+        var toggleItem = $(this).closest('.wpkube-shortcodes-toc');
+
+        if ( toggleItem.hasClass( 'wpkube-shortcodes-active' ) ) {
+            toggleItem.removeClass('wpkube-shortcodes-active');
+            toggleItem.find('.wpkube-shortcodes-toc-content').slideUp(500);
+        } else {
+            toggleItem.addClass('wpkube-shortcodes-active');
+            toggleItem.find('.wpkube-shortcodes-toc-content').slideDown(500);
+        }
+        
+    });
+
+    if ( $('.wpkube-shortcodes-toc').length ) {
+
+        var contentSelector = $('.wpkube-shortcodes-toc').data('wpkube-shortcodes-selector'),
+        contentElement = $(contentSelector),
+        output = '';
+
+        console.log( contentSelector );
+
+        contentElement.find('h2').each(function(){
+            if ( $(this).attr('id') ) {
+                output += '<li><a href="#' + $(this).attr('id') + '">' + $(this).text() +  '</a></li>';
+            }
+        });
+
+        $('.wpkube-shortcodes-toc-content ol').html( output );
+
+    }
+
+});

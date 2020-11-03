@@ -1,0 +1,232 @@
+.sk-freebies {
+	overflow: hidden;
+}
+
+	.sk-freebie {
+		float: left;
+		width: 31.33%;
+		margin-right: 3%;
+        margin-bottom: 30px;
+        border: 1px solid #e7e7e7;
+        border-radius: 2px;
+	}
+
+	.sk-freebie:nth-child(3n) {
+		margin-right: 0;
+    }
+    
+    .sk-freebie:nth-child(3n+1) {
+		clear: both;
+	}
+
+		.sk-freebie-thumb {
+            border-bottom: 2px solid #f7f7f7;
+		}
+
+			.sk-freebie-thumb a,
+			.sk-freebie-thumb img {
+                display: block;
+                width: 100%;
+			}
+
+		.sk-freebie-main {
+            padding: 20px;
+		}
+
+			.sk-freebie-main .entry-title {
+				margin: 0;
+				font-size: 17px;
+			}
+
+				.sk-freebie-title a {
+					color: inherit;
+				}
+
+			.sk-freebie-meta-top {
+				margin-bottom: 15px;
+			}
+
+			.sk-freebie-excerpt {
+				font-size: 14.4px;
+                color: #414141;
+                margin: 16px 0 13px 0;
+			}
+
+				.sk-freebie-excerpt p:last-child {
+					margin-bottom: 0;
+				}
+
+			.sk-freebie-meta-bottom {
+
+			}
+
+.sk_freebies .entry-time {
+    display: none;
+}
+
+/**
+ * Download Form
+ */
+
+.sk-freebie-download-form {
+	padding: 35px;
+	border: 2px solid #eee;
+	position: relative;
+}
+
+	.sk-freebie-download-form-title {
+		font-size: 25px;
+	}
+
+	.sk-freebie-download-form-subtitle {
+		margin-top: 5px;
+	}
+
+	.sk-freebie-download-form-fields {
+		margin-top: 30px;
+	}
+
+		.sk-freebie-download-form-fields {
+
+		}
+
+			.sk-freebie-download-form-field-email {
+				width: 70%;
+			}
+
+			.sk-freebie-download-form-field-submit {
+				width: 30%;
+			}
+
+	.sk-freebie-download-form-loader {
+		background: rgba( 255, 255, 255, 0.5 );
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: none;
+	}
+
+		.sk-freebie-download-form-loader-el {
+			display: inline-block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			width: 64px;
+			height: 64px;
+		}
+			
+			.sk-freebie-download-form-loader-el div {
+				box-sizing: border-box;
+				display: block;
+				position: absolute;
+				width: 51px;
+				height: 51px;
+				margin: 6px;
+				border: 6px solid #444;
+				border-radius: 50%;
+				animation: sk_freebie_loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+				border-color: #444 transparent transparent transparent;
+			}
+
+			.sk-freebie-download-form-loader-el div:nth-child(1) {
+				animation-delay: -0.45s;
+			}
+
+			.sk-freebie-download-form-loader-el div:nth-child(2) {
+				animation-delay: -0.3s;
+			}
+			
+			.sk-freebie-download-form-loader-el div:nth-child(3) {
+				animation-delay: -0.15s;
+			}
+			
+			@keyframes sk_freebie_loader {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+            }
+            
+.sk-freebies-related {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+    .sk-freebies-related-items {
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .sk-freebies-related-item {
+            width: 31%;
+            opacity: 0.8;
+        }
+
+        .sk-freebies-related-item:hover {
+            opacity: 1;
+        }
+
+            .sk-freebies-related-item-thumb {
+                margin-bottom: 10px;
+            }
+
+                .sk-freebies-related-item-thumb a {
+                    padding: 2px;
+                    border: 1px solid #dedede;
+                }
+
+                .sk-freebies-related-item-thumb a,
+                .sk-freebies-related-item-thumb img {
+                    display: block;
+                }
+
+            .sk-freebies-related-item-title {
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: bold;
+                margin: 0;
+            }
+
+                .sk-freebies-related-item:hover .sk-freebies-related-item-title a {
+                    text-decoration: underline;
+                }
+
+@media only screen and (max-width: 800px) { 
+
+	.sk-freebie-download-form-field-email {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+
+	.sk-freebie-download-form-field-submit {
+		width: auto;
+	}
+
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .sk-freebie {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .sk-freebies-related-items {
+        flex-direction: column;
+    }
+
+        .sk-freebies-related-item {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .sk-freebies-related-item:last-child {
+            margin-bottom: 0;
+        }
+
+}
