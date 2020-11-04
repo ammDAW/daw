@@ -1,0 +1,32 @@
+body {
+    font-size: 15px;
+}
+
+#interior{
+    border: 40px solid;
+    font-size: 40px;
+}
+
+html{
+    font-size: 20px;
+}
+
+#exterior{
+    border: 30px solid;
+    font-size: 30px;
+}
+/* Respuesta 4: 
+Calcula qué tamaño en píxeles tendrá el borde de la caja interior. ¿Ha cambiado respecto a la parte 1? - No ha cambiado.
+¿Le afecta al borde expresado en rem el tamaño de la letra de html? - Sí.
+¿Le afecta al borde expresado en rem el tamaño de la letra de body? - No.
+
+Calcula qué tamaño en píxeles tendrá el borde de la caja exterior. ¿Ha cambiado respecto a la parte 1? - No ha cambiado.
+¿Le afecta al borde expresado en em el tamaño de la letra de html? - No.
+¿Le afecta al borde expresado en em el tamaño de la letra de body? - Sí.*/
+
+h1{
+    font-size: 2em;
+}
+/* Respuesta 5:
+    exterior -> 30*2=60px 
+    interior -> 40*2=80px */

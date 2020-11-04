@@ -1,0 +1,23 @@
+body {
+    font-size: 15px;
+}
+
+#interior{
+    border: 2rem solid;
+}
+/* Respuesta 1 -> 16*2=32px */
+
+html{
+    font-size: 20px;
+}
+/* Respuesta 2 -> 20*2=40px 
+Sí que cambia, ya que rem coge la referencia del html,
+con lo cual al cambiarle el tamaño a al raiz (html) sí que le afecta,
+pero no si se le cambia el tamaño al body */
+
+#exterior{
+    border: 2em solid;
+}
+/* Respuesta 3 -> 15*2=30px
+Aquí sí afecta el cambio del body ya que em coge del padre
+pero no se ve afectado por el cambio de tamaño en la raíz */
