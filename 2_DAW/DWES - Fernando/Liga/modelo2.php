@@ -22,6 +22,13 @@ function getResultados(){
 	
 	return( $resultados );
 }
+function getJornadas(){
+	$sentencia = "select jornada_id from liga_jornadas";
+	$resultado = $GLOBALS['DB']->prepare($sentencia);
+	$resultado->execute();
+	$jornadas = $resultado->fetchAll();
+	return ($jornadas);
+}
 
 function getClasificacion(){
 	$sentencia = "select * from liga_equipos";

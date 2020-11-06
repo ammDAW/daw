@@ -1,7 +1,12 @@
 <?php
-function print_jornada( $resultados ){
+function print_jornada( $resultados, $jornadas ){
 	?>
-	<h1>Jornada</h1>
+	<h1>Jornadas</h1>
+	
+	<?php foreach ($jornadas as $jornada){ 
+		//echo $jornada['jornada_id']." "
+		printf("<a href='controlador2.php?jornada= $jornada['jornada_id']'> $jornada['jornada_id']</a>") 
+	}?>
 	<table BORDER="1">
 		<tr><th>L</th><th>V</th></tr>
 		<?php foreach ($resultados as $resultado) { ?>
@@ -15,7 +20,7 @@ function print_jornada( $resultados ){
 		<?php } ?>
 	</table>
 	<br>
-	<a href="controlador.php">Inicio</a>
+	<a href="controlador2.php">Inicio</a>
 	<?php
 }
 
@@ -34,7 +39,7 @@ function print_clasificacion( $clasificacion ){
 		<?php } ?>
 	</table>
 	<br>
-	<a href="controlador.php">Inicio</a>
+	<a href="controlador2.php">Inicio</a>
 	
 	<?php
 }
@@ -42,7 +47,7 @@ function print_clasificacion( $clasificacion ){
 function print_inicio( ){
 	?>
 	<h1>Inicio</h1>
-	<a href="controlador.php?opcion=jornada">Jornada</a>
-	<a href="controlador.php?opcion=clasificacion">Clasificacion</a>
+	<a href="controlador2.php?opcion=jornada">Jornada</a>
+	<a href="controlador2.php?opcion=clasificacion">Clasificacion</a>
 	<?php
-}
+}?>
