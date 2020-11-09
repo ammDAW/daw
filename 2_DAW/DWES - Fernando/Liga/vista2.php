@@ -4,19 +4,20 @@ function print_jornada( $resultados, $jornadas ){
 	<h1>Jornadas</h1>
 	
 	<?php foreach ($jornadas as $jornada){ 
-		//echo $jornada['jornada_id']." "
-		printf("<a href='controlador2.php?jornada= $jornada['jornada_id']'> $jornada['jornada_id']</a>") 
-	}?>
+		//--echo $jornada['jornada_id']." "-->
+		printf("<a href=\"controlador2.php?opcion=jornada&jornada=%s\">%s</a>&nbsp;", $jornada['jornada_id'], $jornada['jornada_id']);
+		//<a href="controlador2.php?jornada="echo $jornada['jornada_id']> echo $jornada['jornada_id']</a> 
+	} ?>
 	<table BORDER="1">
 		<tr><th>L</th><th>V</th></tr>
 		<?php foreach ($resultados as $resultado) { ?>
-		<tr>
-		<td><?php echo $resultado['local'] ?></td>
-		<td><?php echo $resultado['visitante'] ?></td>
-		<td><?php echo $resultado['marcador_local'] ?></td>
-		<td><?php echo $resultado['marcador_visitante'] ?></td>
-		<td><?php echo $resultado['estado'] ?></td>
-		</tr>
+			<tr>
+			<td><?php echo $resultado['local'] ?></td>
+			<td><?php echo $resultado['visitante'] ?></td>
+			<td><?php echo $resultado['marcador_local'] ?></td>
+			<td><?php echo $resultado['marcador_visitante'] ?></td>
+			<td><?php echo $resultado['estado'] ?></td>
+			</tr>
 		<?php } ?>
 	</table>
 	<br>
@@ -49,5 +50,4 @@ function print_inicio( ){
 	<h1>Inicio</h1>
 	<a href="controlador2.php?opcion=jornada">Jornada</a>
 	<a href="controlador2.php?opcion=clasificacion">Clasificacion</a>
-	<?php
-}?>
+<?php } ?>

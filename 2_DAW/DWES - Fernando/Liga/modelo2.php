@@ -2,19 +2,10 @@
 
 require "db.php";
 
-function getResultados(){
-	$sentencia = "select max( jornada_id ) from liga_jornadas";
+function getResultados($jornada){
+	$sentencia = "SELECT a.equipo as local , b.equipo as visitante, marcador_local , marcador_visitante, estado FROM liga_partidos, liga_equipos as a, liga_equipos as b WHERE liga_partidos.local_id = a.equipo_id and liga_partidos.visitante_id = b.equipo_id and jornada_id = ? order by partido_id";
 	$resultado  = $GLOBALS['DB']->prepare($sentencia);
-	$resultado->execute();
-
-	// Recupera todas las filas en un array
-	$row = $resultado->fetch();
-	
-	$jornada_id = $row[ 0 ];
-	
-	$sentencia = "select a.equipo as local , b.equipo as visitante, marcador_local , marcador_visitante, estado from liga_partidos, liga_equipos as a, liga_equipos as b where liga_partidos.local_id = a.equipo_id and liga_partidos.visitante_id = b.equipo_id and jornada_id = ? order by partido_id";
-	$resultado  = $GLOBALS['DB']->prepare($sentencia);
-	$resultado->bindParam( 1, $jornada_id );
+	$resultado->bindParam( 1, $jornada );
 	$resultado->execute();
 
 	// Recupera todas las filas en un array
@@ -28,6 +19,15 @@ function getJornadas(){
 	$resultado->execute();
 	$jornadas = $resultado->fetchAll();
 	return ($jornadas);
+}
+
+function getUltimaJornada(){
+	$sentencia = "select max(jornada_id) from liga_jornadas";
+	$resultado = $GLOBALS['DB']->prepare($sentencia);
+	$resultado->execute();
+	$row = $resultado->fetch();
+	$ultima_jornada = $row[0];
+	return ($ultima_jornada);
 }
 
 function getClasificacion(){
