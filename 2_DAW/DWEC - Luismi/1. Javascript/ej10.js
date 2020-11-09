@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded",function(){
 	
 	const search1 = document.querySelector("#search1") //caja
 	const listaResult1 = document.querySelector("#listaResult1") 
-	const placeList = document.querySelector("#placeList") //lista dnd se vana  mover los datos
+	const placeList = document.querySelector("#placeList") //lista dnd se van a mover los datos
 	const form1 = document.querySelector("#solution1 form") //formulario
 
 	search1.focus() //poner foco en la caja
@@ -51,6 +51,31 @@ document.addEventListener("DOMContentLoaded",function(){
 		if(activo) activo.remove()	
 	})
 
+	document.querySelector("#btnUp").addEventListener("click", ()=>{
+		let activo = placeList.querySelector("li.active")
+		if(activo && activo.previousElementSibling){
+			//mover-colocar el elemento activo como hermano anterior a su actual anterior
+			placeList.insertBefore(activo, activo.previousElementSibling)
+		}
+	})
+	
+	document.querySelector("#btnDown").addEventListener("click", ()=>{
+		let activo = placeList.querySelector("li.active")
+		if(activo && activo.nextElementSibling) placeList.insertBefore(activo.nextElementSibling, activo)
+	})
+
+	document.querySelector("#btnFirst").addEventListener("click", () =>{
+		let activo = placeList.querySelector("li.active")
+		if(activo){
+			placeList.prepend(activo) //otra forma de hacerlo: placeList.insertBefore(activo, placeList.firstChild) 
+		} 
+			
+	})
+
+	document.querySelector("#btnLast").addEventListener("click", () =>{
+		let activo = placeList.querySelector("li.active")
+		if(activo) placeList.append(activo)
+	})
 })
 
 //así le pasamos toda la caja
