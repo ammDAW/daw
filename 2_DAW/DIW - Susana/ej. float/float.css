@@ -1,0 +1,24 @@
+#anterior{
+    float: left;
+}
+
+#siguiente{
+    float: right;
+}
+
+.cuadro{
+    height: 4.5em;
+    border:2px solid grey;
+    border-radius: 10px;
+    background-color: grey;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+span{
+    margin: 0.5em;
+    padding: 1em;
+    border:3px solid white;
+    border-radius: 10px;
+    color: white;
+}
