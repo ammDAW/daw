@@ -1,9 +1,30 @@
 p{
-    color: olivedrab;
+    color: #4E6B2F;
+    padding: 2em;
+}
+p::first-letter{
+	font-size: 4em;
+    float: left;
+    border:5px #5D7915 groove;
+    border-top-right-radius: 65%;
+    border-bottom-left-radius: 65%;
+    background-color: #80FF00;
+    padding-right: 23px;
+    padding-left: 23px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+    border-color: #9CCA33;
+    margin-right: 10px;
 }
 
-span{
+p:last-of-type{
+    color: #FFC0CB;;
+}
+
+p:last-of-type::first-letter{
+    background-color: #FFC0CB;
+    color: #8B0390;
     float: left;
-    height: 3em;
-    width: 3em;
+    border: 5px #AA4577 groove;
+    border-color: #F977BA;
 }
