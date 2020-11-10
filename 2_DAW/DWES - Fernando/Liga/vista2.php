@@ -9,7 +9,7 @@ function print_jornada( $resultados, $jornadas ){
 		//<a href="controlador2.php?jornada="echo $jornada['jornada_id']> echo $jornada['jornada_id']</a> 
 	} ?>
 	<table BORDER="1">
-		<tr><th>L</th><th>V</th></tr>
+		<tr><th>L</th><th>V</th><th colspan=2>Marcador</th><th>Estado</th><th>Espectadores</th></tr>
 		<?php foreach ($resultados as $resultado) { ?>
 			<tr>
 			<td><?php echo $resultado['local'] ?></td>
@@ -17,6 +17,7 @@ function print_jornada( $resultados, $jornadas ){
 			<td><?php echo $resultado['marcador_local'] ?></td>
 			<td><?php echo $resultado['marcador_visitante'] ?></td>
 			<td><?php echo $resultado['estado'] ?></td>
+			<td><?php echo $resultado['espectadores'] ?></td>
 			</tr>
 		<?php } ?>
 	</table>
@@ -30,7 +31,7 @@ function print_clasificacion( $clasificacion ){
 	<h1>Clasificacion</h1>
 	<table BORDER="1">
 		<tr><th>Equipo</th><th>Puntos</th><th>Puntos Local</th><th>Puntos Visitante</th></tr>
-		<?php  foreach ($clasificacion as $equipo ) {?>
+		<?php foreach ($clasificacion as $equipo ) {?>
 		<tr>
 		<td><?php echo $equipo['equipo'] ?></td>
 		<td><?php echo $equipo['puntos'] ?></td>
