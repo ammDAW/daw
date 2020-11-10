@@ -17,11 +17,15 @@ function print_jornada( $resultados, $jornadas ){
 			<td><?php echo $resultado['marcador_local'] ?></td>
 			<td><?php echo $resultado['marcador_visitante'] ?></td>
 			<td><?php echo $resultado['estado'] ?></td>
-			<td><?php echo $resultado['espectadores'] ?></td>
+			<td><form method=post action="controlador2.php">
+					<input type="hidden" name="accion" value="update">
+					<input type="text" name="espectadores" value="<?php echo $resultado['espectadores']?>">
+			</td>
 			</tr>
 		<?php } ?>
 	</table>
 	<br>
+	<input type="submit" name="submit" id="submitButton" value="Actualizar">
 	<a href="controlador2.php">Inicio</a>
 	<?php
 }

@@ -22,5 +22,10 @@ elseif( isset( $_GET['opcion'] ) && $_GET['opcion'] == 'clasificacion' ){
 	$clasificacion = getClasificacion();
 	print_clasificacion( $clasificacion );
 }
-else print_inicio( );
+elseif(isset($_GET['accion']) && $_GET['accion']=='update'){
+	$resultados = getResultados($_GET['jornada']);
+	foreach($resultados as $resultado)
+		updateEspectadores($resultado['partido_id'],$_POST['espectadores']);
+}
+else print_inicio();
 ?>

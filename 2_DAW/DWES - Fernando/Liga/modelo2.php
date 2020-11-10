@@ -1,6 +1,15 @@
 <?php
 require "db.php";
 
+function updateEspectadores($partido_id, $espectadores)
+{
+	$sentencia = "update liga_partidos set espectadores = ? where partido_id = ?";
+	$resultado  = $GLOBALS['DB']->prepare($sentencia);
+	$resultado->bindParam(1, $espectadores);
+	$resultado->bindParam(2, $partido_id);
+	$resultado->execute();
+}
+
 function getResultados($jornada){
 	$sentencia = "SELECT a.equipo as local , b.equipo as visitante, marcador_local , marcador_visitante, estado, espectadores FROM liga_partidos, liga_equipos as a, liga_equipos as b WHERE liga_partidos.local_id = a.equipo_id and liga_partidos.visitante_id = b.equipo_id and jornada_id = ? order by partido_id";
 	$resultado  = $GLOBALS['DB']->prepare($sentencia);
