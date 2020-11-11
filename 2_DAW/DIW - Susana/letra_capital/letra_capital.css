@@ -6,7 +6,7 @@ p{
 p::first-letter{
 	font-size: 4em;
     float: left;
-    border:5px #5D7915 groove;
+    border: 5px #5D7915 groove;
     border-top-right-radius: 65%;
     border-bottom-left-radius: 65%;
     background-color: #80FF00;
@@ -41,5 +41,7 @@ no deja establecer el width
 
 4. Sí se puede -> p:last-of-type::first-letter
 
-5. 
+5. aunque yo he usado en casi todo píxeles para poder ajustarlo mejor,
+lo idóneo (sobre todo para los márgenes y paddings) es usar em
+para ajustarlo a los padres a la hora de hacer responsive
 /*
