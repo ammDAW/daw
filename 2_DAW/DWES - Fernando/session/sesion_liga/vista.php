@@ -65,7 +65,6 @@ function print_inicio( )
 	<h1>Inicio</h1>
 	<a href="controlador.php?opcion=jornada">Jornada</a><br>
 	<a href="controlador.php?opcion=clasificacion">Clasificacion</a><br>
-	<a href="controlador.php?opcion=actualizar">Actualizar resultados</a>
 	<?php
 }
 
