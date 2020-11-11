@@ -1,0 +1,32 @@
+p{
+    color: #4E6B2F;
+    padding: 0.5em;
+    clear: left; 
+}
+
+span{
+	font-size: 4em;
+    float: left;
+    border:5px #5D7915 groove;
+    border-top-right-radius: 65%;
+    border-bottom-left-radius: 65%;
+    background-color: #80FF00;
+    padding-right: 23px;
+    padding-left: 23px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+    border-color: #9CCA33;
+    margin-right: 10px;
+}
+
+p:last-of-type{
+    color: #FFC0CB;;
+}
+
+p:nth-of-type(3) span{
+    background-color: #FFC0CB;
+    color: #8B0390;
+    float: left;
+    border: 5px #AA4577 groove;
+    border-color: #F977BA;
+}

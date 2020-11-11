@@ -1,6 +1,7 @@
 p{
     color: #4E6B2F;
-    padding: 2em;
+    padding: 0.5em;
+    clear: left;
 }
 p::first-letter{
 	font-size: 4em;
@@ -28,3 +29,17 @@ p:last-of-type::first-letter{
     border: 5px #AA4577 groove;
     border-color: #F977BA;
 }
+
+/*
+2. Cambios que se han ido realizando a lo largo de los 
+distintos tipos de CSS (CSS2 y CSS3), pero en resumen, es para diferenciar 
+entre pseudo-clases : y pseudo-elementos ::
+
+3. No se puede porque la sintaxis no deja, tiene ciertas 
+restricciones/limitaciones con los pseudo-elementos, y en este caso
+no deja establecer el width
+
+4. Sí se puede -> p:last-of-type::first-letter
+
+5. 
+/*

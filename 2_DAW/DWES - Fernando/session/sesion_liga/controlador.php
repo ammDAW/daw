@@ -1,7 +1,7 @@
 <?php
 include "vista.php";
 include "modelo.php";
-include "/backend/controlador.php";
+include ".\backend\controlador.php";
 
 function checkDato( $valor ){	
 	if( strlen( $valor ) < 5 ) 
