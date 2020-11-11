@@ -7,7 +7,6 @@ require_once('vista.php');
 
 if(  isset( $_REQUEST['opcion'] ) && $_REQUEST['opcion'] == 'actualizar' )
 {
-	print( $_REQUEST['opcion'] );
 	$jornada = ultima_jornada();	
 	$partidos = getResultados( $jornada );
 	foreach( $partidos as $partido )
@@ -19,6 +18,8 @@ if(  isset( $_REQUEST['opcion'] ) && $_REQUEST['opcion'] == 'actualizar' )
 			updateVisitante( $partido[ 'partido_id'], $_REQUEST['visitante' . $partido[ 'partido_id']] );
 		if( isset( $_REQUEST['estado' . $partido[ 'partido_id']]) )
 			updateEstado( $partido[ 'partido_id'], $_REQUEST['estado' . $partido[ 'partido_id']] );
+		if( isset( $_REQUEST['aforo' . $partido[ 'partido_id']]) )
+		updateAforo( $partido[ 'partido_id'], $_REQUEST['aforo' . $partido[ 'partido_id']] );
 	}
 }
 
