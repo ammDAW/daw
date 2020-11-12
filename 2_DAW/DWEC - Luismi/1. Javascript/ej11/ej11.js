@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded",function(){
             addItemToTable(selectNuevoAtrib, tablaContacto)    
         }
     })
-
+    
+    //no funciona
     document.querySelector("#btnBorrar").addEventListener("click", () =>{
         this.parentElement.remove()
     })
