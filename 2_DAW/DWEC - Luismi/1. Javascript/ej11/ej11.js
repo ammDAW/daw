@@ -1,0 +1,38 @@
+//Desarrolla aquí la solución al ejercicio 11
+document.addEventListener("DOMContentLoaded",function(){
+    const tablaContacto = document.querySelector("#tablaContacto")
+    const selectNuevoAtrib = document.querySelector("#selectNuevoAtrib")
+    
+    selectNuevoAtrib.addEventListener('change', () => {
+        if (selectNuevoAtrib.value==1 || selectNuevoAtrib.value==2){
+            addItemToTable(selectNuevoAtrib, tablaContacto)    
+        }
+    })
+
+    document.querySelector("#btnBorrar").addEventListener("click", () =>{
+        this.parentElement.remove()
+    })
+
+})
+
+function addItemToTable(item, table){
+    if(item.value.trim().length){
+        let nuevoTR = document.createElement("tr")
+        let nuevoTD1 = document.createElement("td")
+        let nuevoTD2 = document.createElement("td")
+        if (selectNuevoAtrib.value==1){
+            nuevoTD1.innerHTML = '<img class="small-icon" src="img/tlfn.png">'
+            nuevoTD2.innerHTML = '<input type="tel">'
+        }
+        else{
+            nuevoTD1.innerHTML = '<img class="small-icon" src="img/email.png">'
+            nuevoTD2.innerHTML = '<input type="email">'
+        }
+        
+        //nuevoTD1.classList.add("small-icon")
+        let nuevoTD3 = document.createElement("td")
+        nuevoTD3.innerHTML = '<button type="button" id="btnBorrar">X</button>'
+        nuevoTR.append(nuevoTD1, nuevoTD2, nuevoTD3)
+        table.querySelector("tbody").append(nuevoTR)
+    }
+}
