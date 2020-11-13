@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded",function(){
             addItemToTable(selectNuevoAtrib, tablaContacto)    
         }
     })
+
+    /*selectNuevoAtrib.addEventListener('change', () => {
+        let opcion= ev.target.value
+        if (opcion!=0{
+            addItemToTable(opcion, tablaContacto)
+        }
+    })*/
     
     //no funciona
     document.querySelector("#btnBorrar").addEventListener("click", () =>{
@@ -21,6 +28,13 @@ function addItemToTable(item, table){
         let nuevoTR = document.createElement("tr")
         let nuevoTD1 = document.createElement("td")
         let nuevoTD2 = document.createElement("td")
+        /*let nuevoIMG = docuemnt.createElement("img")
+          nuevoIMG.srv = "img/tlfn.png"
+        let nuevoINPUT = docuemnt.createElement("input")
+            nuevoINPUT type ? "tel"
+        let nuevoBUTTON = docuemnt.createElement("button")
+            nuevoBUTTON.textContent = "X" */
+
         if (selectNuevoAtrib.value==1){
             nuevoTD1.innerHTML = '<img class="small-icon" src="img/tlfn.png">'
             nuevoTD2.innerHTML = '<input type="tel">'
