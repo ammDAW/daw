@@ -9,6 +9,7 @@ CREATE TABLE reg_accesos
 (
 codigo int, 
 acceso date,
+tiempo varchar,
 FOREIGN KEY (codigo) REFERENCES reg_usuarios( codigo )
 );
 

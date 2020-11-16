@@ -1,10 +1,11 @@
 <?php
-if(!isset($_COOKIE['acceso'])) {
+if(!isset($_COOKIE['acceso'])){
      echo "Es la primera vez que accedes a nuestra web. Nos encanta conocerte";
 }
-else {	 	
+else {
+	 	
 	$segundos = time() - $_COOKIE['acceso']  ;
-    echo "Has tardado {$segundos} en volver. Te hemos echado de menos<br>";
+    echo "Has tardado  {$segundos} en volver. Te hemos echado de menos<br>";
     
 }
 setcookie('acceso', time(), time() + (3600 * 24 * 30), "/"); // 1 mes
