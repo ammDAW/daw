@@ -15,12 +15,13 @@ document.addEventListener("DOMContentLoaded",function(){
             addItemToTable(opcion, tablaContacto)
         }
     })*/
-    
-    //no funciona
-    document.querySelector("#btnBorrar").addEventListener("click", () =>{
-        this.parentElement.remove()
-    })
 
+    //Boton borrar por delegacion de eventos
+    tablaContacto.addEventListener("click", e =>{
+        if(e.target.classList.contains("btnBorrar")){ //se usa el contains por si contiene más de una clase
+            e.target.parentElement.parentElement.remove()
+        }
+    })
 })
 
 function addItemToTable(item, table){
@@ -29,11 +30,11 @@ function addItemToTable(item, table){
         let nuevoTD1 = document.createElement("td")
         let nuevoTD2 = document.createElement("td")
         /*let nuevoIMG = docuemnt.createElement("img")
-          nuevoIMG.srv = "img/tlfn.png"
+            nuevoIMG.srv = "img/tlfn.png"
         let nuevoINPUT = docuemnt.createElement("input")
-            nuevoINPUT type ? "tel"
+            nuevoINPUT.type = "tel"
         let nuevoBUTTON = docuemnt.createElement("button")
-            nuevoBUTTON.textContent = "X" */
+            nuevoBUTTON.textContent = "X"*/
 
         if (selectNuevoAtrib.value==1){
             nuevoTD1.innerHTML = '<img class="small-icon" src="img/tlfn.png">'
@@ -46,7 +47,7 @@ function addItemToTable(item, table){
         
         //nuevoTD1.classList.add("small-icon")
         let nuevoTD3 = document.createElement("td")
-        nuevoTD3.innerHTML = '<button type="button" id="btnBorrar">X</button>'
+        nuevoTD3.innerHTML = '<button type="button" class="btnBorrar">X</button>'
         nuevoTR.append(nuevoTD1, nuevoTD2, nuevoTD3)
         table.querySelector("tbody").append(nuevoTR)
     }
