@@ -1,0 +1,32 @@
+#capa1{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    position: relative;
+    top: 200px;
+    left: 200px;
+}
+
+#capa1a{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#capa1b{
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#capa2{
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
