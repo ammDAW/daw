@@ -9,51 +9,96 @@ div.lienzo {
 
 div.dibujos { 
 	position: absolute;
-	border: solid black 3px;
+	border: solid white 3px;
 	padding: 5px;
 }
 
 div.casa { 
 	height: 150px; 
 	width: 200px;
-    background-color: grey;
+	background-color: grey;
+	border-color: black;
+	
 }
 
 #h1 {
-	/*top: 100px;*/ 
 	left: 100px;
 	bottom: 0;
 	position: absolute;
-	
 }
 
 div.tejado { 
 	height: 30px; 
 	width: 220px;
     background-color: red;
-	bottom: 160px; 
+	bottom: 162px; 
 	left: -13px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-color: brown;
 }
 
 div.puerta{
-	background-color: white;
+	background-color: darkred;
 	position: absolute;
 	bottom: 0;
 	left: 75px;
+	border-color: green;
+	height: 50px;
 }
 
 div.ventana2{
 	background-color: turquoise;
-	border: 0.1em blue solid;
-	position: absolute;
-	right: 0;
+	border: 3px blue solid;
+	right: 20px;
+	top: 20px;
+	width: 20px;
+	height: 20px;
 }
 
 div.ventana{
 	background-color: turquoise;
-	border: 0.1em blue solid;
-	position: absolute;
-	left: 0;
+	border: 3px blue solid;
+	left: 20px;
+	top: 20px;
+	width: 20px;
+	height: 20px;
+}
+
+#sol{
+	border-radius: 50%;
+	background-color: yellow;
+	right: 48px;
+	width: 30px;
+	height: 30px;
+	top: 12.5px;
+	border-color: black;
+	z-index: 1;
+}
+
+.nube1{
+	background-color: turquoise;
+	width: 42px;
+    height: 20px;
+    border-radius: 50%;
+	border: 1px white solid;
+	right: 75px;
+	top: 20px;
+}
+
+.nube2{
+	background-color: turquoise;
+	width: 42px;
+    height: 20px;
+    border-radius: 50%;
+	border: 1px white solid;
+	right: 10px;
+	top: 20px;
+}
+
+h1{
+	background-color: white;
+	height: 35px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 28px;
 }
