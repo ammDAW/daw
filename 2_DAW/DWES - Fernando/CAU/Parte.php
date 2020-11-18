@@ -82,8 +82,8 @@ class Parte{
 			$query->bindParam( 3, $this->telefono );
 			$query->bindParam( 4, $this->fecha );
             $query->bindParam( 5, $this->averia );
-            $query->bindParam( 5, $this->ubicacion );
-			$query->bindParam( 6, $this->codigo );
+            $query->bindParam( 6, $this->ubicacion );
+			$query->bindParam( 7, $this->codigo );
 			
 			$query->execute( );
         }
