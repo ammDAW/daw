@@ -30,7 +30,6 @@ function SQLexecute( $sql, $parametros = null){
 
 function SQLquery( $sql, $parametros = null ){
 	//var_dump( $sql );
-	
 	$datos = array();
 	
 	try{

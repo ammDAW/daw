@@ -25,7 +25,7 @@ function displayListar( $datos ){
 		<br>
 		{$item['nombre']} ({$item['tipo']})
 		<br>
-		<a href='descargar_archivo.php?id={$item['id']}'>Descargar</a>
+		<a href='controlador.php?opcion=mostrar_fichero&id={$item['id']}'>Descargar</a>
 		<br>
 		<br>";
 	}
@@ -45,7 +45,7 @@ function displayMensaje( $msg ){
 function displayMenu( ){
 	print "<br>";
 	print "<br><a href=\"controlador.php?opcion=inicio\">Inicio</a> ";
-	print "<a href=\"controlador.php?opcion=listado\">listado</a> ";
+	print "<a href=\"controlador.php?opcion=listado\">Listado</a> ";
 	print "<a href=\"controlador.php?opcion=grabar\">Grabar</a> ";
 }
 ?>

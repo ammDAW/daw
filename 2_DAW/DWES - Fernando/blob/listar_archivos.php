@@ -5,7 +5,9 @@ $sql = "SELECT id, nombre, titulo, tipo FROM blob_archivos";
 $datos = sqlQuery( $sql );
 
 foreach( $datos as $item ){
-    print" {$item['titulo']}
+    
+    
+    print "{$item['titulo']}
     <br>
     {$item['nombre']} ({$item['tipo']})
     <br>

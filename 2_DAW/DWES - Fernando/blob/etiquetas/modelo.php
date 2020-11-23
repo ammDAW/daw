@@ -2,7 +2,7 @@
 require "db.php";
 
 function upload( $nombre, $titulo, $contenido,$tipo){
-	$sql = "INSERT INTO blob_archivos  ( nombre, titulo, contenido,tipo ) values (:nombre,:titulo, :contenido, :tipo)";
+	$sql = "INSERT INTO blob_archivos ( nombre, titulo, contenido,tipo ) values (:nombre,:titulo, :contenido, :tipo)";
 	$parametros= array( ":nombre" => $nombre, ":titulo" => $titulo,  ":contenido" => $contenido,  ":tipo" => $tipo );
 	$valor = SQLexecute( $sql, $parametros );
 	return $valor;
@@ -16,6 +16,14 @@ function getFicheros(){
 
 function getEtiquetas(){
 	$sql = "SELECT * FROM blob_etiquetas";
+	$datos = sqlQuery( $sql );
+	return $datos;
+}
+
+//obtener etiquetas por id de archivo
+function getEtiquetasArchivo($id){
+	$sql = "SELECT * FROM blob_archivos_etiquetas WHERE archivo_id=:id";
+	$parametros = array( ":id"=> $id );
 	$datos = sqlQuery( $sql );
 	return $datos;
 }
