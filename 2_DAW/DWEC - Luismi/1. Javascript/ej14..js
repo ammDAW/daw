@@ -31,12 +31,15 @@ function main(){
     let leftBola = Math.floor(Math.random() * (anchuraTablero - medidaBola))
     let velLeftBola = 1
     let velTopBola = 1
+    bola.style.top = topBola + "px"
+    bola.style.left = leftBola + "px"
+    
     function moverBola(){ //ambio posicion bola
         topBola = topBola + velTopBola 
         bola.style.top = topBola + "px"
-        
         leftBola = leftBola + velLeftBola
         bola.style.left = leftBola + "px"
+
         if(topBola >= (alturaTablero-medidaBola) || topBola <= 0)
             velTopBola *= -1
         if(leftBola >= (anchuraTablero-medidaBola) || leftBola <= 0)
