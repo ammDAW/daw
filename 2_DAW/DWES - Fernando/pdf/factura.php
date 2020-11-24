@@ -17,7 +17,7 @@ class Factura extends FPDF{
 	function getByCodigo( $codigo ){
 		$f = new Factura();
 		
-		$sql = "select * from PDF_FACTURAS where  PDF_FACTURAS.FACTURA_ID =  ?";
+		$sql = "select * from PDF_FACTURAS where PDF_FACTURAS.FACTURA_ID =  ?";
 		$parameters = array( $codigo );
 		$datos = SQLquery( $sql, $parameters );
 		
@@ -87,7 +87,10 @@ class Factura extends FPDF{
 		$this->SetFillColor(2,157,116); //Fondo verde de celda
 		$this->SetTextColor(240, 255, 240); //Letra color blanco
 
-		$this->Cell(50,7,'TOTAL',1, 0 , 'L', true );
+		$this->Cell(50,7,'TOTAL SIN IVA',1, 0 , 'L', true );
+		$this->Cell(130,7,$this->datos[ 'TOTAL_SIN_IVA'],1, 0 , 'R', true );
+		$this->Ln();
+		$this->Cell(50,7,'TOTAL IVA INCLUIDO',1, 0 , 'L', true );
 		$this->Cell(130,7,$this->datos[ 'TOTAL'],1, 0 , 'R', true );
 		$this->Ln(); //Salto de línea para generar otra fila
 	}
@@ -99,9 +102,10 @@ class Factura extends FPDF{
 		$this->SetTextColor(240, 255, 240); //Letra color blanco
 
 		$this->Cell(25,7,'CODIGO',1, 0 , 'L', true );
-		$this->Cell(80,7,'CONCEPTO',1, 0 , 'L', true );
+		$this->Cell(60,7,'CONCEPTO',1, 0 , 'L', true );
 		$this->Cell(25,7,'CANTIDAD',1, 0 , 'L', true );
 		$this->Cell(25,7,'PVP',1, 0 , 'L', true );
+		$this->Cell(25,7,'IVA',1, 0 , 'L', true );
 		$this->Cell(25,7,'IMPORTE',1, 0 , 'L', true );
 		$this->Ln(); //Salto de línea para generar otra fila
 		
@@ -113,9 +117,10 @@ class Factura extends FPDF{
 
 		foreach (  $this->lineas_factura as $row  ){				
 			$this->Cell(25,7,$row['CONCEPTO_ID'],1, 0 , 'R', $bandera );
-			$this->Cell(80,7,$row['CONCEPTO'],1, 0 , 'L', $bandera );
+			$this->Cell(60,7,$row['CONCEPTO'],1, 0 , 'L', $bandera );
 			$this->Cell(25,7,$row['CANTIDAD'],1, 0 , 'R', $bandera );
 			$this->Cell(25,7,$row['PVP'],1, 0 , 'R', $bandera );
+			$this->Cell(25,7,$row['IVA'],1, 0 , 'R', $bandera );
 			$this->Cell(25,7,$row['IMPORTE'],1, 0 , 'R', $bandera );
 			$this->Ln();//Salto de línea para generar otra fila
 			$bandera = !$bandera;//Alterna el valor de la bandera
