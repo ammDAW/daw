@@ -1,43 +1,40 @@
 <?php
-//Cabecera, pie, salto de página e imagen
+//Cabecera, pie, salto de pÃ¡gina e imagen
 
- require_once('./fpdf/fpdf.php');
+require_once('./fpdf/fpdf.php');
 
-class PDF extends FPDF
-{
-// Cabecera de página
-function Header()
-{
-    // Logo
-    $this->Image('logo.png',10,8,33);
-    // Arial bold 15
-    $this->SetFont('Arial','B',15);
-    // Movernos a la derecha
-    $this->Cell(80);
-    // Título
-    $this->Cell(30,10,'Title',1,0,'C');
-    // Salto de línea
-    $this->Ln(20);
+class PDF extends FPDF{
+    // Cabecera de pÃ¡gina
+    function Header(){
+        // Logo
+        $this->Image('logo.png',10,8,33);
+        // Arial bold 15
+        $this->SetFont('Arial','B',15);
+        // Movernos a la derecha
+        $this->Cell(80);
+        // TÃ­tulo
+        $this->Cell(30,10,'Title',1,0,'C');
+        // Salto de lÃ­nea
+        $this->Ln(20);
+    }
+
+    // Pie de pÃ¡gina
+    function Footer(){
+        // PosiciÃ³n: a 1,5 cm del final
+        $this->SetY(-15);
+        // Arial italic 8
+        $this->SetFont('Arial','I',8);
+        // NÃºmero de pÃ¡gina
+        $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+    }
 }
 
-// Pie de página
-function Footer()
-{
-    // Posición: a 1,5 cm del final
-    $this->SetY(-15);
-    // Arial italic 8
-    $this->SetFont('Arial','I',8);
-    // Número de página
-    $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
-}
-}
-
-// Creación del objeto de la clase heredada
+// CreaciÃ³n del objeto de la clase heredada
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times','',12);
 for($i=1;$i<=40;$i++)
-    $pdf->Cell(0,10,'Imprimiendo línea número '.$i,0,1);
+    $pdf->Cell(0,10,'Imprimiendo lï¿½nea nï¿½mero '.$i,0,1);
 $pdf->Output();
 ?>

@@ -18,30 +18,22 @@ try{
         print "Error!: " . $e->getMessage() . "</br>";
 }
 
-
-function SQLexecute( $sql, $parametros = null)
-{
-	
-	
+function SQLexecute( $sql, $parametros = null){	
 	try{
 		$result = $GLOBALS[ 'DB' ]->prepare( $sql );
 		$result->execute($parametros);
 		return( $result );
 	}catch(PDOExecption $e) {
         print "Error!: " . $e->getMessage() . "</br>";
-	
 	}
 }
 
-function SQLquery( $sql, $parametros = null )
-{
+function SQLquery( $sql, $parametros = null ){
 	//var_dump( $sql );
-	
 	$datos = array();
 	
 	try{
 		$result = $GLOBALS[ 'DB' ]->prepare( $sql );
-		
 		$result->execute($parametros);
 		while ($row = $result->fetch()) {
 			$datos[] = $row; 
@@ -49,13 +41,10 @@ function SQLquery( $sql, $parametros = null )
 		return( $datos );
 	}catch(PDOExecption $e) {
         print "Error!: " . $e->getMessage() . "</br>";
-	
 	}
 }
 
-function prueba()
-{
-	
+function prueba(){	
 	$sql = "insert into personas (nombre, apellidos ) values ( 'maria', 'garcia' )";
 	SQLexecute( $sql );
 	
@@ -67,7 +56,6 @@ function prueba()
 	$parametros= array( ":nombre" => "antonio",  ":apellidos" => "lopez" );
 	SQLexecute( $sql, $parametros );
 	
-
 	$sql = "select * from personas where codigo > ? and codigo < ?";
 
 	$parametros = array( 70, 100 );
@@ -75,22 +63,12 @@ function prueba()
 	$datos = SQLquery( $sql, $parametros );
 	$sql = "select * from personas where codigo > 10 and codigo < 100";
 
-	 
 	$datos = SQLquery( $sql );
 	
-	
-	
-	foreach( $datos as $row )
-	{
+	foreach( $datos as $row ){
 		print_r( $row );
 		echo "</br>";
 	}
 }
-
 //prueba();
-
-
-
-
-
 ?>
