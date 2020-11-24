@@ -1,7 +1,7 @@
 <?php
 require "db.php";
 
-function upload( $nombre, $titulo, $contenido,$tipo){
+function upload( $nombre, $titulo, $contenido, $tipo){
 	$sql = "INSERT INTO blob_archivos ( nombre, titulo, contenido,tipo ) values (:nombre,:titulo, :contenido, :tipo)";
 	$parametros= array( ":nombre" => $nombre, ":titulo" => $titulo,  ":contenido" => $contenido,  ":tipo" => $tipo );
 	$valor = SQLexecute( $sql, $parametros );
@@ -9,7 +9,7 @@ function upload( $nombre, $titulo, $contenido,$tipo){
 }
 
 function getFicheros(){
-	$sql = "SELECT ba.id, nombre, titulo, tipo, etiqueta FROM blob_archivos ba, blob_archivos_etiquetas bae, blob_etiquetas be WHERE ba.id=bae.archivo_id AND be.id=bae.etiqueta_id";
+	$sql = "SELECT ba.id, nombre, titulo, tipo, etiqueta FROM blob_archivos ba, blob_archivos_etiquetas bae, blob_etiquetas be WHERE ba.id=bae.archivo_id AND be.id=bae.etiqueta_id ORDER BY ba.id";
 	$datos = sqlQuery( $sql );
 	return $datos;
 }
