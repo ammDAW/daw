@@ -20,6 +20,23 @@ function displayGrabar( $etiquetas ){
 }
 
 function displayListar( $datos ){
+	$i = 1;
+	while($i < count($datos)){
+		print "{$datos['titulo']}
+		<br>
+		{$datos['nombre']} ({$datos['tipo']})
+		<br>
+		<a href='controlador.php?opcion=mostrar_fichero&id={$datos['id']}'>Descargar</a>
+		<br>
+		<br>";
+		$j = 1;
+		while ($id == $datos[$i][$j] && $j < count($datos)){
+			print "{$datos['etiqueta']}";
+			$j++;
+		}
+		$i++;
+	}
+	
 	foreach( $datos as $item ){
 		print" {$item['titulo']}
 		<br>

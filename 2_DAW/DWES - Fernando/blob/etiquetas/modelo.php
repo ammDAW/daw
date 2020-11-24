@@ -9,7 +9,7 @@ function upload( $nombre, $titulo, $contenido,$tipo){
 }
 
 function getFicheros(){
-	$sql = "SELECT id, nombre, titulo, tipo FROM blob_archivos";
+	$sql = "SELECT ba.id, nombre, titulo, tipo, etiqueta FROM blob_archivos ba, blob_archivos_etiquetas bae, blob_etiquetas be WHERE ba.id=bae.archivo_id AND be.id=bae.etiqueta_id";
 	$datos = sqlQuery( $sql );
 	return $datos;
 }
