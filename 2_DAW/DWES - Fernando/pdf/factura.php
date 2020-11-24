@@ -87,10 +87,10 @@ class Factura extends FPDF{
 		$this->SetFillColor(2,157,116); //Fondo verde de celda
 		$this->SetTextColor(240, 255, 240); //Letra color blanco
 
-		$this->Cell(50,7,'TOTAL SIN IVA',1, 0 , 'L', true );
+		$this->Cell(55,7,'TOTAL (sin iva)',1, 0 , 'L', true );
 		$this->Cell(130,7,$this->datos[ 'TOTAL_SIN_IVA'],1, 0 , 'R', true );
 		$this->Ln();
-		$this->Cell(50,7,'TOTAL IVA INCLUIDO',1, 0 , 'L', true );
+		$this->Cell(55,7,'TOTAL (iva incluido)',1, 0 , 'L', true );
 		$this->Cell(130,7,$this->datos[ 'TOTAL'],1, 0 , 'R', true );
 		$this->Ln(); //Salto de línea para generar otra fila
 	}
