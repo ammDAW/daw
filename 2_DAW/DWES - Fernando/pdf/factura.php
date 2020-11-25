@@ -88,10 +88,10 @@ class Factura extends FPDF{
 		$this->SetTextColor(240, 255, 240); //Letra color blanco
 
 		$this->Cell(55,7,'TOTAL (sin iva)',1, 0 , 'L', true );
-		$this->Cell(130,7,$this->datos[ 'TOTAL_SIN_IVA'],1, 0 , 'R', true );
+		$this->Cell(130,7,$this->datos[ 'TOTAL_SIN_IVA'].chr(128),1, 0 , 'R', true );
 		$this->Ln();
 		$this->Cell(55,7,'TOTAL (iva incluido)',1, 0 , 'L', true );
-		$this->Cell(130,7,$this->datos[ 'TOTAL'],1, 0 , 'R', true );
+		$this->Cell(130,7,$this->datos[ 'TOTAL'].chr(128),1, 0 , 'R', true );
 		$this->Ln(); //Salto de línea para generar otra fila
 	}
 
@@ -101,12 +101,12 @@ class Factura extends FPDF{
 		$this->SetFillColor(2,157,116); //Fondo verde de celda
 		$this->SetTextColor(240, 255, 240); //Letra color blanco
 
-		$this->Cell(25,7,'CODIGO',1, 0 , 'L', true );
-		$this->Cell(60,7,'CONCEPTO',1, 0 , 'L', true );
-		$this->Cell(25,7,'CANTIDAD',1, 0 , 'L', true );
-		$this->Cell(25,7,'PVP',1, 0 , 'L', true );
-		$this->Cell(25,7,'IVA',1, 0 , 'L', true );
-		$this->Cell(25,7,'IMPORTE',1, 0 , 'L', true );
+		$this->Cell(25,7,'CODIGO',1, 0 , 'C', true );
+		$this->Cell(60,7,'CONCEPTO',1, 0 , 'C', true );
+		$this->Cell(25,7,'CANTIDAD',1, 0 , 'C', true );
+		$this->Cell(25,7,'PVP',1, 0 , 'C', true );
+		$this->Cell(25,7,'IVA',1, 0 , 'C', true );
+		$this->Cell(25,7,'IMPORTE',1, 0 , 'C', true );
 		$this->Ln(); //Salto de línea para generar otra fila
 		
 		$this->SetXY(10,80+7);
@@ -119,9 +119,9 @@ class Factura extends FPDF{
 			$this->Cell(25,7,$row['CONCEPTO_ID'],1, 0 , 'R', $bandera );
 			$this->Cell(60,7,$row['CONCEPTO'],1, 0 , 'L', $bandera );
 			$this->Cell(25,7,$row['CANTIDAD'],1, 0 , 'R', $bandera );
-			$this->Cell(25,7,$row['PVP'],1, 0 , 'R', $bandera );
-			$this->Cell(25,7,$row['IVA'],1, 0 , 'R', $bandera );
-			$this->Cell(25,7,$row['IMPORTE'],1, 0 , 'R', $bandera );
+			$this->Cell(25,7,$row['PVP'].chr(128),1, 0 , 'R', $bandera );
+			$this->Cell(25,7,$row['IVA'].'%',1, 0 , 'R', $bandera );
+			$this->Cell(25,7,$row['IMPORTE'].chr(128),1, 0 , 'R', $bandera );
 			$this->Ln();//Salto de línea para generar otra fila
 			$bandera = !$bandera;//Alterna el valor de la bandera
 		}	
