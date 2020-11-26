@@ -2,29 +2,37 @@ document.addEventListener("DOMContentLoaded", main)
 
 function main(){
     const form1 = document.querySelector("form")   
-    let todoOK = true
     form1.addEventListener("submit", function(e){
         e.preventDefault() //impedir que el formulario se envíe al pulsar Intro o hacer click dentro del form
+        const nombreError = document.querySelector("#conductorError")
+        const dniError = document.querySelector("#dniError")
+        const edadError = document.querySelector("#edadError")
+        const tipoCarneError = document.querySelector("#tipoCarneError")
+        const tipoInfraccionError = document.querySelector("#tipoCarneError")
+        
         let todoOK = true
         if (!campoNombreOK()){
             todoOK=false
-            const nombreError = document.querySelector("#conductorError")
             nombreError.textContent = "No ha escrito un nombre válido"
         }
-        //if (!campoDniOK()) todoOK=false
+
+        if (!campoDniOK()){
+            todoOK=false
+            dniError.textContent = "No ha escrito un DNI válido"
+        }
+
         if (!campoEdadOK()){
             todoOK=false
-            const edadError = document.querySelector("#edadError")
             edadError.textContent = "No ha escrito una edad correcta"
         }
+
         if (!campoTipoCarneOK()){
             todoOK=false
-            const tipoCarneError = document.querySelector("#tipoCarneError")
             tipoCarneError.textContent = "No ha seleccionado un tipo de carné"
         }
+
         if (!campoTipoInfraccionOK()){
             todoOK=false
-            const tipoInfraccionError = document.querySelector("#tipoInfraccionError")
             tipoInfraccionError.textContent = "No ha seleccionado un tipo de infraccion"
         }
         
@@ -41,17 +49,18 @@ function campoNombreOK(){
 }
 
 function campoDniOK(){
-    /*const dni = document.querySelector("#dni").value
-    if(dni.trim().length == 9)
+    const dni = document.querySelector("#dni").value
+    const patronDNI = /^\d{8}-{0,1}[a-zA-Z]$/
+    if(patronDNI.test(dni))
         return true
-    else return false*/
+    else return false
 }
 
 function campoEdadOK(){
     const edad = document.querySelector("#edad").value
-    if(isNaN(edad) && edad >= 18)
-        return true
-    else return false  
+    if (isNaN(edad) || edad < 18) 
+        return false
+    return true 
 }
 
 function campoTipoCarneOK(){
@@ -65,9 +74,5 @@ function campoTipoCarneOK(){
 
 function campoTipoInfraccionOK(){
     const tipoInfraccion = document.querySelector("#tipo")
-    /*if(tipoInfraccion.value.length == 0)
-        return false
-    else return true*/
-    return(tipoInfraccion.value.length ? true : false)
-    
+    return (tipoInfraccion.value.length ? true : false) 
 }
