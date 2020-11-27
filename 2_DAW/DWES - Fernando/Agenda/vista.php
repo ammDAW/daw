@@ -22,52 +22,68 @@ function displayEntrada( $missingFields ){
 	head();
 	?>
 	<H1>Introduce Identificación</H1>
-	<FORM METHOD=POST ACTION="controlador.php">
-		<INPUT TYPE="hidden" name="opcion" value="entrada">
+	<form method=POST action="controlador.php">
+		<input type="hidden" name="opcion" value="entrada">
 		<br>
 		<label for="usuario" > Usuario</label>
-		<INPUT TYPE="text" <?php validateField( "usuario", $missingFields );?>" NAME="usuario">
+		<input type="text" <?php validateField( "usuario", $missingFields );?>" name="usuario">
 		<br>
 		<label for="password" >Password</label>
-		<INPUT TYPE="password" <?php validateField( "password", $missingFields );?> " NAME="password">
+		<input type="password" <?php validateField( "password", $missingFields );?> " name="password">
 		<br>
 		<input type="submit" name="submit" id="submitButton" value="Enviar" >
 		<input type="reset" name="reset" id="resetButton"	value="Borrar" >
-	</FORM>
+	</form>
 	<?php
 	foot();
 }
 
-function displayParte( $missingFields, $servicios ){
+function displayEvento($missingFields, $entidades, $categorias){
 	head();?>
-	<H1>Introduce Averia</H1>
-	<FORM METHOD=POST ACTION="controlador.php">
-		<INPUT TYPE="hidden" name="opcion" value ="parte">
-		
-		<label for="servicio" <?php validateField( "servicio",	$missingFields ) ?>>Servicio</label>
-		
-		<SELECT NAME="servicio"> 
+	<h1>Introduce Evento</h1>
+	<form method=POST action="controlador.php">
+		<input type="hidden" name="opcion" value="introducir">
+		<!-- eventos-->
+		<label for="evento" <?php validateField( "servicio", $missingFields ) ?>>Evento</label>
+		<input type="text" name="evento" value="<?php setValue( "evento" ) ?>">
+		<br>
+		<!--entidades-->
+		<label for="entidad" <?php validateField( "entidad", $missingFields ) ?>>Entidad</label>
+		<select NAME="entidad"> 
 			<?php
-			foreach( $servicios as $key => $value ){
-				printf( '<OPTION VALUE="%s">%s</OPTION>',$key, $value ); 
+			foreach( $entidades as $key => $value ){
+				printf( '<option value="%s">%s</option>',$key, $value ); 
 			}
 			?>
-		</SELECT>
+		</select>
 		<br>
-		<label for="telefono" <?php validateField( "telefono",	$missingFields ) ?>>Telefono</label>
-		<INPUT TYPE="text" NAME="telefono" value="<?php setValue( "telefono" ) ?>">
+		<!--categorias-->
+		<label for="categoria" <?php validateField("categoria", $missingFields ) ?>>Categoria</label>
+		<select name="categoria"> 
+			<?php
+			foreach( $categorias as $key => $value ){
+				printf( '<option value="%s">%s</option>',$key, $value ); 
+			}
+			?>
+		</select>
 		<br>
-		<label for="averia" <?php validateField( "averia",	$missingFields ) ?>>Descripcion Averia</label>
-		<INPUT TYPE="text" NAME="averia" value="<?php setValue( "averia" ) ?>">
+		<!--ubicacion-->
+		<label for="ubicacion" <?php validateField( "ubicacion", $missingFields ) ?>>Ubicacion</label>
+		<input type="text" name="ubicacion" value="<?php setValue( "ubicacion" ) ?>">
 		<br>
-		<label for="ubicacion" <?php validateField( "ubicacion",	$missingFields ) ?>>Ubicacion</label>
-		<INPUT TYPE="text" NAME="ubicacion" value="<?php setValue( "ubicacion" ) ?>">
+		<!--fecha-->
+		<label for="fecha" <?php validateField( "fecha", $missingFields ) ?>>Fecha</label>
+		<input type="date" name="fecha" value="<?php setValue( "fecha" ) ?>">
+		<!--hora-->
+		<label for="hora" <?php validateField( "hora", $missingFields ) ?>>hora</label>
+		<input type="time" name="hora" value="<?php setValue( "hora" ) ?>">
 		<br>
-		
+		<!--botones-->
 		<input type="submit" name="submit" id="submitButton" value="Enviar" >
 		<input type="reset" name="reset" id="resetButton"	value="Borrar" >
-	</FORM>
+	</form>
 	<br>
+	<!--salir-->
 	<a href="controlador.php?opcion=salir">Salir</a><?php
 	foot();
 }

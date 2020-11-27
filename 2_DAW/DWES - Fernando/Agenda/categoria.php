@@ -16,24 +16,23 @@ class Database extends PDO {
 	}
 }
 
-class Usuario{
+class Categoria{
     private $codigo;     // user id
     private $fields;  // other record fields
 
     // initialize a User object
     public function __construct(){
         $this->codigo = null;
-        $this->entidad = array('usuario' => '',
-                               'password' => '');
+        $this->fields = array('categoria' => '');
     }
 
     // override magic method to retrieve properties
     public function __get($field){
-        if ($field == 'usuario_id'){
+        if ($field == 'CATEGORIA_ID'){
             return $this->codigo;
         }
         else{
-            return $this->fields[$field];
+            return $this->fields;
         }
     }
 
@@ -45,88 +44,77 @@ class Usuario{
     }
 
     // return if usuario is valid format
-    public static function validateUsuario($usuario){
-        return preg_match('/^[A-Z0-9]{2,20}$/i', $usuario);
+    public static function validateCategoria($categoria){
+        return preg_match('/^[A-Z0-9]{2,20}$/i', $categoria);
     }
     
     // return an object populated based on the record's user id
-    public static function getByCodigoUsuario($codigo){
-        $u = new Usuario();
+    public static function getByCodigoCategoria($codigo){
+        $c = new Categoria();
 		$conexion = new Database();
-		$sql = sprintf( "SELECT * FROM agenda_usuarios where usuario_id = %d", $codigo );
+		$sql = sprintf( "SELECT * FROM agenda_categorias where categoria_id = %d", $codigo );
 		$rows = $conexion->query( $sql );
 		
 		if( $rows->rowCount()  == 0  )
 			return null;
 		else{
-			$u = new Usuario();
+			$c = new Categoria();
 			$row = $rows->fetch();
-			$u->usuario = $row['USUARIO'];
-            $u->password = $row['PASSWORD'];
-            $u->codigo = $codigo;
-			return $u;
+			$c->categoria = $row['CATEGORIA'];
+            $c->codigo = $codigo;
+			return $c;
 		}
 	}
 	
-	public static function checkUsuario( $usuario, $password ){
+	public static function checkCategoria($categoria){
 		$conexion = new Database();
-		$sql = sprintf( "SELECT * FROM  agenda_usuarios where usuario = '%s'", $usuario );
+		$sql = sprintf( "SELECT * FROM  agenda_categorias where categoria = '%s'", $categoria );
 		$rows = $conexion->query( $sql );
 		
 		if( $rows->rowCount()  == 0  )
 			$resultado = false;
-		else{
-			$row = $rows->fetch();
-			if( $row['PASSWORD'] == $password )
-				$resultado = true;
-			
-            else
-				$resultado = false;
-		}
+		else
+			$resultado = true;
 		return $resultado;	
 	}
 	
-	// return an object populated based on the record's user id
-    public static function getAllUsuario(){
+    public static function getAllCategoria(){
         $v = array();
 		$conexion = new Database();
-        $sql = sprintf('SELECT * FROM agenda_usuarios' );
+        $sql = sprintf('SELECT * FROM agenda_categorias' );
         $rows = $conexion->query( $sql );
 
         foreach( $rows as $row ){
-			$u = new Usuario();
-			$u->usuario = $row['USUARIO'];
-            $u->password = $row['PASSWORD'];
-            $u->codigo = $row['USUARIO_ID'];
-			$v[] = $u;
+			$c = new Cateroria();
+			$c->categoria = $row['CATEGORIA'];
+            $c->codigo = $row['CATEGORIA_ID'];
+			$v[] = $c;
 		}
         return $v;
     }
 	
     // save the record to the database
-    public function saveUsuario(){
+    public function saveCategoria(){
 		$conexion = new Database();
         if ($this->codigo){
-            $query = sprintf('UPDATE agenda_usuario SET usuario = "%s" password = "%s" WHERE usuario_id = %d',
-                $this->usuario,
-                $this->password,
+            $query = sprintf('UPDATE agenda_categorias SET categoria = "%s" WHERE categoria_id = %d',
+                $this->categoria,
                 $this->codigo);
             $rows = $conexion->exec( $query );
         }
         else{
-            $query = sprintf('INSERT INTO agenda_usuario ( usuario, password) VALUES ("%s", "%s")',
-                $this->usuario,
-                $this->password );
+            $query = sprintf('INSERT INTO agenda_categorias(categoria) VALUES ("%s")',
+                $this->usuario);
 			$rows = $conexion->exec( $query );
             $this->codigo = $conexion->lastInsertId();
         }
     }
 	
 	// save the record to the database
-    public function deleteUsuario(){
+    public function deleteCategoria(){
         $conexion = new Database();
 		if ($this->codigo){
-            $sql = sprintf('DELETE FROM agenda_usuario WHERE usuario_id = %d',
+            $sql = sprintf('DELETE FROM agenda_categorias WHERE categoria_id = %d',
                 $this->codigo);
             $conexion->exec( $sql );
         }

@@ -16,24 +16,23 @@ class Database extends PDO {
 	}
 }
 
-class Usuario{
+class Entidad{
     private $codigo;     // user id
     private $fields;  // other record fields
 
     // initialize a User object
     public function __construct(){
         $this->codigo = null;
-        $this->entidad = array('usuario' => '',
-                               'password' => '');
+        $this->fields = array('entidad' => '');
     }
 
     // override magic method to retrieve properties
     public function __get($field){
-        if ($field == 'usuario_id'){
+        if ($field == 'ENTIDAD_ID'){
             return $this->codigo;
         }
         else{
-            return $this->fields[$field];
+            return $this->fields;
         }
     }
 
@@ -45,88 +44,77 @@ class Usuario{
     }
 
     // return if usuario is valid format
-    public static function validateUsuario($usuario){
-        return preg_match('/^[A-Z0-9]{2,20}$/i', $usuario);
+    public static function validateEntidad($entidad){
+        return preg_match('/^[A-Z0-9]{2,20}$/i', $entidad);
     }
     
     // return an object populated based on the record's user id
-    public static function getByCodigoUsuario($codigo){
-        $u = new Usuario();
+    public static function getByCodigoEntidad($codigo){
+        $e = new Entidad();
 		$conexion = new Database();
-		$sql = sprintf( "SELECT * FROM agenda_usuarios where usuario_id = %d", $codigo );
+		$sql = sprintf( "SELECT * FROM agenda_entidades where entidad_id = %d", $codigo );
 		$rows = $conexion->query( $sql );
 		
 		if( $rows->rowCount()  == 0  )
 			return null;
 		else{
-			$u = new Usuario();
+			$e = new Entidad();
 			$row = $rows->fetch();
-			$u->usuario = $row['USUARIO'];
-            $u->password = $row['PASSWORD'];
-            $u->codigo = $codigo;
-			return $u;
+			$e->entidad = $row['ENTIDAD'];
+            $e->codigo = $codigo;
+			return $e;
 		}
 	}
 	
-	public static function checkUsuario( $usuario, $password ){
+	public static function checkEntidad($entidad){
 		$conexion = new Database();
-		$sql = sprintf( "SELECT * FROM  agenda_usuarios where usuario = '%s'", $usuario );
+		$sql = sprintf( "SELECT * FROM  agenda_entidades where entidad = '%s'", $entidad );
 		$rows = $conexion->query( $sql );
 		
 		if( $rows->rowCount()  == 0  )
 			$resultado = false;
-		else{
-			$row = $rows->fetch();
-			if( $row['PASSWORD'] == $password )
-				$resultado = true;
-			
-            else
-				$resultado = false;
-		}
+		else
+			$resultado = true;
 		return $resultado;	
 	}
 	
-	// return an object populated based on the record's user id
-    public static function getAllUsuario(){
+    public static function getAllEntidad(){
         $v = array();
 		$conexion = new Database();
-        $sql = sprintf('SELECT * FROM agenda_usuarios' );
+        $sql = sprintf('SELECT * FROM agenda_entidades' );
         $rows = $conexion->query( $sql );
 
         foreach( $rows as $row ){
-			$u = new Usuario();
-			$u->usuario = $row['USUARIO'];
-            $u->password = $row['PASSWORD'];
-            $u->codigo = $row['USUARIO_ID'];
-			$v[] = $u;
+			$e = new Entidad();
+			$e->entidad = $row['ENTIDAD'];
+            $e->codigo = $row['ENTIDAD_ID'];
+			$v[] = $e;
 		}
         return $v;
     }
 	
     // save the record to the database
-    public function saveUsuario(){
+    public function saveEntidad(){
 		$conexion = new Database();
         if ($this->codigo){
-            $query = sprintf('UPDATE agenda_usuario SET usuario = "%s" password = "%s" WHERE usuario_id = %d',
-                $this->usuario,
-                $this->password,
+            $query = sprintf('UPDATE agenda_entidades SET entidad = "%s" WHERE entidad_id = %d',
+                $this->entidad,
                 $this->codigo);
             $rows = $conexion->exec( $query );
         }
         else{
-            $query = sprintf('INSERT INTO agenda_usuario ( usuario, password) VALUES ("%s", "%s")',
-                $this->usuario,
-                $this->password );
+            $query = sprintf('INSERT INTO agenda_entidades(entidad) VALUES ("%s")',
+                $this->usuario);
 			$rows = $conexion->exec( $query );
             $this->codigo = $conexion->lastInsertId();
         }
     }
 	
 	// save the record to the database
-    public function deleteUsuario(){
+    public function deleteEntidad(){
         $conexion = new Database();
 		if ($this->codigo){
-            $sql = sprintf('DELETE FROM agenda_usuario WHERE usuario_id = %d',
+            $sql = sprintf('DELETE FROM agenda_entidades WHERE entidad_id = %d',
                 $this->codigo);
             $conexion->exec( $sql );
         }
