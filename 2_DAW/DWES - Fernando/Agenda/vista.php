@@ -26,10 +26,10 @@ function displayEntrada( $missingFields ){
 		<input type="hidden" name="opcion" value="entrada">
 		<br>
 		<label for="usuario" > Usuario</label>
-		<input type="text" <?php validateField( "usuario", $missingFields );?>" name="usuario">
+		<input type="text" <?php validateField("usuario", $missingFields);?>" name="usuario">
 		<br>
 		<label for="password" >Password</label>
-		<input type="password" <?php validateField( "password", $missingFields );?> " name="password">
+		<input type="password" <?php validateField("password", $missingFields);?> " name="password">
 		<br>
 		<input type="submit" name="submit" id="submitButton" value="Enviar" >
 		<input type="reset" name="reset" id="resetButton"	value="Borrar" >
@@ -44,11 +44,11 @@ function displayEvento($missingFields, $entidades, $categorias){
 	<form method=POST action="controlador.php">
 		<input type="hidden" name="opcion" value="introducir">
 		<!-- eventos-->
-		<label for="evento" <?php validateField( "servicio", $missingFields ) ?>>Evento</label>
-		<input type="text" name="evento" value="<?php setValue( "evento" ) ?>">
+		<label for="evento" <?php validateField("servicio", $missingFields); ?>>Evento</label>
+		<input type="text" name="evento" value="<?php setValue("evento") ?>">
 		<br>
 		<!--entidades-->
-		<label for="entidad" <?php validateField( "entidad", $missingFields ) ?>>Entidad</label>
+		<label for="entidad" <?php validateField("entidad", $missingFields); ?>>Entidad</label>
 		<select NAME="entidad"> 
 			<?php
 			foreach( $entidades as $key => $value ){
@@ -58,25 +58,25 @@ function displayEvento($missingFields, $entidades, $categorias){
 		</select>
 		<br>
 		<!--categorias-->
-		<label for="categoria" <?php validateField("categoria", $missingFields ) ?>>Categoria</label>
+		<label for="categoria" <?php validateField("categoria", $missingFields); ?>>Categoria</label>
 		<select name="categoria"> 
 			<?php
 			foreach( $categorias as $key => $value ){
-				printf( '<option value="%s">%s</option>',$key, $value ); 
+				printf('<option value="%s">%s</option>',$key, $value); 
 			}
 			?>
 		</select>
 		<br>
 		<!--ubicacion-->
-		<label for="ubicacion" <?php validateField( "ubicacion", $missingFields ) ?>>Ubicacion</label>
-		<input type="text" name="ubicacion" value="<?php setValue( "ubicacion" ) ?>">
+		<label for="ubicacion" <?php validateField( "ubicacion", $missingFields ); ?>>Ubicacion</label>
+		<input type="text" name="ubicacion" value="<?php setValue("ubicacion") ?>">
 		<br>
 		<!--fecha-->
-		<label for="fecha" <?php validateField( "fecha", $missingFields ) ?>>Fecha</label>
-		<input type="date" name="fecha" value="<?php setValue( "fecha" ) ?>">
+		<label for="fecha" <?php validateField( "fecha", $missingFields ); ?>>Fecha</label>
+		<input type="date" name="fecha" value="<?php setValue("fecha") ?>">
 		<!--hora-->
-		<label for="hora" <?php validateField( "hora", $missingFields ) ?>>hora</label>
-		<input type="time" name="hora" value="<?php setValue( "hora" ) ?>">
+		<label for="hora" <?php validateField( "hora", $missingFields ); ?>>hora</label>
+		<input type="time" name="hora" value="<?php setValue("hora") ?>">
 		<br>
 		<!--botones-->
 		<input type="submit" name="submit" id="submitButton" value="Enviar" >

@@ -9,7 +9,6 @@ class Evento{
         $this->fields = array('evento' => '',
 							  'entidad_id' => '',
 							  'categoria_id' => '',
-							  'categoria_id' => '',
 							  'ubicacion' => '',
 							  'fecha' => '',
 							  'hora' => '');

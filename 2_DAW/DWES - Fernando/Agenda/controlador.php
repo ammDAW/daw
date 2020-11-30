@@ -2,6 +2,23 @@
 include "vista.php";
 include "modelo.php";
 
+function salir(){
+	session_destroy();
+}
+
+function entrar(){
+	$_SESSION['logueado'] = true;
+}
+
+function validateField( $fieldName, $missingFields ) { 
+	if ( in_array( $fieldName, $missingFields ) )
+		echo 'class="error"';
+}
+
+function setValue( $fieldName ) {
+	if ( isset( $_POST[$fieldName] ) ) 
+		echo $_POST[$fieldName];
+}
 
 function checkServicio( $valor ){	
 	if( Servicio::getByCodigo($valor) ) 
@@ -19,16 +36,6 @@ function checkDato( $valor ){
 	return $resultado;
 }
 
-function validateField( $fieldName, $missingFields ) {
-	if ( in_array( $fieldName, $missingFields ) )
-		echo 'class="error"';
-}
-
-function setValue( $fieldName ) {
-	if ( isset( $_POST[$fieldName] ) ) 
-		echo $_POST[$fieldName];
-}
-
 function processForm( $campos ) {
 	foreach ( $campos as $campo ) {
 		//echo $campo[ 'nombre' ] . $campo[ 'funcion' ];
@@ -43,14 +50,6 @@ function processForm( $campos ) {
 		return( $missingFields );
 	else
 		return null;
-}
-
-function salir(){
-	session_destroy();
-}
-
-function entrar(){
-	$_SESSION['logueado'] = true;
 }
 
 //main
