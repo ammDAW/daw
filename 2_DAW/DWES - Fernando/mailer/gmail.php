@@ -26,19 +26,18 @@
     $mail->Username   = "user@gmail.com"; // nombre de usuario UGR
     $mail->Password   = "*****"; // contraseña del usuario UGR
 
-
     $body = "Texto del mensaje";
 
     $mail->SetFrom('usuario', 'Nombre y Apellidos, etc.');
-    $mail->Subject    = "Asunto del mensaje";
+    $mail->Subject = "Asunto del mensaje";
     $mail->MsgHTML($body); // Fija el cuerpo del mensaje
 
     $address = "frm@gmail.com"; // Dirección del destinatario
     $mail->AddAddress($address, "Nombre del destinatario");
 
 	/*$file = 'gmail.php';
-	$mail->AddAttachment( $file, 'gmail.php' );
-    */
+    $mail->AddAttachment( $file, 'gmail.php' );*/
+    
 	if(!$mail->Send()){
         echo "Error: " . $mail->ErrorInfo;
     }

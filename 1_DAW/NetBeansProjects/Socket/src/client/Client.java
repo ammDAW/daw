@@ -7,7 +7,6 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Client {
-
 	private Socket socket;
 	public String nombre, descripcion, estado;
 	public int totalTarea, numTarea;

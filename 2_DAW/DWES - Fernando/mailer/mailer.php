@@ -16,14 +16,13 @@ $mail->Port = 587; // configura el puerto SMTP utilizado 25
 $mail->Username = "prueba@iesjoseplanes.es"; // nombre de usuario UGR
 $mail->Password = "mypassword"; // contraseña del usuario UGR
  
- 
 $body = "Texto del mensaje";
 	
 $mail->SetFrom('usuario', 'Nombre y Apellidos, etc.');
 $mail->Subject = "Asunto del mensaje";
 $mail->MsgHTML($body); // Fija el cuerpo del mensaje
 
-$address = "frm666@gmail.com"; // Dirección del destinatario
+$address = "alberto.91.mm@gmail.com"; // Dirección del destinatario
 $mail->AddAddress($address, "Nombre del destinatario");
 $mail->AddAttachment( 'factura.pdf' , 'factura.pdf' );
 
