@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+body{
+    background-image: url(danger.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}   
+
+h1{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 100px;
+    color: whitesmoke;
+}
+
+div{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1500px;
+    text-align: center;
+}
+.ghost-button-full-color {
+    /*display: inline-block;*/
+    width: 300px;
+    height: 100px;
+    padding: 8px;
+    font-size: 30px;
+    color: yellow;
+    font-family: 'Alfa Slab One', cursive;
+    background-color: transparent;
+    border: 4px dashed black;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    transition: color 0.3s ease-out,
+                background-color 0.3s ease-out,
+                border-color 0.3s ease-out;
+}
+.ghost-button-full-color:hover,
+.ghost-button-full-color:active {
+    background-color: red;
+    border-color: red;
+    color: #fff;
+    text-align: center;
+    padding: auto;
+    /*margin: auto;*/
+    transition: color 0.3s ease-in,
+                background-color 0.3s ease-in,
+                border-color 0.3s ease-in,
+                width 500px;
+    border-radius: 10px;             
+}
