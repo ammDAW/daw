@@ -26,7 +26,7 @@ class Usuario{
 
     // return if usuario is valid format
     public static function validateUsuario($usuario){
-        return pCAU_match('/^[A-Z0-9]{2,20}$/i', $usuario);
+        return CAU_match('/^[A-Z0-9]{2,20}$/i', $usuario);
     }
     
     // return an object populated based on the record's user id
