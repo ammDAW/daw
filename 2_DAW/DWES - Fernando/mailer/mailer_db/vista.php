@@ -18,24 +18,33 @@ function foot(){
 <?php
 }
 
-function displayEntrada( $missingFields ){
+function displayEntrada(){
 	head();
 	?>
-	<H1>Clientes</H1>
+	<H1>Enviar email</H1>
 	<form method=POST action="controlador.php">
-		<input type="hidden" name="opcion" value="entrada">
-		<br>
-		<label for="usuario">Usuario</label>
-		<input type="text" name="usuario">
-		<br>
-		<label for="correo">Correo</label>
-		<input type="text" name="correo">
-		<br>
-		<label for="dia_cumple">Cumpleaños</label>
-		<input type="date" name="dia_cumple">
-		<br>
-		<input type="submit" name="submit" id="submitButton" value="Enviar">
-		<input type="reset" name="reset" id="resetButton"	value="Borrar">
+		<input type="submit" name="submit" id="submitButton" value="Enviar" onclick="location.href='/mailer.php'">
+		<!--<input type="reset" name="reset" id="resetButton"	value="Borrar">-->
+	</form>
+	<?php
+	foot();
+}
+
+function displayClientes( $clientes ){
+	head();
+	?>
+	<H1>Enviar email</H1>
+	<form method=POST action="controlador.php">
+	<?php foreach ($resultados as $resultado) { ?>
+		<label>Nombre: </label>
+		<label name="nombre"><?php echo $clientes['nombre'] ?></label><br>
+		<label>Email: </label>
+		<label name="email"><?php echo $clientes['email'] ?></label><br>
+		<label>Fecha Cumpleaños: </label>
+		<label name="fecha_cumple"><?php echo $clientes['fecha_cumple'] ?></label><br>
+	<?php } ?>
+		<input type="submit" name="submit" id="submitButton" value="Enviar" onclick="location.href='/mailer.php'">
+		<!--<input type="reset" name="reset" id="resetButton"	value="Borrar">-->
 	</form>
 	<?php
 	foot();

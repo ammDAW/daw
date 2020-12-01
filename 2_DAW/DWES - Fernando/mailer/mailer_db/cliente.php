@@ -15,16 +15,16 @@ class Database extends PDO {
 	}
 }
 
-class Usuario{
+class Cliente{
     private $codigo;    // user id
     private $fields;    // other record fields
 
     // initialize a User object
     public function __construct(){
         $this->codigo = null;
-        $this->fields = array('usuario' => '',
+        $this->fields = array('nombre' => '',
                               'email' => '',
-                              'dia_cumple' =>'');
+                              'fecha_cumple' =>'');
     }
 
     // override magic method to retrieve properties
@@ -40,36 +40,31 @@ class Usuario{
         if (array_key_exists($field, $this->fields))
             $this->fields[$field] = $value;
     }
-
-    // return if usuario is valid format
-    public static function validateUsuario($usuario){
-        return preg_match('/^[A-Z0-9]{2,20}$/i', $usuario);
-    }
     
     // return an object populated based on the record's user id
     public static function getByCodigo($codigo){
-        $u = new Usuario();
+        $u = new Cliente();
 
 		$conexion = new Database();
-		$sql = sprintf( "SELECT * FROM mail_usuarios where codigo = %d", $codigo );
+		$sql = sprintf( "SELECT * FROM email_usuarios where codigo = %d", $codigo );
 		$rows = $conexion->query( $sql );
 		
 		if( $rows->rowCount()  == 0  )
 			return null;
 		else{
-			$u = new Usuario();
+			$u = new Cliente();
 			$row = $rows->fetch();
-			$u->usuario = $row['usuario'];
+			$u->nombre = $row['nombre'];
             $u->email = $row['email'];
-            $u->dia_cumple = $row['dia_cumple'];
+            $u->fecha_cumple = $row['fecha_cumple'];
             $u->codigo = $codigo;
 			return $u;
 		}
 	}
 	
-	public static function checkUsuario($usuario){
+	public static function checkCliente($usuario){
 		$conexion = new Database();
-		$sql = sprintf( "SELECT * FROM mail_usuarios where usuario = '%s'", $usuario );
+		$sql = sprintf( "SELECT * FROM email_usuarios where usuario = '%s'", $usuario );
 		$rows = $conexion->query( $sql );
 		if( $rows->rowCount()  == 0  )
 			$resultado = false;
@@ -82,14 +77,14 @@ class Usuario{
     public static function getAll(){
         $v = array();
 		$conexion = new Database();
-        $sql = sprintf('SELECT * FROM mail_usuarios' );
+        $sql = sprintf('SELECT * FROM email_usuarios' );
         $rows = $conexion->query( $sql );
 
         foreach( $rows as $row ){
-			$u = new Usuario();
-			$u->usuario = $row['usuario'];
+			$u = new Cliente();
+			$u->nombre = $row['nombre'];
             $u->email = $row['email'];
-            $u->dia_cumple = $row['dia_cumple'];
+            $u->dia_cumple = $row['fecha_cumple'];
             $u->codigo = $row['codigo'];
 			$v[] = $u;
 		}
@@ -101,18 +96,18 @@ class Usuario{
 		$conexion = new Database();
 		
         if ($this->codigo){
-            $query = sprintf('UPDATE mail_usuarios SET usuario = "%s" email = "%s" dia_cumple = "%s" WHERE codigo = %d',
-                $this->usuario,
+            $query = sprintf('UPDATE email_usuarios SET nombre = "%s" email = "%s" fecha_cumple = "%s" WHERE codigo = %d',
+                $this->nombre,
                 $this->email,
-                $this->dia_cumple,
+                $this->fecha_cumple,
                 $this->codigo);
             $rows = $conexion->exec( $query );
         }
         else{
-            $query = sprintf('INSERT INTO mail_usuarios ( usuario, email, dia_cumple) VALUES ("%s", "%s", "%s")',
-                $this->usuario,
+            $query = sprintf('INSERT INTO email_usuarios ( nombre, email, fecha_cumple) VALUES ("%s", "%s", "%s")',
+                $this->nombre,
                 $this->email,
-                $this->dia_cumple);
+                $this->fecha_cumple);
 			$rows = $conexion->exec( $query );
             $this->codigo = $conexion->lastInsertId();
         }
@@ -123,11 +118,10 @@ class Usuario{
         $conexion = new Database();
 		
 		if ($this->codigo){
-            $sql = sprintf('DELETE FROM mail_usuarios WHERE codigo = %d',
+            $sql = sprintf('DELETE FROM email_usuarios WHERE codigo = %d',
                      $this->codigo);
             $conexion->exec( $sql );
         }
     }
-
 }
 ?>
