@@ -1,0 +1,39 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	width: 1000px;
+}
+
+div {
+	width: 200px;
+	height: 200px;
+	color: white;
+	text-align: center;
+	box-sizing: border-box;
+	border: 1px solid blue;
+}
+
+div#cubo1{
+	background-color: coral;
+	float: left;
+}
+
+div#cubo2{
+	background-color: darkgoldenrod;
+	float: right;
+}
+
+div#cubo3{
+	width: 600px;
+	background-color: chocolate;
+	float: right;
+}
+
+div#cubo4{
+	background-color: darkmagenta;
+	float: left;
+	width: 100%;
+}
