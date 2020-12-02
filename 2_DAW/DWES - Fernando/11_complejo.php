@@ -33,13 +33,13 @@ class Complejo{
         $this->setReal($this->getReal()-$valor->getImg());
     }
     
-    public funtion dividir($valor){
+    public function dividir($valor){
         
     }
     
     public function multiplicar($valor){
-        $this->setReal($this->getReal() * ($valor->getReal() + $valor->getImg()))
-        $this->setImg($this->getImg() * ($valor->getReal() + $valor->getImg())
+        $this->setReal($this->getReal() * ($valor->getReal() + $valor->getImg()));
+        $this->setImg($this->getImg() * ($valor->getReal() + $valor->getImg()));
     }
 	
     public function write(){
