@@ -26,16 +26,17 @@ div#cubo1{
 
 div#cubo2{
 	background-color: darkgoldenrod;
-
+	order: 1
 }
 
 div#cubo3{
 	width: 60%;
 	background-color: chocolate;
-	order: -1;
+	order: 0;
 }
 
 div#cubo4{
 	background-color: darkmagenta;
 	width: 100%;
+	order: 2;
 }
