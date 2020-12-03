@@ -5,7 +5,7 @@ function main(){
     let xhr = new XMLHttpRequest();
 
     //Definir la función que se va a encargar de vigilar los cambios de estado del propio objeto xhr
-    xhr.onreadystatechange = function(){
+    xhr.addEventListener("readystatechange", function(){
         //Preguntar a que estado acaba de cambiar el objeto xhr
         if(this.readyState == 4 && this.status == 200){
             //Todo ha ido bien, debo procesar la respuesta del servidor
@@ -29,7 +29,7 @@ function main(){
                 console.log(this.children[this.selectedIndex].textContent);
             })
         }
-    }
+    })
 
 
 
