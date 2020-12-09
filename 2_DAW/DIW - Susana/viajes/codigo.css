@@ -1,0 +1,76 @@
+body {
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #202020;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#cabecera{
+    width: 100%;
+    background-color: #202020;
+    height: 150px;
+}
+
+#contenido-cabecera{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+}
+
+h1{
+    text-align: center;
+}
+
+#viajes{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+.viajes-item{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.uno{
+    background-color: #BACEE3;
+    flex: 1;
+    
+}
+
+.dos{
+    background-color: #B6EBB3;
+    flex: 1;
+}
+
+.tres{
+    background-color: #7EBDBB;
+    flex: 1;
+}
+
+.viajes-item img{
+    order: 0;
+}
+
+.viajes-item h2{
+    order: 1;
+}
+
+.viajes-item p{
+    order: 2;
+}
+
+.viajes-item button{
+    margin-top: auto;
+    order: 3;
+    margin-left: auto;
+    margin-right: auto;
+}
+
