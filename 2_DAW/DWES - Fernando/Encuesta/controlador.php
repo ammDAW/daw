@@ -7,7 +7,7 @@ if (!isset($_REQUEST["opcion"])){
     displayEncuestas($datos);
 }
 elseif(isset($_REQUEST["opcion"]) && $_REQUEST["opcion"]=="encuesta"){
-    if(isset($_REQUEST["encuesta_id"]) && getPreguntasRespuestas($_REQUEST["encuesta_id"]){
+    if(isset($_REQUEST["encuesta_id"]) && getPreguntasRespuestas($_REQUEST["encuesta_id"])){
         $datos = getPreguntasRespuestas($_REQUEST["encuesta_id"]);
         displayPreguntasRespuestas($datos);
     }
