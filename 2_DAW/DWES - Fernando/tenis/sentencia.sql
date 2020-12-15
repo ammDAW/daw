@@ -1,12 +1,12 @@
 ﻿DROP TABLE IF EXISTS `tenis_partido` ;
 DROP TABLE IF EXISTS `tenis_torneo` ;
 
-
 CREATE TABLE IF NOT EXISTS `tenis_torneo` (
   `id_torneo` INT NOT NULL,
   `nombre` VARCHAR(55) NOT NULL, 
   `fecha` DATE NOT NULL,
-  PRIMARY KEY (`id_torneo`));
+  PRIMARY KEY (`id_torneo`)
+);
 
 CREATE TABLE IF NOT EXISTS `tenis_partido` (
   `id_partido` INT NOT NULL,
@@ -15,9 +15,9 @@ CREATE TABLE IF NOT EXISTS `tenis_partido` (
   `resultado` VARCHAR(55) NOT NULL,
   `id_torneo` INT NOT NULL,
   `tipo_partido` VARCHAR(55) NOT NULL,
-  PRIMARY KEY (`id_partido`));
-  
-	
+  PRIMARY KEY (`id_partido`)
+);
+
 INSERT INTO `tenis_torneo` (`id_torneo`, `nombre`, `fecha`) VALUES ('1', 'Miami', '2020-08-11');
 INSERT INTO `tenis_torneo` (`id_torneo`, `nombre`, `fecha`) VALUES ('2', 'Paris', '2020-12-15');
 

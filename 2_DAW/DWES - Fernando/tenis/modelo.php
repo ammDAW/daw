@@ -60,11 +60,23 @@ function getSemifinal($id_torneo){
 //obtener partido de final
 function getFinal($id_torneo){
     $sentencia = "SELECT * FROM tenis_partido WHERE id_torneo = ? AND tipo_partido='final'";
-    $resultado  = $GLOBALS['DB']->prepare($sentencia);
+    $resultado = $GLOBALS['DB']->prepare($sentencia);
     $resultado->bindParam(1, $id_torneo );
 	$resultado->execute();
 
 	$final = $resultado->fetchAll();
 	return( $final );    
 }
+
+/*function getEncuestas(){
+    $sql = "SELECT * FROM poll_encuestas";
+    $datos = SQLquery ($sql);
+    return($datos);
+}
+
+function getPreguntas($encuesta_id){
+    $sql = "SELECT * FROM preguntas";
+    $parametros = array($encuesta_id);
+    $datos = SQLquery ($sql, $parametros);
+}*/
 ?>
