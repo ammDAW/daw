@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS `elecciones_mesas` (
   `blancos` INT,
   `nulos` INT,
   `activa` tinyint DEFAULT 0,
-  PRIMARY KEY (`mesa_id`));
+  PRIMARY KEY (`mesa_id`)
+);
 
 CREATE TABLE IF NOT EXISTS `elecciones_sindicatos` (
   `sindicato_id` INT NOT NULL,
@@ -20,11 +21,10 @@ CREATE TABLE IF NOT EXISTS `elecciones_sindicatos` (
   `votos_virtual` INT NOT NULL DEFAULT 0,
   `delegados_real` INT,
   `delegados_virtual` INT,
-  PRIMARY KEY (`sindicato_id`));
-  
+  PRIMARY KEY (`sindicato_id`)
+);
 
-
- CREATE TABLE IF NOT EXISTS `elecciones_votos` (
+CREATE TABLE IF NOT EXISTS `elecciones_votos` (
   `mesa_id` INT NOT NULL,
   `sindicato_id` INT NOT NULL,
   `votos` FLOAT NOT NULL DEFAULT 0,
@@ -38,16 +38,16 @@ CREATE TABLE IF NOT EXISTS `elecciones_sindicatos` (
     FOREIGN KEY (`mesa_id`)
     REFERENCES `elecciones_mesas` (`mesa_id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON UPDATE NO ACTION
+);
 	
 CREATE TABLE IF NOT EXISTS `elecciones_mesas` (
   `mesa_id` INT NOT NULL,
   `centro` VARCHAR(255) NOT NULL, 
   `localidad` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`mesa_id`));
+  PRIMARY KEY (`mesa_id`)
+);
 
-	
-	
 INSERT INTO elecciones_sindicatos (`sindicato_id`, `sindicato`, `logo`, `delegados_real`, `delegados_virtual`  ) VALUES ('1', 'ANPE', 'anpe.png', '0', '0'  );
 INSERT INTO elecciones_sindicatos (`sindicato_id`, `sindicato`, `logo`, `delegados_real`, `delegados_virtual` ) VALUES ('2', 'CCOO', 'ccoo.png', '0' , '0' );
 INSERT INTO elecciones_sindicatos (`sindicato_id`, `sindicato`, `logo`, `delegados_real`, `delegados_virtual` ) VALUES ('3', 'UGT', 'ugt.png', '0', '0'  );
@@ -147,9 +147,4 @@ INSERT INTO elecciones_mesas (`mesa_id`, `centro`, `localidad`, blancos, nulos) 
 INSERT INTO elecciones_mesas (`mesa_id`, `centro`, `localidad`, blancos, nulos) VALUES (88,'  CEIP LAS HERRATILLAS ',' YECLA',0,0);
 INSERT INTO elecciones_mesas (`mesa_id`, `centro`, `localidad`, blancos, nulos) VALUES (89,'  CEIP MEDITERRANEO ',' MANGA DEL MAR MENOR(LA)',0,0);
 
-
 INSERT INTO  elecciones_votos ( mesa_id, sindicato_id ) select mesa_id, sindicato_id from elecciones_mesas, elecciones_sindicatos;
-
-
-
-
