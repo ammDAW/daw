@@ -1,0 +1,7 @@
+CREATE TABLE `chat`.`mensajes`( 
+    `id` INT(11) NOT NULL AUTO_INCREMENT , 
+    `nick` VARCHAR(16) NOT NULL , 
+    `texto` VARCHAR(240) NOT NULL , 
+    `instante` TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
