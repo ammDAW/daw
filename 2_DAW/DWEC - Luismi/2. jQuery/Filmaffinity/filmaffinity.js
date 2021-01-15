@@ -14,6 +14,8 @@
 			},
 			success: function(xml){
 				//procesar el xml y colocar cada tipo de dato en su <div> correspondiente
+				let xml = $(respuestaXML)
+				$xml.find()
 			},
 			error: function(error){
 				alert("Error en la llamada AJAX")
@@ -48,8 +50,7 @@
 						if ($json.length)
 							$divSugerencias.show()
 						else
-							$divSugerencias.hide()
-						$divSugerencias.show()  
+							$divSugerencias.hide() 
 					},
 					error: function(error){
 						alert("Error en la llamada AJAX")
