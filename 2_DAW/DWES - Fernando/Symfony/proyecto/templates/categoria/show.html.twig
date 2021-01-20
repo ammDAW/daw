@@ -1,0 +1,13 @@
+{# templates/categoria/show.html.twig #}
+
+<h1>Categoria</h1>
+	{{categoria.id}} {{categoria.category}}
+	
+<h1>Productos</h1>
+<ul>
+	{% for item in categoria.productos %}
+		<li>
+		{{item.id}} {{item.name}} {{item.price}} {{item.description}}
+		</li>
+	{% endfor %}
+</ul>

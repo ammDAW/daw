@@ -1,0 +1,34 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# config/routes.yaml
+
+# the "app_lucky_number" route name is not important yet
+app_lucky_number:
+    path: /lucky/number
+    controller: App\Controller\LuckyController::number
+
+app_lucky_number2:
+    path: /lucky/number2
+    controller: App\Controller\LuckyController::number2
+
+app_lucky_espar:
+    path: /lucky/espar/{number}
+    controller: App\Controller\LuckyController::espar
+    
+app_produto_listar:
+    path: /producto/listar
+    controller: App\Controller\ProductoController::listar
+    
+app_produto_show:
+    path: /producto/show/{id}
+    controller: App\Controller\ProductoController::show
+    
+app_produto_delete:
+    path: /producto/delete/{id}
+    controller: App\Controller\ProductoController::delete
+
+app_produto_update:
+    path: /producto/update/{id}
+    controller: App\Controller\ProductoController::update

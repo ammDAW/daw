@@ -1,0 +1,10 @@
+{# templates/producto/listar.html.twig #}
+
+<h1>Productos</h1>
+<ul>
+    {% for item in productos %}
+    <li>
+	{{item.id}} {{item.name}} {{item.price}} {{item.description}}
+	</li>
+    {% endfor %}
+</ul>
