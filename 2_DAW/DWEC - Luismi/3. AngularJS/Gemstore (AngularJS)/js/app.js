@@ -11,8 +11,21 @@
       return this.current
     }
     this.setCurrent = function(newCurrent){
-      this.current=newCurrent
+      this.current = newCurrent
     }
+  })
+
+  app.controller('TabsController', function(){
+    this.currentTab = 0;
+    this.setCurrentTab = function(newTab){
+      this.currentTab = newTab
+    }
+    this.isTab = function(aTab){
+      return this.currentTab == aTab
+    }
+  })
+
+  app.controller('ReviewsController', function(){
   })
 
   var gems = [{
