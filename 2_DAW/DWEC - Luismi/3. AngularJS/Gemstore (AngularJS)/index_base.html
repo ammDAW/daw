@@ -22,7 +22,7 @@
 		<div ng-repeat="product in sc.products" class="product row">
 			<h3>
 				{{product.name}} <!--mostrar el nombre del primer elemento del array de gemas-->
-				<em class="pull-right">{{product.price | currency : "pesetas"}}</em>
+				<em class="pull-right">{{product.price | currency : "pesetas"}} €</em>
 			</h3>
 			<div ng-controller="GalleryController as gc">
 				<img ng-src="{{product.images[gc.current]}}"/>
