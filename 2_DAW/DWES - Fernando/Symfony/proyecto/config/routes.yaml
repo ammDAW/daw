@@ -32,3 +32,7 @@ app_produto_delete:
 app_produto_update:
     path: /producto/update/{id}
     controller: App\Controller\ProductoController::update
+    
+app_task_new:
+    path: /task/new
+    controller: App\Controller\TaskController::new
