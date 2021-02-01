@@ -1,0 +1,16 @@
+<div class="articulo_vertical">
+    <div>
+        <img src="{{piezaparam?.imagen}}"/>
+        <span class="sinstock" *ngIf="!piezaparam?.stock">SIN STOCK</span>
+    </div>
+    <div>
+        <span #nombre>{{piezaparam?.nombre}}</span>
+    </div>
+    <div>
+        <span>{{piezaparam?.precio | currency:" "}} €</span>
+    </div>
+    <br>
+    <div>
+        <button (click)="eliminar(nombre.textContent)">Eliminar</button>
+    </div>
+</div>

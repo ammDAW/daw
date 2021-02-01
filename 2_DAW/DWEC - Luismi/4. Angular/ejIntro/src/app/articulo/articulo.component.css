@@ -1,0 +1,20 @@
+.articulo_vertical{
+    width: 160px;
+    float: left;
+    text-align: center;
+    border: 1px solid black;
+}
+
+img {
+    width: 150px;
+}
+
+span{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: chartreuse;
+}
+
+.sinstock{
+    color: crimson;
+    background-color: white
+}
