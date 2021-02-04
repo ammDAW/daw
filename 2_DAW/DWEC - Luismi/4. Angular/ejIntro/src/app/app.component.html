@@ -3,6 +3,9 @@
 <h3>Lista de componentes </h3>
 <ul>
   <li *ngFor="let pieza of piezas"> 
-    <app-articulo [piezaparam]="pieza" (avisarAlPadre)="removeItem($event)"></app-articulo>  
+    <app-articulo
+      [piezaparam]="pieza"
+      (avisarAlPadre)="removeItem($event)">
+    </app-articulo>  
   </li>
 </ul>

@@ -29,6 +29,7 @@ export class AppComponent {
   removeItem(item: string){
     //va a intentar eliminar un elemtno del array piezas
     console.log("Componente padre: el parámetro es "+ item);
-    //this.piezas.shift();
+    //eliminar el elemento correcto a partir del nombre recibido
+    this.piezas = this.piezas.filter(pieza => pieza == item)
   }
 }//fin de clase
