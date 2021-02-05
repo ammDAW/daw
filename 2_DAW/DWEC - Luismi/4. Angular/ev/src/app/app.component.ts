@@ -59,4 +59,16 @@ export class AppComponent {
     {"id":"51","text":null,"nombre":"e-Golf","imagen":"img\/VW_e-Golf.jpg","precio":"36850","fabricante":"20","tecnologia":"1"},
     {"id":"52","text":null,"nombre":"Golf GTE","imagen":"img\/VW_Golf_GTE.jpg","precio":"40090","fabricante":"20","tecnologia":"3"}
   ];
+
+  title = 'ev';
+
+  vistaBigCard = true;
+  
+  constructor(){
+
+  }
+
+  cambiarVista(){
+    this.vistaBigCard = !this.vistaBigCard;
+  }
 }
