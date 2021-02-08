@@ -1,10 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccesoDatosService {
-  piezas = [
+  /* piezas = [
     {
       nombre: "AMD Ryzen 5 3600",
       precio: 249.00,
@@ -18,10 +19,11 @@ export class AccesoDatosService {
       imagen: "https://thumb.pccomponentes.com/w-530-530/articles/30/302204/1849-msi-b550-a-pro.jpg",
       stock: false
     }
-  ];
-  constructor() { }
+  ]; */
+  constructor(private http: HttpClient) { }
 
   getDatos(){
-    return this.piezas;
+    //return this.piezas;
+    return;
   }
 }
