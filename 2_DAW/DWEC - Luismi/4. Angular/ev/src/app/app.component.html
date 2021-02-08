@@ -101,10 +101,10 @@
         <h1> EV - Tu base de datos de vehículos eléctricos</h1>
       </div>
 
-      <div class="col-lg-2">
-        <button (click)="cambiarVista()">Cambiar Vista</button>
+      <!-- <div class="col-lg-2">
+        <button class="btn btn-outline-success btn-sm" (click)="cambiarVista()">Cambiar Vista</button>
         <p>Vista actual: {{vistaBigCard}}</p>
-      </div>
+      </div> -->
     </div>
     
 		<div class="row">
@@ -175,18 +175,20 @@
 			</div>
       
       <div id="modelos" class="col-lg-9">
-				<div class="row row-cols-md-5">
-          <!--RELLENAR CON UN LISTADO DE TODOS LOS MODELOS-->
-          <ng-container *ngIf="vistaBigCard">
-            <app-car-card *ngFor="let coche of coches" 
-            [cocheparam]="coche"></app-car-card>  
-          </ng-container>
+        <div class="cols-md-1">
+          <button class="btn btn-outline-success btn-sm" (click)="cambiarVista()">Cambiar Vista</button>
+          <p>Vista actual: {{vistaBigCard}}</p>
+        </div>
+        <!--RELLENAR CON UN LISTADO DE TODOS LOS MODELOS-->
+				<div class="row row-cols-md-5" *ngIf="vistaBigCard">
+          <app-car-card *ngFor="let coche of coches" 
+          [cocheparam]="coche"></app-car-card>  
+        </div>
 
-          <ng-container *ngIf="!vistaBigCard">
-            <app-car-row *ngFor="let coche of coches" 
+        <div class="row row-cols-md-1" *ngIf="!vistaBigCard">
+          <app-car-row *ngFor="let coche of coches" 
             [cocheparam]="coche"></app-car-row>  
-          </ng-container>
-				</div>
+        </div>
       </div>
       
 		</div> <!-- .row -->
