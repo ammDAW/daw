@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AccesoDatosService {
+  private url = "https://my-json-server.typicode.com/ammDAW/daw/piezas";
   /* piezas = [
     {
       nombre: "AMD Ryzen 5 3600",
@@ -20,10 +21,11 @@ export class AccesoDatosService {
       stock: false
     }
   ]; */
+  
   constructor(private http: HttpClient) { }
 
   getDatos(){
     //return this.piezas;
-    return;
+    return this.http.get(this.url); //devuelve un observable
   }
 }
