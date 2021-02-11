@@ -18,10 +18,14 @@ export class AppComponent {
 
     //this.piezas = accesoDatos.getDatos();
     accesoDatos.getDatos().subscribe(
-      (data)=>{
+      (data: any[])=>{
         this.piezas = data;
       }
     );
+    //otra forma de hacerlo
+    /*accesoDatos.getDatos().subscribe(function(data){
+      this.piezas = data;  
+    }*/
   } 
 
   removeItem(item: string){
