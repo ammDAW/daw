@@ -56,8 +56,8 @@
     ],
 
   	"tecnologias": [
-		{"id":"1","text":"eléctricos"},
-		{"id":"2","text":"híbridos"},
-		{"id":"3","text":"híbridos enchufables"}
+		{"id":"1","text":"Eléctricos"},
+		{"id":"2","text":"Híbridos"},
+		{"id":"3","text":"Híbridos enchufables"}
   	]
 }
