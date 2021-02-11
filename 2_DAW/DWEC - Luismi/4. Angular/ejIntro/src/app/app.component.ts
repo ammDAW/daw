@@ -18,7 +18,7 @@ export class AppComponent {
 
     //this.piezas = accesoDatos.getDatos();
     accesoDatos.getDatos().subscribe(
-      (data: any[])=>{
+      (data: any[])=>{ //any[] es para convertir lo que recibes en un array cualquiera
         this.piezas = data;
       }
     );

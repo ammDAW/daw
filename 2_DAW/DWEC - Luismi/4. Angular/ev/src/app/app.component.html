@@ -107,80 +107,19 @@
       </div> -->
     </div>
     
-		<div class="row">
-			<div class="col-lg-3">
-				<table class="table table-striped">
-					<thead class="thead-light">
-						<tr><th>MODELO</th></tr>
-					</thead>
-					<tbody>
-						<tr><td>
-							<div class="form-group">
-								<input type="text" class="form-control" id="modelo" placeholder="Nombre del modelo">
-							</div>
-						</td></tr>
-					</tbody>
-        </table>
-        
-				<table id="fabFilters" class="table table-striped">
-					<thead class="thead-light">
-						<tr><th>FABRICANTE</th></tr>
-					</thead>
-					<tbody>
-						<tr><td>
-							<div class="form-group">
-								<label for="fabList">Elige un fabricante</label>
-								<select class="form-control" id="fabList">
-									<option value="0">(Elige un fabricante)</option>
-									<!-- RELLENAR CON UN LISTADO DE TODOS LOS FABRICANTES -->
-								</select>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="fab1" checked>
-								<label class="form-check-label" for="fab1">Fabricante1</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="fab2" checked>
-								<label class="form-check-label" for="fab2">Fabricante2</label>
-							</div>
-						</td></tr>
-					</tbody>
-        </table>
-        
-				<table id="tecFilters" class="table table-striped">
-					<thead class="thead-light">
-						<tr><th>TECNOLOGÍA</th></tr>
-					</thead>
-					<tbody>
-						<tr><td>
-							<div class="form-group">
-								<label for="techList">Elige una tecnología</label>
-								<select class="form-control" id="techList">
-									<option value="0">(Elige una tecnología)</option>
-									<!-- RELLENAR CON UN LISTADO DE TODOS LAS TECNOLOGÍAS -->
-								</select>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="tec1" checked>
-								<label class="form-check-label" for="tec1">Tecnología1</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="tec2" checked>
-								<label class="form-check-label" for="tec2">Tecnología2</label>
-							</div>
-						</td></tr>
-					</tbody>
-				</table>
-				<button class="btn btn-primary" id="resetFilters">Borrar filtros</button>
-			</div>
+		<div class="row"> <!--barra lateral-->
+      <div class="col-lg-3">
+			  <app-sidebar></app-sidebar>  <!-- llamada al componente que tiene el html sidebar-->
+      </div>
       
       <div id="modelos" class="col-lg-9">
         <div class="cols-md-1">
           <button class="btn btn-outline-success btn-sm" (click)="cambiarVista()">Cambiar Vista</button>
           <p>Vista actual: {{vistaBigCard}}</p>
         </div>
+
         <!--RELLENAR CON UN LISTADO DE TODOS LOS MODELOS-->
-				<div class="row row-cols-md-5" *ngIf="vistaBigCard">
+				<div class="row row-cols-md-3" *ngIf="vistaBigCard">
           <app-car-card *ngFor="let coche of coches" 
           [cocheparam]="coche"></app-car-card>  
         </div>
@@ -189,7 +128,7 @@
           <app-car-row *ngFor="let coche of coches" 
             [cocheparam]="coche"></app-car-row>  
         </div>
-      </div>
+      </div> <!-- .modelos -->
       
 		</div> <!-- .row -->
 	</div> <!-- .container -->

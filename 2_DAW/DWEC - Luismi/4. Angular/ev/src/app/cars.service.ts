@@ -5,6 +5,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CarsService {
-  private url = "https://my-json-server.typicode.com/luismiguel-fernandez/angular/coches"
-  constructor() { }
+  private url = "https://my-json-server.typicode.com/ammDAW/daw/"
+  
+  constructor(private http: HttpClient) { }
+
+  getCars(){
+    return this.http.get(this.url + "coches");
+  }
+
+  getMakers(){
+    return this.http.get(this.url + "fabricantes");
+  }
+
+  getTechs(){
+    return this.http.get(this.url + "tecnologias");
+  }
 }
