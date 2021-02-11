@@ -1,5 +1,5 @@
 {
-	"coches":[
+	"coches": [
 		{"id":"1","text":null,"nombre":"A3 Sportback e-tron","imagen":"img\/Audi_A3_Sportback_e-tron.jpg","precio":"38750","fabricante":"1","tecnologia":"3"},
 		{"id":"2","text":null,"nombre":"Q7 e-tron quattro","imagen":"img\/Audi_Q7_e-tron_quattro.jpg","precio":"83970","fabricante":"1","tecnologia":"3"},
 		{"id":"3","text":null,"nombre":"i3","imagen":"img\/BMW-i3-60Ah.jpg","precio":"35500","fabricante":"2","tecnologia":"1"},
@@ -30,5 +30,34 @@
 		{"id":"28","text":null,"nombre":"Outlander PHEV","imagen":"img\/Mitsubishi_Outlander.jpg","precio":"47200","fabricante":"11","tecnologia":"3"},
 		{"id":"29","text":null,"nombre":"LEAF","imagen":"img\/Nissan_LEAF_24Ah.jpg","precio":"29235","fabricante":"12","tecnologia":"1"},
 		{"id":"30","text":null,"nombre":"e-NV200","imagen":"img\/Nissan_E-NV200.jpg","precio":"25342","fabricante":"12","tecnologia":"1"}
-	]
+	],
+
+	"fabricantes": [
+    	{"id":"1","text":"Audi"},
+		{"id":"2","text":"BMW"},
+		{"id":"3","text":"Citroën"},
+		{"id":"4","text":"Ford"},
+		{"id":"5","text":"Honda"},
+		{"id":"6","text":"Hyundai"},
+		{"id":"7","text":"Jaguar"},
+		{"id":"8","text":"Kia"},
+		{"id":"9","text":"Lexus"},
+		{"id":"10","text":"Mercedes"},
+		{"id":"11","text":"Mitsubishi"},
+		{"id":"12","text":"Nissan"},
+		{"id":"13","text":"Peugeot"},
+		{"id":"14","text":"Porsche"},
+		{"id":"15","text":"Renault"},
+		{"id":"16","text":"Suzuki"},
+		{"id":"17","text":"Tesla"},
+		{"id":"18","text":"Toyota"},
+		{"id":"19","text":"Volvo"},
+		{"id":"20","text":"Volkswagen"}
+    ],
+
+  	"tecnologias": [
+		{"id":"1","text":"eléctricos"},
+		{"id":"2","text":"híbridos"},
+		{"id":"3","text":"híbridos enchufables"}
+  	]
 }
