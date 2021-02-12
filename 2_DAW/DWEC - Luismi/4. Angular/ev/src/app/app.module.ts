@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CarCardComponent } from './car-card/car-card.component';
 import { CarRowComponent } from './car-row/car-row.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { FiltroPatronPipe } from './filtro-patron.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarCardComponent,
     CarRowComponent,
-    SidebarComponent
+    SidebarComponent,
+    FiltroPatronPipe
   ],
   imports: [
     BrowserModule,

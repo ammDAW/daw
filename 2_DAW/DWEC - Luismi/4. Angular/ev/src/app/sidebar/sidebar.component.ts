@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CarsService } from '../cars.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { CarsService } from '../cars.service';
 export class SidebarComponent implements OnInit {
   fabricantes;
   tecnologias;
+  @Output() eventoAvisarPadrePatronCambiado = new EventEmitter<string>();
 
   constructor(private accesoDatos: CarsService) { }
 
@@ -20,5 +21,9 @@ export class SidebarComponent implements OnInit {
     this.accesoDatos.getTechs().subscribe(
       (data) => {this.tecnologias = data;}
     );
+  }
+
+  cambiosEnPatron(patron:string){
+    this.eventoAvisarPadrePatronCambiado.emit(patron);
   }
 }

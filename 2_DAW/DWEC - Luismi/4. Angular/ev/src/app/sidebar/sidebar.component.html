@@ -6,7 +6,8 @@
         <tbody>
             <tr><td>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="modelo" placeholder="Nombre del modelo">
+                    <input #patron type="text" class="form-control"
+                    id="modelo" placeholder="Nombre del modelo" (keyup)="cambiosEnPatron(patron.value)">
                 </div>
             </td></tr>
         </tbody>

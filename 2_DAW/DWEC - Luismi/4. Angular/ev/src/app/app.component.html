@@ -109,7 +109,7 @@
     
 		<div class="row"> <!--barra lateral-->
       <div class="col-lg-3">
-			  <app-sidebar></app-sidebar>  <!-- llamada al componente que tiene el html sidebar-->
+			  <app-sidebar (eventoAvisarPadrePatronCambiado)="establecerNuevoFiltroPatron($event)"></app-sidebar>  <!-- llamada al componente que tiene el html sidebar-->
       </div>
       
       <div id="modelos" class="col-lg-9">
@@ -120,7 +120,7 @@
 
         <!--RELLENAR CON UN LISTADO DE TODOS LOS MODELOS-->
 				<div class="row row-cols-md-3" *ngIf="vistaBigCard">
-          <app-car-card *ngFor="let coche of coches" 
+          <app-car-card *ngFor="let coche of coches | filtroPatron:patron" 
           [cocheparam]="coche"></app-car-card>  
         </div>
 
