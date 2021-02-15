@@ -10,6 +10,7 @@ export class SidebarComponent implements OnInit {
   fabricantes;
   tecnologias;
   @Output() eventoAvisarPadrePatronCambiado = new EventEmitter<string>();
+  @Output() eventoAvisarCambioFabricante = new EventEmitter<string>();
 
   constructor(private accesoDatos: CarsService) { }
 
@@ -25,5 +26,9 @@ export class SidebarComponent implements OnInit {
 
   cambiosEnPatron(patron:string){
     this.eventoAvisarPadrePatronCambiado.emit(patron);
+  }
+
+  cambioDeFabricante(idFab:string){
+    this.eventoAvisarCambioFabricante.emit(idFab);
   }
 }

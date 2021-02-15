@@ -109,7 +109,8 @@
     
 		<div class="row"> <!--barra lateral-->
       <div class="col-lg-3">
-			  <app-sidebar (eventoAvisarPadrePatronCambiado)="establecerNuevoFiltroPatron($event)"></app-sidebar>  <!-- llamada al componente que tiene el html sidebar-->
+			  <app-sidebar (eventoAvisarPadrePatronCambiado)="establecerNuevoFiltroPatron($event)"
+                     (eventoAvisarCambioFabricante)="establecerNuevoFiltroFab($event)"></app-sidebar>  <!-- llamada al componente que tiene el html sidebar-->
       </div>
       
       <div id="modelos" class="col-lg-9">
@@ -120,13 +121,13 @@
 
         <!--RELLENAR CON UN LISTADO DE TODOS LOS MODELOS-->
 				<div class="row row-cols-md-3" *ngIf="vistaBigCard">
-          <app-car-card *ngFor="let coche of coches | filtroPatron:patron" 
+          <app-car-card *ngFor="let coche of coches | filtroPatron:patron | filtroFabricante:fab" 
           [cocheparam]="coche"></app-car-card>  
         </div>
 
         <div class="row row-cols-md-1" *ngIf="!vistaBigCard">
-          <app-car-row *ngFor="let coche of coches" 
-            [cocheparam]="coche"></app-car-row>  
+          <app-car-row *ngFor="let coche of coches | filtroPatron:patron | filtroFabricante:fab" 
+          [cocheparam]="coche"></app-car-row>  
         </div>
       </div> <!-- .modelos -->
       

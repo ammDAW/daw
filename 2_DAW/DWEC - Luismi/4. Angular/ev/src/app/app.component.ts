@@ -11,7 +11,8 @@ export class AppComponent implements OnInit {
   title = 'ev';
   vistaBigCard = true;
   loading = false;
-  patron ="";
+  patron = "";
+  fab = "0";
 
   constructor(private carsService: CarsService){
   }
@@ -31,11 +32,16 @@ export class AppComponent implements OnInit {
       }
     )
   }
+
   cambiarVista(){
     this.vistaBigCard = !this.vistaBigCard;
   }
 
   establecerNuevoFiltroPatron(patron){
     this.patron = patron;
+  }
+
+  establecerNuevoFiltroFab(idFab){
+    this.fab = idFab;
   }
 }
