@@ -1,0 +1,53 @@
+1. Instalar modulo seguridad
+ 
+#composer require symfony/security-bundle
+
+2. Crear usuario test
+
+#php bin/console make:user
+
+3a. Actualizamos base de datos
+
+#php bin/console doctrine:schema:update --force
+
+3b. Crear usuario
+
+a. Copiamos fichero SeguridadController.php
+b. Ejecutamos la ruta /seguridad/create
+
+4. Crear login autentificador
+
+#php bin/console make:auth
+
+
+a. Nombre Authenticator: LoginFormAuthenticator
+b. Nombre Security: SecurityController
+
+Nombre Clase 
+LoginFormAuthenticator
+
+
+
+public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
+    {
+        
+
+        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
+        // En este caso redireccinamos a pagina_privada
+        return new RedirectResponse($this->urlGenerator->generate('pagina_privada'));
+        
+        
+    }
+	
+5. Ajustar security.yaml
+
+ access_control:
+      
+         # or require ROLE_ADMIN or IS_AUTHENTICATED_FULLY for /admin*
+        - { path: '^/privado', roles: [IS_AUTHENTICATED_FULLY] }
+	
+Security Configuration Reference
+https://symfony.com/doc/current/reference/configuration/security.html
+
+FosUserBundle
+https://vfac.fr/blog/how-install-fosuserbundle-with-symfony-4
