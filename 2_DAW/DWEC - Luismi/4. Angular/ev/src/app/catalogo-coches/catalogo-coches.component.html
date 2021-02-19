@@ -1,0 +1,34 @@
+
+<div class="row">
+    <div class="col-lg-10">
+
+    </div>
+    
+    <div class="col-lg-2">
+      <button (click)="cambiarVista()">CAMBIAR VISTA</button>
+    </div>
+</div>
+
+<div class="row">
+    
+    <div class="col-lg-3">
+      <app-sidebar (eventoAvisarPadrePatronCambiado)="establecerNuevoFiltroPatron($event)"
+                     (eventoAvisarCambioFabricante)="establecerNuevoFiltroFab($event)"></app-sidebar>
+    </div>
+
+    <div id="modelos" class="col-lg-9 bg-aqua">
+      <!-- RELLENAR CON UN LISTADO DE TODOS LOS MODELOS -->
+      <div *ngIf="loading">loading...</div>
+      <div class="row row-cols-md-3" *ngIf="vistaBigCard">
+          <app-car-card  *ngFor="let coche of coches | filtroPatron:patron | filtroFabricante:fab"
+          [cocheparam]="coche">
+        </app-car-card>
+      </div>
+      
+      <div class="row row-cols-md-1" *ngIf="!vistaBigCard">
+        <app-car-row *ngFor="let coche of coches"
+          [cocheparam]="coche">
+        </app-car-row>
+      </div>
+    </div>
+  </div> <!-- .row -->

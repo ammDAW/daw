@@ -1,0 +1,7 @@
+<div *ngIf="cocheparam | async as car">
+    <img src="assets/{{car.imagen}}" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">{{car.nombre}}</h5>
+        <p class="card-text">{{car.precio}} €</p>
+    </div>
+</div>
