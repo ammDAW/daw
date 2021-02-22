@@ -1,0 +1,14 @@
+<h2>Buscar ciudades</h2>
+
+<!-- <form> -->
+    <div class="form-group">
+      <!-- <label for="exampleInputEmail1">Email address</label> -->
+      <input #patron type="text" class="form-control" id="patronCiudad" aria-describedby="emailHelp" placeholder="Introduce un nombre de ciudad">
+    </div>
+    <button (click)="buscarCiudades(patron.value)" class="btn btn-primary">Buscar</button>
+<!-- </form> -->
+
+<ul class="list-group">
+    <!-- <li class="list-group-item">Cras justo odio</li> -->
+    <li *ngFor="let resultado of resultados" class="list-group-item"></li>
+</ul>

@@ -1,2 +1,9 @@
 <h2>Listado de mis ciudades</h2>
-<app-ciudad></app-ciudad>
+
+<div class="row row-cols-md-5">
+  <ng-container *ngFor="let ciudad of ciudades">
+    <app-ciudad [id]="ciudad"></app-ciudad>
+  </ng-container>
+</div>
+
+<app-anyadir-ciudad></app-anyadir-ciudad>
