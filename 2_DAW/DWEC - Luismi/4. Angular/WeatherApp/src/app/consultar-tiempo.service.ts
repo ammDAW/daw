@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class ConsultarTiempoService {
 
   private url = "http://api.openweathermap.org/data/2.5/"
-  private apiKey = "0617ecda468c5e9492d75f4388b1ddf5"
+  private apiKey = "1bf84d001f378f1d5675bc47080fb6b7"
 
   constructor(private http: HttpClient) {
 

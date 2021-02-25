@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConsultarTiempoService } from '../consultar-tiempo.service';
+import { ListaCiudadesService } from '../lista-ciudades.service';
 
 @Component({
   selector: 'app-anyadir-ciudad',
@@ -8,9 +9,10 @@ import { ConsultarTiempoService } from '../consultar-tiempo.service';
 })
 export class AnyadirCiudadComponent implements OnInit {
 
-  resultados = []
+  resultados = [];
 
-  constructor(private consultarTiempo:ConsultarTiempoService) { }
+  constructor(private consultarTiempo:ConsultarTiempoService,
+              private listaCiudades:ListaCiudadesService) { }
 
   ngOnInit(): void {
   }
@@ -19,7 +21,15 @@ export class AnyadirCiudadComponent implements OnInit {
     this.consultarTiempo.getCiudadesPorPatron(patron).subscribe(
       (response) => {
         console.log('Response received');
-        console.table(response)
+        console.table(response);
+        response['list'].forEach(element => {
+          let nuevoResultado = {
+            id: element.id,
+            name: element.name,
+            country: element['sys'].country
+          }
+          this.resultados.push(nuevoResultado)   
+        });
       },
       (error) => {
         console.error('Request failed with error');
@@ -28,4 +38,9 @@ export class AnyadirCiudadComponent implements OnInit {
     )
   }
 
+  addCiudad(id: number){
+    console.log(`Vamos a añadir la ciudad con ID=${id}`)
+    //añadir la nueva ciudad al array de ciudades que está en el componente MisCiudades
+    this.listaCiudades.addCiudad(id)
+  }
 }
