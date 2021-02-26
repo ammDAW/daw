@@ -152,6 +152,55 @@ if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-beaver-themer.php';
 }
 
+function footer_action(){
+	echo "Esto es un footer creado con WP Actions";
+}
+add_action('wp_footer','footer_action');
+
+function buscador() {?>
+    <a href="http://www.google.es">Google</a>
+	<a href="https://aulavirtual.murciaeduca.es/">Aula Virtual</a>
+<?php }
+add_action( 'wp_head', 'buscador', 10 );
+
+function boton() {?>
+    <button onclick="alert('¡¡Me has hecho caso!!')">Pulsame</button>
+	<?php
+	//echo '<script language="javascript">alert("has presionado un botón");</script>';
+}
+add_action('wp_head', 'boton');
+
+function formulario() {?>
+	<form>
+		<label for="nombre" style="color:white;">Nombre</label>
+		<input type="text"/>
+		<label for="telefono" style="color:white;">Telefono</label>
+		<input type="text"/>
+		<button type="submit">Submit</button>
+	</form>
+<?php }
+add_action('wp_footer', 'formulario');
+
+function alerta(){
+	echo '<script language="javascript">alert("Página cargada");</script>';	
+}
+add_action( 'wp_header', 'alerta' );
+
+function my_admin_footer_function() {
+    echo "<h1 style='color:white;'>SOY UN ADMIN</h1>";
+}
+add_action('admin_footer', 'my_admin_footer_function');
+
+
+function cambioLogo() {
+    echo '<style type="text/css">'
+            . '#login h1 a {'
+                . 'background-image: url("https://embroidnew.com/pub/media/catalog/product/cache/696b557293fc903cf118897e0a260d5e/p/l/playstation_logo_machine_embroidery_design.jpg");'                
+            . '}'
+        . '</style>';
+}
+add_action( 'login_enqueue_scripts', 'cambioLogo' );
+
 /**
  * Load deprecated functions
  */
