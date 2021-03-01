@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: whitesmoke;
+    background-size: cover;
+}
+
+header {
+    background-color:#322411;
+    height: 150px;
+}
+
+footer {
+    background-color: #322411;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+}
+
+#titulo {
+    font-family: 'Lobster-Regular';
+    font-size: 5em;
+    color: white;
+}
+
+#logo {
+    margin-top: -7.2%;
+}
+
+#instrumentos img {
+    width: 50%;
+    margin-top: 20%;
+    margin-left: 20%;
+    border: solid black;
+    background-color: rgb(93, 93, 93);
+}

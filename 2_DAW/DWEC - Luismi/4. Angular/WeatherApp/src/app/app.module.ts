@@ -8,6 +8,7 @@ import { MisCiudadesComponent } from './mis-ciudades/mis-ciudades.component';
 import { CiudadComponent } from './ciudad/ciudad.component';
 import { AnyadirCiudadComponent } from './anyadir-ciudad/anyadir-ciudad.component';
 import { GestionarCiudadesComponent } from './gestionar-ciudades/gestionar-ciudades.component';
+import { BorrarCiudadesComponent } from './borrar-ciudades/borrar-ciudades.component';
 
 const rutas = [
     { path: 'home', component: MisCiudadesComponent},
@@ -23,7 +24,8 @@ const rutas = [
     MisCiudadesComponent,
     CiudadComponent,
     AnyadirCiudadComponent,
-    GestionarCiudadesComponent
+    GestionarCiudadesComponent,
+    BorrarCiudadesComponent
   ],
   imports: [
     BrowserModule,
