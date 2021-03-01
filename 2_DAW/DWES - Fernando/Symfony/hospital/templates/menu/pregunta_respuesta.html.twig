@@ -1,0 +1,12 @@
+{# menu/pregunta_respuesta.html.twig' #}
+
+{% extends 'principal.html.twig' %}
+{% block menu %}
+    {{ render(controller('App\\Controller\\MenuController::menu')) }}
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <h1>PREGUNTAS</h1>
+    {{ form(form) }}
+{% endblock %}

@@ -1,0 +1,18 @@
+{# templates/menu/menu.html.twig #}
+
+{% for item in menus %}
+	{#% if item.nombre != "Gestion Medicos" and item.nombre != "Logout"%#}
+	{#% if not is_granted('IS_AUTHENTICATED_FULLY') and not item.logueado %#} {#debe mostrar el login#}
+	{% if item.logueado != 1 %}
+	<li>
+	   <a href="{{ item.enlace }}">{{item.nombre}}</a> 
+        {#<a href="{{ path('item.enlace', {id: item.id}) }}">{{item.nombre}}</a> #}
+    </li>
+	{% endif %}
+	{#% elseif item.nombre != "Login" %}
+			<li>
+				<a href="{{ item.enlace }}">{{item.nombre}}</a> 
+			</li>
+	{% endif %#}
+{% endfor %}
+

@@ -1,0 +1,16 @@
+{# menu/inicio.html.twig' #}
+
+{% extends 'principal.html.twig' %}
+{% block menu %}
+    {{ render(controller('App\\Controller\\MenuController::menu')) }}
+{% endblock %}
+
+{% block contenido %}
+
+<br>
+<h1>BIENVENIDO AL HOSPITAL JOSE PLANES</h1>
+
+
+
+
+{% endblock %}
