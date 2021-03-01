@@ -1,7 +1,9 @@
+<!--LISTA VISIBLE CIUDADES EN MIS CIUDADES-->
+
 <h2>Listado de mis ciudades</h2>
 
 <div class="row row-cols-md-5">
   <ng-container *ngFor="let ciudad of getCiudades()">
-    <app-ciudad [id]="ciudad"></app-ciudad>
+    <app-ciudad [id]="ciudad.id"></app-ciudad>
   </ng-container>
 </div>

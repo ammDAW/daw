@@ -1,16 +1,31 @@
+<!--PANEL DE BUSQUEDA DE CIUDADES-->
 <h2>Buscar ciudades</h2>
 
-<!-- <form> -->
-    <div class="form-group">
-      <!-- <label for="exampleInputEmail1">Email address</label> -->
-      <input #patron type="text" class="form-control" id="patronCiudad" aria-describedby="emailHelp" placeholder="Introduce un nombre de ciudad">
-    </div>
-    <button (click)="buscarCiudades(patron.value)" class="btn btn-primary">Buscar</button>
-<!-- </form> -->
+<!-- es un form pero está quitado para que no recargue la página -->
+<div class="form-group">
+  <input #patron type="text" class="form-control" 
+          id="patronCiudad" aria-describedby="emailHelp" 
+          placeholder="Introduce un nombre de ciudad" 
+          (keyup.enter)="buscarCiudades(patron.value)"
+          required minlength="3">
+</div>
+<button (click)="buscarCiudades(patron.value)" class="btn btn-primary">Buscar</button>
+
+<div class="alert alert-success" role="alert"
+     *ngIf="msgAddCityOK">
+  Ciudad añadida
+</div>
+
+<div class="alert alert-danger" role="alert"
+     *ngIf="msgAddCityError">
+  La ciudad ya existe
+</div>
 
 <ul class="list-group">
-    <!-- <li class="list-group-item">Cras justo odio</li> -->
-    <li *ngFor="let resultado of resultados" class="list-group-item" (click)="addCiudad(resultado.id)">
+    <li *ngFor="let resultado of resultados" 
+        class="list-group-item" 
+        (click)="addCiudad({id:resultado.id, name:resultado.name})">
       {{resultado.name}} ({{resultado.country}})
     </li>
 </ul>
+<!-- (click)="addCiudad(resultado.id)" -->

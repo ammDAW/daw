@@ -1,7 +1,14 @@
+<!--LISTA DE CIUDADES CON BOTON PARA BORRAR-->
 <h2>Borrar ciudades</h2>
 
 <ul>
     <li *ngFor="let ciudad of getCiudades()">
-        {{ciudad}} <button class="btn btn-warning">Borrar</button>
+        {{ciudad.name}}
+        <button class="btn btn-outline-secondary"
+                (click)="borrarCiudad(ciudad.id)">
+            Borrar
+        </button>
     </li>
 </ul>
+<button class="btn btn-danger"
+        (click)="clearCiudades()">Borrar todas</button>

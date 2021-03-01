@@ -9,7 +9,9 @@ import { ListaCiudadesService } from '../lista-ciudades.service';
 })
 export class AnyadirCiudadComponent implements OnInit {
 
-  resultados = [];
+  resultados = []; //lista que aparece tras darle al botón buscar
+  msgAddCityOK = false; //boolean para el mensaje de alerta en el *ngIf
+  msgAddCityError = false; //boolean para el mensaje de alerta en el *ngIf
 
   constructor(private consultarTiempo:ConsultarTiempoService,
               private listaCiudades:ListaCiudadesService) { }
@@ -18,6 +20,7 @@ export class AnyadirCiudadComponent implements OnInit {
   }
 
   buscarCiudades(patron:string){
+    this.resultados = []; //limpiar para que no se apilen las búsquedas
     this.consultarTiempo.getCiudadesPorPatron(patron).subscribe(
       (response) => {
         console.log('Response received');
@@ -38,9 +41,19 @@ export class AnyadirCiudadComponent implements OnInit {
     )
   }
 
-  addCiudad(id: number){
-    console.log(`Vamos a añadir la ciudad con ID=${id}`)
-    //añadir la nueva ciudad al array de ciudades que está en el componente MisCiudades
-    this.listaCiudades.addCiudad(id)
+  addCiudad(nuevaCiudad: any){
+    this.msgAddCityOK = false;
+    this.msgAddCityError = false;
+
+    //añadir ciudad si no existe previamente
+    if(!this.listaCiudades.incluye(nuevaCiudad)){
+      this.listaCiudades.addCiudad(nuevaCiudad);
+      this.msgAddCityOK = true;
+    }
+    else {
+      this.msgAddCityError = true;
+    }
+    setTimeout(() => this.msgAddCityOK = false, 3000)
+    setTimeout( () => this.msgAddCityError = false, 3000)         
   }
 }

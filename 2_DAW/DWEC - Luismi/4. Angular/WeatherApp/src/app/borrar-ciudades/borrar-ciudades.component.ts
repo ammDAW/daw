@@ -17,4 +17,12 @@ export class BorrarCiudadesComponent implements OnInit {
     return this.consultarCiudades.getCiudades();
   }
 
+  borrarCiudad(id){
+   //propagar la llamada de borrar una ciudad al servicio que tiene el array ciudades 
+   this.consultarCiudades.removeCiudad(id);
+  }
+
+  clearCiudades(){
+    this.consultarCiudades.clearCiudades();
+  }
 }
