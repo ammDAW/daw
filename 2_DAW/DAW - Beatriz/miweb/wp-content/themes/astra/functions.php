@@ -157,11 +157,11 @@ function footer_action(){
 }
 add_action('wp_footer','footer_action');
 
-function buscador() {?>
+/*function buscador() {?>
     <a href="http://www.google.es">Google</a>
 	<a href="https://aulavirtual.murciaeduca.es/">Aula Virtual</a>
 <?php }
-add_action( 'wp_head', 'buscador', 10 );
+add_action( 'wp_head', 'buscador', 10 );*/
 
 function boton() {?>
     <button onclick="alert('¡¡Me has hecho caso!!')">Pulsame</button>
@@ -170,7 +170,7 @@ function boton() {?>
 }
 add_action('wp_head', 'boton');
 
-function formulario() {?>
+/*function formulario() {?>
 	<form>
 		<label for="nombre" style="color:white;">Nombre</label>
 		<input type="text"/>
@@ -179,17 +179,17 @@ function formulario() {?>
 		<button type="submit">Submit</button>
 	</form>
 <?php }
-add_action('wp_footer', 'formulario');
+add_action('wp_footer', 'formulario');*/
 
-function alerta(){
+/*function alerta(){
 	echo '<script language="javascript">alert("Página cargada");</script>';	
 }
-add_action( 'wp_header', 'alerta' );
+add_action( 'wp_header', 'alerta' );*/
 
-function my_admin_footer_function() {
+/*function my_admin_footer_function() {
     echo "<h1 style='color:white;'>SOY UN ADMIN</h1>";
 }
-add_action('admin_footer', 'my_admin_footer_function');
+add_action('admin_footer', 'my_admin_footer_function');*/
 
 
 function cambioLogo() {
@@ -201,9 +201,49 @@ function cambioLogo() {
 }
 add_action( 'login_enqueue_scripts', 'cambioLogo' );
 
+
+add_action( 'activity_box_end', 'mensajeAdmin' ); 
+function mensajeAdmin() {
+   _e( "Mensaje de administrador: Para cualquier error contactar con alberto@gmail.com" );
+}
+
+add_action('login_form', 'infoLogin');
+function infoLogin(){
+	echo '<h5>Recuerda que el nombre de usuario y la contraseña son en minúscula</5><br>';
+}
+
 /**
  * Load deprecated functions
  */
+
+function filtro_title_uppercase( $title, $id = null ) {
+    return strtoupper( $title );
+}
+add_filter( 'the_title', 'filtro_title_uppercase', 10, 2 );
+
+function mensajeLogin_error( $error ) {
+    $error = "Acho te has equivocado. Introduce bien el usuario o la contraseña";
+	return $error;
+}
+add_filter( 'login_errors', 'mensajeLogin_error');
+
+/*add_filter( 'locale', 'cambiarIdioma' );
+function cambiarIdioma( $lang ) {
+    if ( 'en' == $_GET['language'] ) {
+        return 'en_EN';
+    } else {
+        return $lang;
+    }
+} */
+
+
+/*OFERTAS*/
+function add_query_vars_filter( $vars ){
+	$vars[] = "id";
+	return $vars;
+}
+add_filter( 'query_vars', 'add_query_vars_filter' );
+
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
