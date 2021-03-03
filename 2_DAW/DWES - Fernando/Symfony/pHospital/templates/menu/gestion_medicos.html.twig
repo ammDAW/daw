@@ -1,0 +1,20 @@
+{# menu/gestion_medicos.html.twig' #}
+
+{% extends 'principal.html.twig' %}
+{% block menu %}
+    {{ render(controller('App\\Controller\\MenuController::menu')) }}
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <h1>LISTADO DE MEDICOS</h1>
+    {% for medico in medicos %}
+        <li>
+            <a href="{{ path('editar_medico', {'id': medico.id}) }}">{{medico.nombre}}</a>
+        </li>
+    {% endfor %}
+{% endblock %}
+
+{% block footer %}
+    {{ render(controller('App\\Controller\\FooterController::footer')) }}
+{% endblock %}

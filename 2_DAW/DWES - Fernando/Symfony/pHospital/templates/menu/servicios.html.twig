@@ -1,0 +1,27 @@
+{# menu/servicios.html.twig' #}
+
+{% extends 'principal.html.twig' %}
+{% block menu %}
+    {{ render(controller('App\\Controller\\MenuController::menu')) }}
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <h1>LISTADO DE SERVICIOS</h1>
+    {% for servicios, medicos in servicio_especialidad %}
+        <h4>{{servicios}}</h4>
+        {% for medico in medicos %}
+            <li>
+                {{medico.nombre}}
+            </li>
+        {% endfor %}
+    {% endfor %}
+    <br>
+    <div class="navigation">
+        {{ knp_pagination_render(servicio_especialidad) }}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ render(controller('App\\Controller\\FooterController::footer')) }}
+{% endblock %}

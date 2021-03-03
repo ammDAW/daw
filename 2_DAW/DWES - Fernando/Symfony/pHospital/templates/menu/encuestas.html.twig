@@ -1,0 +1,22 @@
+{# menu/encuestas.html.twig' #}
+
+{% extends 'principal.html.twig' %}
+{% block menu %}
+    {{ render(controller('App\\Controller\\MenuController::menu')) }}
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <h1>LISTADO DE ENCUESTAS</h1>
+    {% for encuesta in encuestas %}
+        <ul>
+            <li>
+                <a href="{{ path('preguntas', {'id': encuesta.id}) }}">{{ encuesta.name }}</a>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}
+
+{% block footer %}
+    {{ render(controller('App\\Controller\\FooterController::footer')) }}
+{% endblock %}

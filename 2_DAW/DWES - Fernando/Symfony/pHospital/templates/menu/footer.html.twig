@@ -1,0 +1,6 @@
+{# templates/menu/footer.html.twig #}
+
+{% for item in footers %}
+				<a href="#">{{item.nombre}}</a> | 
+				{#<a href="{{ path('item.enlace', {id: item.id}) }}">{{item.nombre}}</a> #}
+{% endfor %}

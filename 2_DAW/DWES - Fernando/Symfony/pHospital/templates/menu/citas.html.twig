@@ -1,0 +1,16 @@
+{# menu/citas.html.twig' #}
+
+{% extends 'principal.html.twig' %}
+{% block menu %}
+    {{ render(controller('App\\Controller\\MenuController::menu')) }}
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <h1>CITAS</h1>
+    {{ form(form) }}
+{% endblock %}
+
+{% block footer %}
+    {{ render(controller('App\\Controller\\FooterController::footer')) }}
+{% endblock %}
