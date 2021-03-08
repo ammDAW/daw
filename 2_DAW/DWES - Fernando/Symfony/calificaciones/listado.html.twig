@@ -1,0 +1,32 @@
+
+
+
+
+
+	{{form(form)}}
+	
+	<TABLE>
+	<TR><TH>Nombre</TH>
+	{% for asignatura in asignaturas  %}
+				<TH>{{ asignatura.asignatura   }}</TH>
+				
+			
+	{% endfor %}
+	</TR>
+	
+	{% for alumno in alumnos %}
+	<TR>
+        <TD>{{ alumno.nombre }}	</TD>
+			{% for calificacion in alumno.getCalificaciones() %}
+				{{ calificacion.getEvaluacion1()   }}
+				{{ calificacion.getEvaluacion2()   }}
+				{{ calificacion.getEvaluacion3()   }}
+			
+			{% endfor %}
+	</TR>	
+    {% endfor %}
+	
+	</TABLE>
+	
+	
+

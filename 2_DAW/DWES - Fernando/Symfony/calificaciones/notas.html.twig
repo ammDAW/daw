@@ -1,0 +1,25 @@
+
+<table>
+{{ form_start(form) }}
+ 
+{% for item in form %}
+   
+    {# Acceso nombreId campo form #}
+    {# item.vars.id #}
+    
+    {%if 'alumno' in item.vars.id   %}
+		<tr>
+	{% endif %}
+	
+	
+	<td>{{ form_widget(item) }} </td>
+            
+
+    {%if 'evaluacion3' in item.vars.id   %}
+            </tr>
+    {% endif %}
+                                    
+{% endfor %}
+</table>
+
+{{ form_end(form )}}

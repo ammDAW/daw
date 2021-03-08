@@ -1,0 +1,16 @@
+
+
+
+
+
+	<ul>
+	{% for asignatura in asignaturas %}
+	
+        <li>
+			<a href="{{ path('notas_alumnos' , { 'curso_id': curso.id,'asignatura_id': asignatura.id } ) }}" >{{ asignatura.asignatura }}</a>	
+			
+		</li>
+    {% endfor %}
+	</ul>
+	
+
