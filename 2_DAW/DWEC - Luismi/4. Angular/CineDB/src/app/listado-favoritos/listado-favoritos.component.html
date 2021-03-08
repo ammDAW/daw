@@ -1,0 +1,5 @@
+<div class="row row-cols-md-3">
+    <ng-container *ngFor="let favorito of getFavoritos()">
+        <app-favorito [id]="favorito.imdbID"></app-favorito>
+    </ng-container>
+</div>

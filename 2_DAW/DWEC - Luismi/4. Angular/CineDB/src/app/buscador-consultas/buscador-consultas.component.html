@@ -1,0 +1,16 @@
+<h2>Buscar peliculas</h2>
+<div class="form-group">
+    <input #patron type="text" class="form-control" 
+            aria-describedby="emailHelp" 
+            (keyup.enter)="buscarPelicula(patron.value)"
+            placeholder="Introduce un nombre de pelicula" 
+            required minlength="3">
+</div>
+<button class="btn btn-primary" (click)="buscarPelicula(patron.value)">Buscar</button>
+<ul class="list-group">
+    <li *ngFor="let resultado of resultados" 
+        class="list-group-item"
+        (click)="addFavoritos({imdbID:resultado.imdbID, Poster:resultado.Poster, Title:resultado.Title})">
+      {{resultado.Title}}
+    </li>
+</ul>

@@ -1,0 +1,14 @@
+<!-- ------------------------------------------------------------------------------------- -->
+<!-- Template para el componente Favorito -->
+<!-- ------------------------------------------------------------------------------------- -->
+
+<div class="card text-center bg-light mb-2 mr-2">
+    <a>
+        <img src="{{imagen}}" class="card-img-top">
+    </a>
+    <div class="card-body">
+        <p class="card-text">{{titulo}}</p>
+        <button type="button" class="btn btn-primary">Detalles</button>
+        <button type="button" class="btn btn-danger" (click)="borrarFavorito(imdbID)">Borrar</button>
+    </div>
+</div>
