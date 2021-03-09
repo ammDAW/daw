@@ -1,0 +1,29 @@
+{# conferencias/conferencias.html.twig' #}
+
+    <h1>CONFERENCIAS</h1>
+    <table>
+        <tr>
+            <td>Conferecia</td>
+            <td>Suscribir</td>
+
+        </tr>
+        {% for conferencia in conferencias %}
+        <tr>
+            <td>
+                {{conferencia.titulo}}
+            </td>
+            {#<td>
+                {{conferencia.fecha|date('Y-m-d\\TH:i:sP')}}
+            </td>
+            <td>
+                {{conferencia.hora}}
+            </td>#}
+            <td>
+                <a href="{{ path('suscribir_conferencia', {'id': conferencia.id}) }}">Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        
+    <table>
+        <a href="{{ path('listar_conferencias') }}">Listar Conferencias</a>
+        <a href="{{ path('listar_congresista') }}">Consultar Conferencias</a>

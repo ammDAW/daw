@@ -1,0 +1,40 @@
+{# conferencias/congresista.html.twig' #}
+    {#<h1>Congresista</h1>
+    {{ form(form) }}#}
+    <table>
+        <thead>
+        <tr>
+            <th colspan="2">
+                <h1>Congresista:</h1>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {{ form_start(form) }}
+            {% for item in form %}
+                {%if 'nif' in item.vars.id   %}
+                <tr>
+                    <td>{{ form_label(item) }}</td>
+                    <td>{{ form_widget(item) }} </td>
+                </tr>
+                {% endif %}
+                {%if 'telefono' in item.vars.id   %}
+                    <tr>
+                    <td>{{ form_label(item) }}</td>
+                    <td>{{ form_widget(item) }} </td>
+                </tr>
+                {% endif %}
+                {%if 'Send' in item.vars.id   %}
+                <tr>
+                    <td>{{ form_label(item) }}</td>
+                    <td>{{ form_widget(item) }} </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        {{ form_end(form )}}
+        </tbody>
+    </table>
+
+    <a href="{{ path('listar_conferencias') }}">Listar Conferencias</a>
+    <a href="{{ path('listar_congresista') }}">Consultar Conferencias</a>

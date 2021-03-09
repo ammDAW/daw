@@ -1,0 +1,11 @@
+{# conferencias/conferencias.html.twig' #}
+
+    <h1>CONFERENCIAS</h1>
+        <ul>
+        {% for conferencia in conferencias %}
+                <li>{{conferencia.titulo}}</li>            
+        {% endfor %}
+        
+        </ul>
+        <a href="{{ path('listar_conferencias') }}">Listar Conferencias</a>
+        
